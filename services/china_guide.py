@@ -2,6 +2,7 @@ import streamlit as st
 import yaml
 import os
 import glob
+import json
 from datetime import datetime
 
 # ── Data Loading ──────────────────────────────────────────
@@ -69,6 +70,33 @@ def _weather_tip():
     else:
         return "❄️", "Winter", "Cold (0-5°C) but fewer crowds. Bundle up and enjoy clear, crisp skies."
 
+
+# ── SEO / Structured Data ────────────────────────────────
+
+def _inject_seo_tags(title: str, description: str, city: str = "Beijing"):
+    """Inject JSON-LD structured data for rich Google search results."""
+    structured = {
+        "@context": "https://schema.org",
+        "@type": "TouristAttraction",
+        "name": title,
+        "description": description,
+        "touristType": "International Visitors",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": city,
+            "addressCountry": "CN"
+        }
+    }
+    st.markdown(f"""
+    <meta name="description" content="{description[:160]}">
+    <meta name="keywords" content="China travel, {city}, Beijing attractions, Great Wall, Forbidden City, travel guide China">
+    <link rel="alternate" hreflang="en" href="https://ai-tools-farm-ppu2fwjsemrjc6loj8j3m7.streamlit.app/">
+    <link rel="alternate" hreflang="x-default" href="https://ai-tools-farm-ppu2fwjsemrjc6loj8j3m7.streamlit.app/">
+    <script type="application/ld+json">
+    {json.dumps(structured, indent=2)}
+    </script>
+    """, unsafe_allow_html=True)
+
 # ── Main Entry Point (called from app.py) ─────────────────
 
 def china_travel_guide():
@@ -102,6 +130,11 @@ def china_travel_guide():
 
     # ── Hero section ──
     season_icon, season_name, season_desc = _weather_tip()
+    _inject_seo_tags(
+        f"China Travel Guide — {city.title()} Attractions",
+        f"Explore top attractions in {city.title()}, China. Interactive guides with cost calculators, section comparisons, seasonal tips & planning tools.",
+        city.title()
+    )
     st.markdown(f"""
     <div style='
         background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #e74c3c 100%);
@@ -279,6 +312,13 @@ def show_spot_detail(spot: dict, full_page: bool = False):
     """Display detailed information for a single attraction with rich visuals."""
 
     rating_html = _star_rating(spot.get("rating", 0))
+
+    # ── SEO structured data for this attraction ──
+    _inject_seo_tags(
+        f"{spot['name']} — Beijing China",
+        spot.get("description", f"Visit {spot['name']} in Beijing. {spot.get('history', '')}"),
+        "Beijing"
+    )
 
     # ── Hero header ──
     bg_style = ""

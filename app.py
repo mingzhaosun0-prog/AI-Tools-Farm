@@ -27,11 +27,23 @@ from services.donation import display_donation_support
 
 # ---------------------- Page Configuration ----------------------
 st.set_page_config(
-    page_title="App Framework | Card Hub",
+    page_title="🧩 App Framework Hub | China Travel Guide & Tools",
     page_icon="🧩",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# ---------------------- SEO Meta Tags ----------------------
+st.markdown("""
+<meta property="og:title" content="🧩 App Framework Hub — China Travel Guide & Tools">
+<meta property="og:description" content="Beijing travel guides, QR code generator, unit converter, data visualization & more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ai-tools-farm-ppu2fwjsemrjc6loj8j3m7.streamlit.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🧩 App Framework Hub">
+<meta name="twitter:description" content="Beijing travel guides, QR codes, unit converter & interactive tools.">
+<meta name="robots" content="index, follow">
+""", unsafe_allow_html=True)
 
 # ---------------------- Custom CSS for Cards and Styling ----------------------
 st.markdown("""
