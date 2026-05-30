@@ -1,0 +1,153 @@
+name: "The Great Wall of China"
+subtitle: "The world's longest defensive structure and a timeless wonder"
+description: |
+  The Great Wall of China is a series of fortifications made of stone, brick, tamped earth, wood, and other materials. It was built along the historical northern borders of China to protect against invasions and raids. The most famous and best-preserved sections near Beijing are Badaling, Mutianyu, Jinshanling, and Simatai.
+
+  Stretching over 21,000 kilometers, it's one of the most impressive architectural feats in human history, visible even from space (under ideal conditions).
+history: |
+  Construction of the Great Wall began as early as the 7th century BC, with separate states building their own walls for defense. The first Emperor of Qin, Qin Shi Huang (259–210 BC), connected and expanded these walls to form a unified system.
+
+  The most famous sections were built during the Ming Dynasty (1368–1644), using bricks and stone instead of rammed earth. The Ming Wall stretches approximately 8,850 km from Shanhaiguan on the east coast to Jiayuguan in the Gobi Desert.
+
+  After the Ming Dynasty, the Great Wall lost its strategic importance. Today, it's a UNESCO World Heritage Site (since 1987) and one of the New Seven Wonders of the World.
+opening_hours: |
+  - **Badaling**: 06:30 – 19:00 (April–October), 07:00 – 18:00 (November–March)
+  - **Mutianyu**: 08:00 – 18:00 (April–October), 08:00 – 17:00 (November–March)
+  - **Jinshanling**: 06:00 – 18:30 (peak), 06:30 – 17:00 (off-peak)
+ticket_price: |
+  - **Badaling**: ¥40 (peak), ¥35 (off-peak) + cable car ¥140 round trip
+  - **Mutianyu**: ¥45 (peak), ¥40 (off-peak) + cable car or toboggan ¥120
+  - **Jinshanling**: ¥65 (peak), ¥55 (off-peak)
+  - **Simatai**: ¥40 (day), ¥160 (night tour)
+best_time: |
+  - **April to June**: Spring flowers, comfortable temperatures (15-25°C)
+  - **September to October**: Autumn foliage, clear skies, golden light
+  - **Avoid**: National Holiday week (Oct 1-7) – extreme crowds
+  - **Avoid**: July-August – heat, humidity, and frequent rain
+images:
+  - url: "https://images.pexels.com/photos/207204/pexels-photo-207204.jpeg"
+    caption: "The Great Wall snaking through the mountains at Mutianyu"
+  - url: "https://images.pexels.com/photos/161930/great-wall-of-china-china-wall-tower-161930.jpeg"
+    caption: "Sunset view from Jinshanling section"
+  - url: "https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg"
+    caption: "Ancient watchtower at sunrise"
+location: "Various sections north of Beijing (60-120 km from city center)"
+activities: |
+  - Hiking and trekking (varying difficulty)
+  - Photography (sunrise/sunset spots)
+  - Cable car or chairlift rides
+  - Toboggan ride down at Mutianyu
+  - Night tours at Simatai
+  - Historical exploration of watchtowers and battlements
+
+# Detailed guidance for each major section
+sections:
+  Badaling:
+    difficulty: "Easy"
+    crowd_level: "Very crowded (most touristy)"
+    recommended_for: "First-time visitors, families, elderly"
+    travel_time_from_beijing: "1.5 hours by car / 2 hours by bus"
+    description: "Most restored and accessible section, with cable car and paved paths. Good for those with limited time or mobility."
+    pros: "Easy access, well-maintained, facilities available"
+    cons: "Extremely crowded, less authentic experience"
+    nearby: "Ming Tombs (20km away)"
+  
+  Mutianyu:
+    difficulty: "Moderate"
+    crowd_level: "Moderately crowded"
+    recommended_for: "Families, photographers, all fitness levels"
+    travel_time_from_beijing: "1.5-2 hours by car"
+    description: "Well-restored with beautiful scenery, fewer crowds than Badaling. Features cable car, chairlift, and a toboggan run."
+    pros: "Scenic views, multiple transport options, toboggan fun"
+    cons: "Still busy on weekends"
+    nearby: "Red Lobster Valley, Mutianyu Village"
+  
+  Jinshanling:
+    difficulty: "Challenging"
+    crowd_level: "Sparse (quiet and peaceful)"
+    recommended_for: "Hikers, photographers, history enthusiasts"
+    travel_time_from_beijing: "2.5-3 hours by car"
+    description: "Partially restored original Ming Dynasty wall with wild sections. Offers stunning views and excellent photo opportunities."
+    pros: "Authentic experience, great sunrise/sunset, less commercial"
+    cons: "Longer travel, fewer facilities, requires fitness"
+    nearby: "Gubei Water Town (30km away)"
+  
+  Simatai:
+    difficulty: "Strenuous"
+    crowd_level: "Moderate"
+    recommended_for: "Adventurous travelers, night tour lovers"
+    travel_time_from_beijing: "2-2.5 hours by car"
+    description: "Known for its steep and perilous sections, connected to Gubei Water Town. Offers unique night tours."
+    pros: "Night tours available, stunning lights, less crowded daytime"
+    cons: "Very steep, not for beginners"
+
+# Comprehensive visiting guidance
+visiting_guidance:
+  getting_there:
+    options:
+      - method: "Private car/taxi"
+        details: "Most flexible but expensive (¥500-800 round trip). Negotiate price before departure."
+      - method: "Tour bus"
+        details: "Many hotels and tour operators offer day trips (¥200-400 including transport and basic lunch)."
+      - method: "Public bus"
+        details: "Bus 877 from Deshengmen to Badaling (¥12, 1.5 hours). Buses to Mutianyu from Dongzhimen (Holiday only)."
+      - method: "High-speed train + shuttle"
+        details: "Beijing North to Badaling Great Wall station (¥20-30, 30 minutes). Then free shuttle bus."
+  
+  what_to_bring:
+    - "Comfortable hiking shoes (non-slip soles)"
+    - "Water (at least 1-2 liters per person)"
+    - "Snacks and energy bars (overpriced on the wall)"
+    - "Sun protection (hat, sunscreen, sunglasses)"
+    - "Light rain jacket (weather changes quickly)"
+    - "Power bank for phone/camera"
+    - "Cash (some sections have limited card payment)"
+    - "Passport (required for ticket purchase)"
+  
+  tips:
+    - "Arrive early (before 8:00 AM) to avoid crowds and heat"
+    - "Start with the most popular section (Badaling or Mutianyu) if it's your first time"
+    - "Spend at least 3-4 hours to fully experience a section"
+    - "Take the cable car up and hike down for a balanced experience"
+    - "Visit on weekdays if possible (Tuesday-Thursday are best)"
+    - "Check weather forecast – fog or rain can ruin views"
+    - "Bring binoculars for better watchtower views"
+    - "Don't take stones or bricks as souvenirs (protected heritage)"
+    - "Download offline maps and translator apps (signal may be weak)"
+  
+  what_to_avoid:
+    - "Peak holiday periods (Labor Day, National Day, New Year)"
+    - "Scorching summer afternoons (11 AM – 3 PM)"
+    - "Unauthorized guides at the entrance (use official ones)"
+    - "Souvenir shops on the wall (overpriced and low quality)"
+    - "Climbing on unrestored sections without a guide"
+  
+  nearby_attractions:
+    - name: "Ming Tombs (Shisanling)"
+      distance: "20 km from Badaling"
+      description: "Burial site of 13 Ming Dynasty emperors"
+    - name: "Gubei Water Town"
+      distance: "Adjacent to Simatai"
+      description: "Recreated ancient water town with hot springs"
+    - name: "Juyongguan Pass"
+      distance: "18 km from Badaling"
+      description: "Historic mountain pass with impressive gate tower"
+    - name: "Beijing Botanical Garden"
+      distance: "50 km from Mutianyu"
+      description: "Beautiful gardens and temple complex"
+  
+  estimated_time_needed: "Full day (8-10 hours including travel from Beijing)"
+  
+  average_cost_per_person: |
+    - Budget: ¥150-250 (bus + entrance + snacks)
+    - Mid-range: ¥300-500 (tour bus + entrance + cable car + lunch)
+    - Luxury: ¥800-1500 (private car + VIP tour + full meals)
+
+tips: |
+  - **Choose the right section** based on your fitness and crowd preference
+  - **Wear layers** – mornings can be cold even in summer
+  - **Hydrate frequently** – there's little shade on the wall
+  - **Take breaks** at watchtowers (they offer shade and breeze)
+  - **Use official ticket windows** – avoid scalpers
+  - **Learn a few Chinese phrases** for emergencies and bargaining
+  - **Emergency number**: 110 (police), 120 (ambulance)
