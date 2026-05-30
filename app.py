@@ -13,6 +13,8 @@ from services.text_analyzer import text_analyzer
 from services.image_processor import image_processor
 from services.quote_gen import quote_generator
 from services.calculator import smart_calculator
+from services.qr_generator import qr_generator
+from services.converter import converter
 from services.china_guide import china_travel_guide, show_spot_detail
 # Import monetization modules
 from services.affiliate_manager import display_affiliate_sidebar, track_affiliate_click
@@ -295,11 +297,11 @@ def show_home():
     # Define app cards: (id, title, icon, description)
     apps = [
         ("china_guide", "China Travel Guide", "🇨🇳", "Discover Beijing's top attractions with rich guides, cost calculators, section comparisons & interactive planning tools."),
+        ("qr_generator", "QR Code Generator", "📱", "Create custom QR codes with colour picker & download."),
+        ("converter", "Unit Converter", "📐", "Convert between 50+ units: length, weight, temperature, volume, speed & data."),
         ("data_viz", "Data Visualizer", "📊", "Upload CSV/Excel & create interactive plots (line, bar, scatter)."),
+        ("image_processor", "Image Processor", "🖼️", "Adjust brightness, grayscale, flip, rotate & download."),
         ("text_analyzer", "Text Analyzer", "✍️", "Word count, character stats, and most frequent words."),
-        ("image_processor", "Image Processor", "🖼️", "Adjust brightness, convert to grayscale, apply filters."),
-        ("quote_gen", "Quote Generator", "💬", "Get random inspirational quotes to brighten your day."),
-        ("calculator", "Smart Calculator", "🧮", "Basic arithmetic with expression evaluation and history."),        
     ]
     
     # Display cards in rows of 3
@@ -388,12 +390,12 @@ def main():
     # Routing map
     app_map = {
         "home": show_home,
-        "china_guide": china_travel_guide,        
+        "china_guide": china_travel_guide,
+        "qr_generator": qr_generator,
+        "converter": converter,
         "data_viz": data_visualizer,
-        "text_analyzer": text_analyzer,
         "image_processor": image_processor,
-        "quote_gen": quote_generator,
-        "calculator": smart_calculator,
+        "text_analyzer": text_analyzer,
         "business": business_page,
     }
     
@@ -409,11 +411,11 @@ def main():
         cols_side = st.columns(2)
         apps_list = [
             ("🇨🇳 China Guide", "china_guide"),
+            ("� QR Code", "qr_generator"),
+            ("📐 Converter", "converter"),
             ("📊 Data Viz", "data_viz"),
-            ("✍️ Text", "text_analyzer"),
             ("🖼️ Image", "image_processor"),
-            ("💬 Quotes", "quote_gen"),
-            ("🧮 Calc", "calculator"),
+            ("✍️ Text", "text_analyzer"),
             ("💼 For Business", "business")
         ]
         
@@ -469,10 +471,10 @@ def main():
                     <h4>Apps</h4>
                     <ul>
                         <li><a href="#" onclick="return false">🇨🇳 China Guide</a></li>
+                        <li><a href="#" onclick="return false">� QR Code Generator</a></li>
+                        <li><a href="#" onclick="return false">📐 Unit Converter</a></li>
                         <li><a href="#" onclick="return false">📊 Data Viz</a></li>
-                        <li><a href="#" onclick="return false">✍️ Text Analyzer</a></li>
                         <li><a href="#" onclick="return false">🖼️ Image Processor</a></li>
-                        <li><a href="#" onclick="return false">💬 Quote Generator</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
