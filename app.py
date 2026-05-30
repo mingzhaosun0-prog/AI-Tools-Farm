@@ -191,7 +191,6 @@ st.markdown("""
         margin: 0 0.5rem;
         color: #cbd5e1;
     }
-    }
     /* Sidebar styling */
     .css-1d391kg, .css-12oz5g7 {
         background-color: #f8f9fa;
@@ -475,6 +474,7 @@ def main():
                         <li><a href="#" onclick="return false">📐 Unit Converter</a></li>
                         <li><a href="#" onclick="return false">📊 Data Viz</a></li>
                         <li><a href="#" onclick="return false">🖼️ Image Processor</a></li>
+                        <li><a href="#" onclick="return false">✍️ Text Analyzer</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
