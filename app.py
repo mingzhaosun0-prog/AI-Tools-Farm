@@ -13,7 +13,7 @@ from services.text_analyzer import text_analyzer
 from services.image_processor import image_processor
 from services.quote_gen import quote_generator
 from services.calculator import smart_calculator
-from services.china_guide import china_guide
+from services.china_guide import china_travel_guide, show_spot_detail
 # Import monetization modules
 from services.affiliate_manager import display_affiliate_sidebar, track_affiliate_click
 from services.ad_manager import display_banner_ad, display_sidebar_ad
@@ -82,17 +82,202 @@ st.markdown("""
         text-align: center;
     }
     /* Footer */
-    .footer {
+    .site-footer {
+        margin-top: 4rem;
+        padding: 0;
+        border-top: 1px solid #e2e8f0;
+        font-size: 0.9rem;
+    }
+    .footer-main {
+        background: #f8fafc;
+        padding: 2.5rem 2rem 1.5rem;
+    }
+    .footer-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .footer-col {
+        flex: 1 1 180px;
+        min-width: 140px;
+    }
+    .footer-col h4 {
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #1e293b;
+        margin: 0 0 0.8rem 0;
+    }
+    .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .footer-col ul li {
+        margin-bottom: 0.4rem;
+    }
+    .footer-col ul li a {
+        color: #64748b;
+        text-decoration: none;
+        transition: color 0.15s;
+        cursor: pointer;
+    }
+    .footer-col ul li a:hover {
+        color: #1e3c72;
+        text-decoration: underline;
+    }
+    .footer-brand {
+        flex: 2 1 280px;
+    }
+    .footer-brand h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #1e3c72;
+        margin: 0 0 0.3rem 0;
+    }
+    .footer-brand p {
+        color: #64748b;
+        margin: 0 0 0.8rem 0;
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    .footer-social {
+        display: flex;
+        gap: 0.6rem;
+        margin-top: 0.5rem;
+    }
+    .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: #e2e8f0;
+        color: #475569;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+    .footer-social a:hover {
+        background: #1e3c72;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+    .footer-bottom {
+        background: #f1f5f9;
+        padding: 1rem 2rem;
         text-align: center;
-        margin-top: 3rem;
-        padding: 1rem;
-        color: #6c757d;
-        border-top: 1px solid #dee2e6;
+        color: #94a3b8;
+        font-size: 0.8rem;
+        border-top: 1px solid #e2e8f0;
+    }
+    .footer-bottom a {
+        color: #64748b;
+        text-decoration: none;
+    }
+    .footer-bottom a:hover {
+        color: #1e3c72;
+        text-decoration: underline;
+    }
+    .footer-bottom .dot {
+        margin: 0 0.5rem;
+        color: #cbd5e1;
+    }
     }
     /* Sidebar styling */
     .css-1d391kg, .css-12oz5g7 {
         background-color: #f8f9fa;
     }
+
+    /* ── Travel Guide Styles ── */
+
+    /* Stat cards */
+    .stat-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 1.2rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        border: 1px solid #e9ecef;
+        transition: transform 0.2s;
+    }
+    .stat-card:hover { transform: translateY(-3px); }
+    .stat-num { font-size: 2rem; font-weight: 700; color: #1e3c72; }
+    .stat-label { font-size: 0.85rem; color: #6b7280; margin-top: 0.2rem; }
+
+    /* Attraction cards */
+    .attraction-card {
+        background: white;
+        border-radius: 1.2rem;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        border: 1px solid #e9ecef;
+        transition: all 0.25s ease;
+    }
+    .attraction-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+        border-color: #2a5298;
+    }
+    .attraction-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .attraction-card-header h3 {
+        margin: 0;
+        font-size: 1.4rem;
+        color: #1e293b;
+    }
+    .attraction-subtitle {
+        color: #64748b;
+        margin: 0.3rem 0 0.8rem;
+        font-size: 0.95rem;
+    }
+    .attraction-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 0.6rem;
+        font-size: 0.9rem;
+        color: #475569;
+    }
+    .attraction-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .tag {
+        background: #f1f5f9;
+        padding: 0.2rem 0.7rem;
+        border-radius: 1rem;
+        font-size: 0.8rem;
+        color: #334155;
+        border: 1px solid #e2e8f0;
+    }
+
+    /* Info badges on detail page */
+    .info-badge {
+        background: white;
+        border-radius: 0.8rem;
+        padding: 0.8rem 0.5rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        border: 1px solid #e9ecef;
+        height: 100%;
+    }
+    .badge-icon { font-size: 1.5rem; }
+    .badge-label { font-size: 0.7rem; color: #94a3b8; margin-top: 0.1rem; }
+    .badge-value { font-size: 0.8rem; font-weight: 600; color: #1e293b; margin-top: 0.15rem; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -109,7 +294,7 @@ def show_home():
     
     # Define app cards: (id, title, icon, description)
     apps = [
-        ("china_guide", "China Travel Guide", "🇨🇳", "Explore travel guides for each province – attractions, culture & tips."),
+        ("china_guide", "China Travel Guide", "🇨🇳", "Discover Beijing's top attractions with rich guides, cost calculators, section comparisons & interactive planning tools."),
         ("data_viz", "Data Visualizer", "📊", "Upload CSV/Excel & create interactive plots (line, bar, scatter)."),
         ("text_analyzer", "Text Analyzer", "✍️", "Word count, character stats, and most frequent words."),
         ("image_processor", "Image Processor", "🖼️", "Adjust brightness, convert to grayscale, apply filters."),
@@ -136,6 +321,10 @@ def show_home():
                     """, unsafe_allow_html=True)
                     if st.button(f"Launch {title}", key=f"btn_{app_id}", use_container_width=True):
                         st.session_state["current_app"] = app_id
+                        if app_id == "china_guide":
+                            st.session_state["beijing_view"] = "list"
+                            st.session_state["selected_spot_slug"] = None
+                            st.session_state["full_mode_spot"] = None
                         st.rerun()
 
 
@@ -231,6 +420,11 @@ def main():
         for i, (name, app_id) in enumerate(apps_list):
             if st.button(name, key=f"side_{app_id}", use_container_width=True):
                 st.session_state["current_app"] = app_id
+                # Reset travel guide state when entering
+                if app_id == "china_guide":
+                    st.session_state["beijing_view"] = "list"
+                    st.session_state["selected_spot_slug"] = None
+                    st.session_state["full_mode_spot"] = None
                 st.rerun()
         st.divider()
         st.caption("✨ Expandable framework — add your own cards by editing the `apps` list in code.")
@@ -258,8 +452,58 @@ def main():
     
     # Footer
     st.markdown("""
-    <div class="footer">
-        <p>⚡ Streamlit App Framework | Modular Card Design | Easily add new apps</p>
+    <div class="site-footer">
+        <div class="footer-main">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <h3>🧩 App Framework Hub</h3>
+                    <p>A modular workspace for travel guides, data visualization, image processing, and more. Build, explore, and create with our growing collection of mini-apps.</p>
+                    <div class="footer-social">
+                        <a href="#" title="GitHub">⌨</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                        <a href="#" title="YouTube">▶</a>
+                        <a href="#" title="Email">✉</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Apps</h4>
+                    <ul>
+                        <li><a href="#" onclick="return false">🇨🇳 China Guide</a></li>
+                        <li><a href="#" onclick="return false">📊 Data Viz</a></li>
+                        <li><a href="#" onclick="return false">✍️ Text Analyzer</a></li>
+                        <li><a href="#" onclick="return false">🖼️ Image Processor</a></li>
+                        <li><a href="#" onclick="return false">💬 Quote Generator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#" onclick="return false">📖 Documentation</a></li>
+                        <li><a href="#" onclick="return false">💻 GitHub Repo</a></li>
+                        <li><a href="#" onclick="return false">🐛 Report Issue</a></li>
+                        <li><a href="#" onclick="return false">⭐ Request Feature</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#" onclick="return false">📧 Contact Us</a></li>
+                        <li><a href="#" onclick="return false">🔒 Privacy Policy</a></li>
+                        <li><a href="#" onclick="return false">📄 Terms of Service</a></li>
+                        <li><a href="#" onclick="return false">💼 For Business</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 <a href="#">App Framework Hub</a>
+            <span class="dot">•</span>
+            Built with <a href="https://streamlit.io" target="_blank">Streamlit</a>
+            <span class="dot">•</span>
+            All rights reserved
+            <span class="dot">•</span>
+            v2.0.0
+        </div>
     </div>
     """, unsafe_allow_html=True)
 

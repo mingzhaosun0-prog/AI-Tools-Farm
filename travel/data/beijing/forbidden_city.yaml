@@ -11,6 +11,13 @@ tips:
   - "Buy tickets online in advance (limited daily visitors)."
   - "Allow at least 3 hours for a visit."
   - "Audio guides available at the entrance."
-images: []
+images:
+  - url: "https://picsum.photos/seed/forbidden-city-1/800/600"
+    caption: "The majestic Hall of Supreme Harmony"
+  - url: "https://picsum.photos/seed/forbidden-city-2/800/600"
+    caption: "Intricate roof details and golden tiles"
+  - url: "https://picsum.photos/seed/forbidden-city-3/800/600"
+    caption: "The Meridian Gate entrance"
 location: "Dongcheng District, Beijing"
 activities: "Historical exploration, photography, cultural exhibits"
+estimated_time_needed: "3-4 hours"

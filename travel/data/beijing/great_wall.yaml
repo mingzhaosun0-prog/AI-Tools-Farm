@@ -25,11 +25,11 @@ best_time: |
   - **Avoid**: National Holiday week (Oct 1-7) – extreme crowds
   - **Avoid**: July-August – heat, humidity, and frequent rain
 images:
-  - url: "https://images.pexels.com/photos/207204/pexels-photo-207204.jpeg"
+  - url: "https://picsum.photos/seed/great-wall-1/800/600"
     caption: "The Great Wall snaking through the mountains at Mutianyu"
-  - url: "https://images.pexels.com/photos/161930/great-wall-of-china-china-wall-tower-161930.jpeg"
+  - url: "https://picsum.photos/seed/great-wall-2/800/600"
     caption: "Sunset view from Jinshanling section"
-  - url: "https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg"
+  - url: "https://picsum.photos/seed/great-wall-3/800/600"
     caption: "Ancient watchtower at sunrise"
 location: "Various sections north of Beijing (60-120 km from city center)"
 activities: |

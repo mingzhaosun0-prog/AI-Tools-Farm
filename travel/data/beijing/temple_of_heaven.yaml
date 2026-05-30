@@ -11,6 +11,13 @@ tips:
   - "Visit the Echo Wall and try its acoustics."
   - "Join morning exercises with locals."
   - "Buy combined ticket to see all attractions."
-images: []
+images:
+  - url: "https://picsum.photos/seed/temple-of-heaven-1/800/600"
+    caption: "The Hall of Prayer for Good Harvests"
+  - url: "https://picsum.photos/seed/temple-of-heaven-2/800/600"
+    caption: "The Imperial Vault of Heaven"
+  - url: "https://picsum.photos/seed/temple-of-heaven-3/800/600"
+    caption: "The Circular Mound Altar"
 location: "Dongcheng District, Beijing"
 activities: "Cultural performances, park walks, historical study"
+estimated_time_needed: "2-3 hours"

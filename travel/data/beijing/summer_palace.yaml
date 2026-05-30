@@ -11,6 +11,13 @@ tips:
   - "Rent a boat on Kunming Lake."
   - "Walk up Longevity Hill for panoramic views."
   - "Avoid weekends to reduce crowds."
-images: []
+images:
+  - url: "https://picsum.photos/seed/summer-palace-1/800/600"
+    caption: "Kunming Lake and Longevity Hill"
+  - url: "https://picsum.photos/seed/summer-palace-2/800/600"
+    caption: "The iconic Marble Boat"
+  - url: "https://picsum.photos/seed/summer-palace-3/800/600"
+    caption: "The Long Corridor with intricate paintings"
 location: "Haidian District, Beijing"
 activities: "Boating, walking trails, temple visits"
+estimated_time_needed: "3-5 hours"
