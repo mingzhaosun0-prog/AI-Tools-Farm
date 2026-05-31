@@ -285,13 +285,13 @@ st.markdown("""
 def _weather_tip():
     month = datetime.now().month
     if 3 <= month <= 5:
-        return "🌸", "Spring", "Mild and pleasant — perfect for sightseeing!"
+        return "🌸", t("spring"), t("spring_desc")
     elif 6 <= month <= 8:
-        return "☀️", "Summer", "Hot & humid — plan indoor mornings, stay hydrated."
+        return "☀️", t("summer"), t("summer_desc")
     elif 9 <= month <= 11:
-        return "🍂", "Autumn", "Crisp air, golden foliage — the best season."
+        return "🍂", t("autumn"), t("autumn_desc")
     else:
-        return "❄️", "Winter", "Cold but fewer crowds — bundle up and enjoy!"
+        return "❄️", t("winter"), t("winter_desc")
 
 
 def show_home():
@@ -301,49 +301,50 @@ def show_home():
                         if os.path.isdir(os.path.join(TRAVEL_DATA_DIR, d)) and not d.startswith("_")]
 
     total_attractions = sum(len(load_city_attractions(c)) for c in cities_available)
+    cities_str = ", ".join(c.title() for c in cities_available)
 
     # ── Hero ──
     st.markdown(f"""
     <div class="city-hero">
-        <h1>🇨🇳 <span class="gold">China</span> Travel Guide</h1>
-        <p>Expert guides, interactive planners & curated tips for {', '.join(c.title() for c in cities_available)}</p>
-        <div class="season-badge">{season_icon} <strong>{season_name}</strong> — {season_desc}</div>
+        <h1>&#127944; <span class="gold">{t('hero_title')}</span></h1>
+        <p>{t('hero_subtitle').replace('{cities}', cities_str)}</p>
+        <div class="season-badge">{season_icon} <strong>{season_name}</strong> &mdash; {season_desc}</div>
     </div>
     """, unsafe_allow_html=True)
 
     # ── Stats Row ──
     col_s1, col_s2, col_s3, col_s4 = st.columns(4)
     with col_s1:
-        st.markdown(f"<div class='stat-card'><div class='stat-num'>{len(cities_available)}</div><div class='stat-label'>Cities</div></div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='stat-card'><div class='stat-num'>{len(cities_available)}</div><div class='stat-label'>{t('cities')}</div></div>", unsafe_allow_html=True)
     with col_s2:
-        st.markdown(f"<div class='stat-card'><div class='stat-num'>{total_attractions}</div><div class='stat-label'>Attractions</div></div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='stat-card'><div class='stat-num'>{total_attractions}</div><div class='stat-label'>{t('attractions')}</div></div>", unsafe_allow_html=True)
     with col_s3:
-        st.markdown(f"<div class='stat-card'><div class='stat-num'>🌏</div><div class='stat-label'>UNESCO Sites</div></div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='stat-card'><div class='stat-num'>&#127759;</div><div class='stat-label'>{t('top_attractions', 'UNESCO Sites').replace('{city}', '')}</div></div>", unsafe_allow_html=True)
     with col_s4:
-        st.markdown(f"<div class='stat-card'><div class='stat-num'>🧭</div><div class='stat-label'>Plan Your Trip</div></div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='stat-card'><div class='stat-num'>&#129527;</div><div class='stat-label'>{t('plan_my_day')}</div></div>", unsafe_allow_html=True)
 
     st.markdown("---")
 
     # ── City Quick-Start ──
-    st.markdown("<h2 style='text-align:center;'>🏛️ Explore a City</h2>", unsafe_allow_html=True)
+    st.markdown(f"<h2 style='text-align:center;'>&#127963;&#65039; {t('plan_select', 'Explore a City').replace('attractions for your day trip', 'a City')}</h2>", unsafe_allow_html=True)
     city_cols = st.columns(len(cities_available))
     for idx, city_name in enumerate(cities_available):
         with city_cols[idx]:
             city_display = city_name.title()
             attrs = load_city_attractions(city_name)
-            emoji = "🏯" if city_name == "beijing" else "🌉" if city_name == "shanghai" else "🏛️"
-            names_list = "\n".join(f"• {a['name']}" for a in list(attrs.values())[:4])
+            emoji = "&#127975;" if city_name == "beijing" else "&#127753;" if city_name == "shanghai" else "&#127963;"
+            names_list = "\n".join(f"&bull; {a['name']}" for a in list(attrs.values())[:4])
             st.markdown(f"""
             <div class='attraction-card' style='text-align:center;padding:1.5rem;'>
                 <div style='font-size:3rem;'>{emoji}</div>
                 <h3 style='margin:0.5rem 0 0;'>{city_display}</h3>
-                <p style='color:#64748b;font-size:0.9rem;margin:0.3rem 0 0.8rem;'>{len(attrs)} attractions</p>
+                <p style='color:#64748b;font-size:0.9rem;margin:0.3rem 0 0.8rem;'>{len(attrs)} {t('attractions')}</p>
                 <div style='font-size:0.85rem;color:#475569;text-align:left;padding:0 0.5rem;'>
                     {names_list}
                 </div>
             </div>
             """, unsafe_allow_html=True)
-            if st.button(f"🇨🇳 Explore {city_display}", key=f"home_city_{city_name}", use_container_width=True):
+            if st.button(f"&#127944; {t('explore_city').replace('{city}', city_display)}", key=f"home_city_{city_name}", use_container_width=True):
                 st.session_state["current_app"] = "china_guide"
                 st.session_state["beijing_view"] = "list"
                 st.session_state["selected_spot_slug"] = None
@@ -354,15 +355,15 @@ def show_home():
     st.markdown("---")
 
     # ── Features Section ──
-    st.markdown("<h2 style='text-align:center;'>✨ Travel Tools</h2>", unsafe_allow_html=True)
+    st.markdown(f"<h2 style='text-align:center;'>&#10024; {t('travel_tools')}</h2>", unsafe_allow_html=True)
     tools_cols = st.columns(3)
     tools = [
-        ("🗓️", "Plan My Day", "Build an optimised itinerary with cost estimates"),
-        ("⚖️", "Compare Attractions", "Side-by-side comparison of ratings, prices & sections"),
-        ("💰", "Cost Calculator", "Estimate your total trip budget per attraction"),
-        ("📸", "Photo Gallery", "Browse high-quality images of each attraction"),
-        ("🚇", "Getting Around", "Metro, taxi, bike & bus guides for each city"),
-        ("🌿", "Seasonal Tips", "Best times to visit based on weather & crowds"),
+        ("&#128473;&#65039;", t("plan_my_day"), t("plan_my_day_desc")),
+        ("&#9878;&#65039;", t("compare_attractions"), t("compare_attractions_desc")),
+        ("&#128176;", t("cost_calculator"), t("cost_calculator_desc")),
+        ("&#128248;", t("photo_gallery"), t("photo_gallery_desc")),
+        ("&#128646;", t("getting_around"), t("getting_around_desc")),
+        ("&#127800;", t("seasonal_tips"), t("seasonal_tips_desc")),
     ]
     for i, (icon, title, desc) in enumerate(tools):
         with tools_cols[i % 3]:
@@ -446,11 +447,11 @@ def main():
     with st.sidebar:
         st.markdown("""
         <div style='text-align:center;padding:0.5rem 0;'>
-            <span style='font-size:2.5rem;'>🇨🇳</span>
-            <h3 style='margin:0.2rem 0 0;color:#cc0000;'>China Travel</h3>
+            <span style='font-size:2.5rem;'>&#127944;</span>
+            <h3 style='margin:0.2rem 0 0;color:#cc0000;'>{}</h3>
             <p style='font-size:0.8rem;color:#94a3b8;margin:0;'>Beijing · Shanghai</p>
         </div>
-        """, unsafe_allow_html=True)
+        """.format(t("hero_title")), unsafe_allow_html=True)
         
         st.markdown("---")
         
@@ -458,23 +459,23 @@ def main():
         render_language_switcher()
         st.markdown("---")
         
-        if st.button(f"🏠 {t('home')}", use_container_width=True):
+        if st.button(f"&#127968; {t('menu_home', t('home'))}", use_container_width=True):
             st.session_state["current_app"] = "home"
             st.rerun()
-        if st.button(f"🇨🇳 {t('china_guide')}", use_container_width=True):
+        if st.button(f"&#127944; {t('menu_explore', t('china_guide'))}", use_container_width=True):
             st.session_state["current_app"] = "china_guide"
             st.session_state["beijing_view"] = "list"
             st.session_state["selected_spot_slug"] = None
             st.session_state["full_mode_spot"] = None
             st.rerun()
-        if st.button(f"💼 {t('business')}", use_container_width=True):
+        if st.button(f"&#128188; {t('menu_business', t('business'))}", use_container_width=True):
             st.session_state["current_app"] = "business"
             st.rerun()
         
         st.divider()
         
         # Quick city jump
-        st.markdown(f"#### 🏛️ {t('quick_city', 'Quick City')}")
+        st.markdown(f"#### &#127963;&#65039; {t('quick_city')}")
         cities_list = [d for d in os.listdir(TRAVEL_DATA_DIR)
                        if os.path.isdir(os.path.join(TRAVEL_DATA_DIR, d)) and not d.startswith("_")]
         for city_name in cities_list:

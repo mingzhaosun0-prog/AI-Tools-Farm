@@ -4,6 +4,7 @@ import os
 import glob
 import json
 from datetime import datetime
+from services.i18n import t
 
 # ── Data Loading ──────────────────────────────────────────
 
