@@ -50,13 +50,44 @@ st.markdown("""
 <meta property="og:title" content="🇨🇳 China Travel Guide — Beijing, Shanghai & Beyond">
 <meta property="og:description" content="Comprehensive China travel guides with interactive planners, cost calculators, section comparisons, seasonal tips & more.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://chinatravelguide.site/">
+<meta property="og:url" content="https://ai-tools-farm.streamlit.app/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="🇨🇳 China Travel Guide">
 <meta name="twitter:description" content="Comprehensive China travel guides with interactive planning tools.">
 <meta name="robots" content="index, follow">
 """, unsafe_allow_html=True)
-
+# ---------------------- Geo SEO: JSON-LD Structured Data ----------------------
+st.markdown("""
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "China Travel Guide",
+  "description": "Interactive travel guide for Beijing and Shanghai with attraction guides, cost calculators, and trip planners.",
+  "url": "https://ai-tools-farm.streamlit.app/",
+  "areaServed": [
+    {"@type": "City", "name": "Beijing", "addressCountry": "CN"},
+    {"@type": "City", "name": "Shanghai", "addressCountry": "CN"}
+  ],
+  "knowsAbout": [
+    {"@type": "TouristAttraction", "name": "The Great Wall of China", "location": "Beijing, China"},
+    {"@type": "TouristAttraction", "name": "Forbidden City", "location": "Beijing, China"},
+    {"@type": "TouristAttraction", "name": "The Bund", "location": "Shanghai, China"},
+    {"@type": "TouristAttraction", "name": "Shanghai Tower", "location": "Shanghai, China"}
+  ],
+  "offers": {
+    "@type": "AggregateOffer",
+    "description": "Premium travel planning subscriptions",
+    "priceCurrency": "USD",
+    "offers": [
+      {"@type": "Offer", "name": "Basic Plan", "price": "9.99", "priceCurrency": "USD"},
+      {"@type": "Offer", "name": "Pro Plan", "price": "19.99", "priceCurrency": "USD"},
+      {"@type": "Offer", "name": "Premium Plan", "price": "29.99", "priceCurrency": "USD"}
+    ]
+  }
+}
+</script>
+""", unsafe_allow_html=True)
 # ---------------------- China Travel Theme CSS ----------------------
 st.markdown("""
 <style>

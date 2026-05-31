@@ -107,25 +107,37 @@ def _weather_tip():
 
 def _inject_seo_tags(title: str, description: str, city: str = "Beijing"):
     """Inject JSON-LD structured data for rich Google search results."""
+    import uuid
+    page_id = f"https://ai-tools-farm.streamlit.app/#{uuid.uuid4().hex[:8]}"
     structured = {
         "@context": "https://schema.org",
         "@type": "TouristAttraction",
+        "@id": page_id,
         "name": title,
-        "description": description,
+        "description": description[:200],
         "touristType": "International Visitors",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": city,
             "addressCountry": "CN"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://ai-tools-farm.streamlit.app/?search={search_term}",
+            "query-input": "required name=search_term"
         }
     }
     st.markdown(f"""
     <meta name="description" content="{description[:160]}">
-    <meta name="keywords" content="China travel, {city}, Beijing attractions, Great Wall, Forbidden City, travel guide China">
-    <link rel="alternate" hreflang="en" href="https://chinatravelguide.site/">
-    <link rel="alternate" hreflang="x-default" href="https://chinatravelguide.site/">
-    <script type="application/ld+json">
-    {json.dumps(structured, indent=2)}
+    <meta name="keywords" content="China travel, {city}, Beijing attractions, Great Wall, Forbidden City, travel guide China, {city} tour, China tourism">
+    <meta name="geo.region" content="CN-{city[:2].upper()}">
+    <meta name="geo.placename" content="{city.title()}">
+    <meta name="ICBM" content="39.9042, 116.4074">
+    <link rel="alternate" hreflang="en" href="https://ai-tools-farm.streamlit.app/">
+    <link rel="alternate" hreflang="zh" href="https://ai-tools-farm.streamlit.app/?lang=zh">
+    <link rel="alternate" hreflang="x-default" href="https://ai-tools-farm.streamlit.app/">
+    <script type="application/ld+json" id="seo-{uuid.uuid4().hex[:8]}">
+    {json.dumps(structured, indent=2, ensure_ascii=False)}
     </script>
     """, unsafe_allow_html=True)
 
@@ -171,9 +183,9 @@ def china_travel_guide():
     st.markdown(
         f"<div style='background:{hero_bg};padding:2.5rem 2rem;border-radius:1.5rem;"
         f"margin-bottom:2rem;text-align:center;color:white;box-shadow:0 8px 32px rgba(0,0,0,0.15);'>"
-        f"<h1 style='margin:0;font-size:2.8rem;'>&#127944; China Travel Guide</h1>"
+        f"<h1 style='margin:0;font-size:2.8rem;'>&#127944; {t('app_title')}</h1>"
         f"<p style='margin:0.5rem 0 0 0;font-size:1.2rem;opacity:0.9;'>"
-        f"Discover ancient wonders, vibrant culture & unforgettable experiences</p>"
+        f"{t('hero_subtitle').replace('{cities', '').replace('}', '')}</p>"
         f"<div style='margin-top:1rem;display:inline-block;background:rgba(255,255,255,0.15);"
         f"padding:0.5rem 1.5rem;border-radius:2rem;'>{season_icon} "
         f"<strong>{season_name}</strong> &mdash; {season_desc}</div></div>",
@@ -516,7 +528,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         f"margin-bottom:1.5rem;text-align:center;color:white;min-height:220px;"
         f"display:flex;flex-direction:column;justify-content:center;'>"
         f"<h1 style='margin:0;font-size:{fs};'>{spot['name']}"
-        f" <span style='color:#ffd700;font-size:0.75em;margin-left:0.5rem;'>&#25915;&#30053;</span></h1>"
+        f" <span style='color:#ffd700;font-size:0.75em;margin-left:0.5rem;'>{t('guide_word','攻略')}</span></h1>"
         f"<p style='margin:0.3rem 0 0.5rem;font-size:{ss};opacity:0.9;'>{spot.get('subtitle','')}</p>"
         f"<div>{rating_html}</div></div>",
         unsafe_allow_html=True
@@ -537,18 +549,18 @@ def show_spot_detail(spot: dict, full_page: bool = False):
 
     # ── Image gallery ──
     if spot.get("images"):
-        st.markdown("<h3>📸 Gallery</h3>", unsafe_allow_html=True)
+        st.markdown(f"<h3>&#128248; {t('photo_gallery','Gallery')}</h3>", unsafe_allow_html=True)
         imgs = spot["images"]
         cols = st.columns(min(3, len(imgs)))
         for idx, img_data in enumerate(imgs[:3]):
             with cols[idx]:
-                st.image(img_data.get("url", ""), caption=img_data.get("caption", ""), use_container_width=True)
+                st.image(img_data.get("url", ""), caption=img_data.get("caption", ""), width="stretch")
         if len(imgs) > 3:
-            with st.expander(f"📷 View all {len(imgs)} images"):
+            with st.expander(f"&#128247; {t('view_all_images','View all {n} images').replace('{n}', str(len(imgs)))}"):
                 remaining = st.columns(2)
                 for idx, img_data in enumerate(imgs[3:]):
                     with remaining[idx % 2]:
-                        st.image(img_data.get("url", ""), caption=img_data.get("caption", ""), use_container_width=True)
+                        st.image(img_data.get("url", ""), caption=img_data.get("caption", ""), width="stretch")
 
     # ── Detail tabs ──
     tab_labels = [f"📖 {t('description')}", f"🏛️ {t('history')}", f"💡 {t('tips')}", f"🚗 {t('getting_there')}"]
@@ -570,7 +582,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         st.markdown(f"<div style='line-height:1.7;font-size:1.05rem;'>{desc}</div>", unsafe_allow_html=True)
         # Activities list
         if spot.get("activities"):
-            st.markdown("#### 🏞️ Activities")
+            st.markdown(f"#### &#127965;&#65039; {t('activities','Activities')}")
             acts = spot["activities"]
             if isinstance(acts, str):
                 for line in acts.strip().split("\n"):
@@ -590,7 +602,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         tab_idx += 1
         col_tip1, col_tip2 = st.columns(2)
         with col_tip1:
-            st.markdown("#### ✅ Pro Tips")
+            st.markdown(f"#### &#10004;&#65039; {t('pro_tips','Pro Tips')}")
             tips = spot.get("tips", [])
             if isinstance(tips, str):
                 for line in tips.strip().split("\n"):
@@ -608,12 +620,12 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         with col_tip2:
             avoid = spot.get("visiting_guidance", {}).get("what_to_avoid", [])
             if avoid:
-                st.markdown("#### ❌ What to Avoid")
+                st.markdown(f"#### &#10060; {t('what_to_avoid','What to Avoid')}")
                 for a in avoid:
                     st.markdown(f"- ❌ {a}")
             # Best time detail
             if spot.get("best_time"):
-                st.markdown("#### 🌿 When to Go")
+                st.markdown(f"#### &#127800; {t('when_to_go','When to Go')}")
                 st.info(spot["best_time"])
 
     with tabs[tab_idx]:  # Getting There
@@ -634,7 +646,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
             if sections:
                 section_names = list(sections.keys())
                 # Comparison table first
-                st.markdown("#### 📊 Section Comparison")
+                st.markdown(f"#### &#128202; {t('section_comparison')}")
                 comp_rows = []
                 for sn in section_names:
                     s = sections[sn]
@@ -647,8 +659,8 @@ def show_spot_detail(spot: dict, full_page: bool = False):
                     })
                 st.dataframe(comp_rows, width="stretch", hide_index=True)
 
-                st.markdown("#### 🔍 Explore Each Section")
-                selected_section = st.selectbox("Choose a section", section_names, key=f"section_select_{spot.get('_slug', '')}")
+                st.markdown(f"#### &#128269; {t('explore_section')}")
+                selected_section = st.selectbox(t('choose_section'), section_names, key=f"section_select_{spot.get('_slug', '')}")
                 sec = sections[selected_section]
 
                 diff_badge = _difficulty_badge(sec.get("difficulty", ""))
@@ -656,14 +668,14 @@ def show_spot_detail(spot: dict, full_page: bool = False):
 
                 c1, c2 = st.columns(2)
                 with c1:
-                    st.markdown(f"**👥 Crowd Level:** {sec.get('crowd_level', 'N/A')}")
-                    st.markdown(f"**🎯 Best For:** {sec.get('recommended_for', 'N/A')}")
-                    st.markdown(f"**⏱️ Travel Time:** {sec.get('travel_time_from_beijing', 'N/A')}")
+                    st.markdown(f"**&#128100; {t('crowd_level')}:** {sec.get('crowd_level', 'N/A')}")
+                    st.markdown(f"**&#127919; {t('best_for')}:** {sec.get('recommended_for', 'N/A')}")
+                    st.markdown(f"**&#9201;&#65039; {t('travel_time')}:** {sec.get('travel_time_from_beijing', 'N/A')}")
                 with c2:
-                    st.markdown(f"**👍 Pros:** {sec.get('pros', 'N/A')}")
-                    st.markdown(f"**👎 Cons:** {sec.get('cons', 'N/A')}")
+                    st.markdown(f"**&#128077; {t('pros')}:** {sec.get('pros', 'N/A')}")
+                    st.markdown(f"**&#128078; {t('cons')}:** {sec.get('cons', 'N/A')}")
                     if "nearby" in sec:
-                        st.markdown(f"**📍 Nearby:** {sec['nearby']}")
+                        st.markdown(f"**&#128205; Nearby:** {sec['nearby']}")
 
                 st.markdown(f"**Description:** {sec.get('description', 'N/A')}")
             else:
@@ -674,7 +686,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         with tabs[tab_idx]:
             tab_idx += 1
             items = spot.get("visiting_guidance", {}).get("what_to_bring", [])
-            st.markdown("#### 🎒 Recommended Packing List")
+            st.markdown(f"#### &#127873; {t('recommended_packing')}")
             cols_pack = st.columns(2)
             for i, item in enumerate(items):
                 with cols_pack[i % 2]:
@@ -695,11 +707,11 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         with tabs[tab_idx]:
             tab_idx += 1
             cost = spot.get("average_cost_per_person", "")
-            st.markdown("#### 💰 Estimated Cost Per Person")
+            st.markdown(f"#### &#128176; {t('estimated_cost','Estimated Cost Per Person')}")
             st.markdown(f"<div style='line-height:1.6;'>{cost}</div>", unsafe_allow_html=True)
 
             # ── Interactive cost calculator ──
-            st.markdown("#### 🧮 Quick Cost Calculator")
+            st.markdown(f"#### &#129518; {t('quick_cost_calc')}")
             calc_col1, calc_col2 = st.columns(2)
             with calc_col1:
                 num_people = st.number_input(t('people','Number of people'), min_value=1, max_value=20, value=2, key=f"ppl_{spot.get('_slug', '')}")
@@ -719,7 +731,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
                 multipliers = {"Budget": 0.8, "Mid-range": 1.0, "Luxury": 1.8}
                 est_total = int(base_cost * num_people * multipliers[budget_level])
                 st.metric(t('estimated_total','Estimated Total'), f"¥{est_total:,}", help="Rough estimate for transport + entrance + meals")
-                st.caption("Prices vary by season and exchange rate.")
+                st.caption(t('prices_vary','Prices vary by season and exchange rate.'))
 
     # ── Navigation buttons ──
     st.markdown("---")
