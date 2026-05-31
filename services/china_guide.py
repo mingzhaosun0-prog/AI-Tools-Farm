@@ -144,7 +144,7 @@ def china_travel_guide():
     # ── Load data ──
     cities = [d for d in os.listdir(TRAVEL_DATA_DIR)
               if os.path.isdir(os.path.join(TRAVEL_DATA_DIR, d)) and not d.startswith("_")]
-    city = st.selectbox("📍 Choose a city", cities, index=0 if "beijing" in cities else 0,
+    city = st.selectbox(f"📍 {t('choose_city')}", cities, index=0 if "beijing" in cities else 0,
                         key="travel_city_selector")
     attractions = load_city_attractions(city)
 
@@ -181,7 +181,7 @@ def china_travel_guide():
     )
 
     if not attractions:
-        st.info(f"✨ No attractions loaded yet for **{city.title()}**. Add YAML files to `travel/data/{city}/`.")
+        st.info(t('no_attractions', '✨ No attractions loaded yet for **{city}**. Add YAML files to `travel/data/{city}/`.').replace('{city}', city.title()))
         return
 
     # ── Stats banner ──
@@ -189,20 +189,20 @@ def china_travel_guide():
     top_rated = max(a.get("rating", 0) for a in attractions.values())
     col_s1, col_s2, col_s3, col_s4 = st.columns(4)
     with col_s1:
-        st.markdown(f"<div class='stat-card'><div class='stat-num'>{total_spots}</div><div class='stat-label'>Attractions</div></div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='stat-card'><div class='stat-num'>{total_spots}</div><div class='stat-label'>{t('attractions')}</div></div>", unsafe_allow_html=True)
     with col_s2:
-        st.markdown(f"<div class='stat-card'><div class='stat-num'>{top_rated}★</div><div class='stat-label'>Top Rated</div></div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='stat-card'><div class='stat-num'>{top_rated}★</div><div class='stat-label'>{t('top_rated', 'Top Rated')}</div></div>", unsafe_allow_html=True)
     with col_s3:
         cities_total = len([d for d in os.listdir(TRAVEL_DATA_DIR) if os.path.isdir(os.path.join(TRAVEL_DATA_DIR, d)) and not d.startswith("_")])
-        st.markdown(f"<div class='stat-card'><div class='stat-num'>{cities_total}</div><div class='stat-label'>Cities</div></div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='stat-card'><div class='stat-num'>{cities_total}</div><div class='stat-label'>{t('cities')}</div></div>", unsafe_allow_html=True)
     with col_s4:
         sections_count = sum(len(a.get("sections", {})) for a in attractions.values())
-        st.markdown(f"<div class='stat-card'><div class='stat-num'>{sections_count}</div><div class='stat-label'>Sections</div></div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='stat-card'><div class='stat-num'>{sections_count}</div><div class='stat-label'>{t('sections_count','Sections')}</div></div>", unsafe_allow_html=True)
 
     st.markdown("---")
 
     # ── Attraction cards ──
-    st.markdown(f"<h2>🏛️ Top Attractions in {city.title()}</h2>", unsafe_allow_html=True)
+    st.markdown(f"<h2>🏛️ {t('top_attractions').replace('{city}', city.title())}</h2>", unsafe_allow_html=True)
 
     # Sort by rating descending
     sorted_attractions = sorted(attractions.values(), key=lambda x: x.get("rating", 0), reverse=True)
