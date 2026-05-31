@@ -525,11 +525,11 @@ def show_spot_detail(spot: dict, full_page: bool = False):
     # ── Quick info badges ──
     col_badges = st.columns(5)
     badge_data = [
-        ("📍", "Location", spot.get("location", "N/A")[:25]),
-        ("🕒", "Hours", (spot.get("opening_hours", "")[:20] + "…") if spot.get("opening_hours") and len(spot["opening_hours"]) > 20 else spot.get("opening_hours", "N/A")),
-        ("🎟️", "Ticket", (spot.get("ticket_price", "")[:20] + "…") if spot.get("ticket_price") and len(spot["ticket_price"]) > 20 else spot.get("ticket_price", "N/A")),
-        ("🌿", "Best Time", (spot.get("best_time", "")[:20] + "…") if spot.get("best_time") and len(spot["best_time"]) > 20 else spot.get("best_time", "N/A")),
-        ("⏱️", "Time Needed", spot.get("estimated_time_needed", "N/A")[:20]),
+        ("📍", t('location','Location'), spot.get("location", "N/A")[:25]),
+        ("🕒", t('hours','Hours'), (spot.get("opening_hours", "")[:20] + "…") if spot.get("opening_hours") and len(spot["opening_hours"]) > 20 else spot.get("opening_hours", "N/A")),
+        ("🎟️", t('ticket','Ticket'), (spot.get("ticket_price", "")[:20] + "…") if spot.get("ticket_price") and len(spot["ticket_price"]) > 20 else spot.get("ticket_price", "N/A")),
+        ("🌿", t('best_time','Best Time'), (spot.get("best_time", "")[:20] + "…") if spot.get("best_time") and len(spot["best_time"]) > 20 else spot.get("best_time", "N/A")),
+        ("⏱️", t('time_needed','Time Needed'), spot.get("estimated_time_needed", "N/A")[:20]),
     ]
     for i, (icon, label, value) in enumerate(badge_data):
         with col_badges[i]:
@@ -542,24 +542,24 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         cols = st.columns(min(3, len(imgs)))
         for idx, img_data in enumerate(imgs[:3]):
             with cols[idx]:
-                st.image(img_data.get("url", ""), caption=img_data.get("caption", ""), width="stretch")
+                st.image(img_data.get("url", ""), caption=img_data.get("caption", ""), use_container_width=True)
         if len(imgs) > 3:
             with st.expander(f"📷 View all {len(imgs)} images"):
                 remaining = st.columns(2)
                 for idx, img_data in enumerate(imgs[3:]):
                     with remaining[idx % 2]:
-                        st.image(img_data.get("url", ""), caption=img_data.get("caption", ""), width="stretch")
+                        st.image(img_data.get("url", ""), caption=img_data.get("caption", ""), use_container_width=True)
 
     # ── Detail tabs ──
-    tab_labels = ["📖 Description", "🏛️ History", "💡 Tips & Avoid", "🚗 Getting There"]
+    tab_labels = [f"📖 {t('description')}", f"🏛️ {t('history')}", f"💡 {t('tips')}", f"🚗 {t('getting_there')}"]
     if spot.get("sections"):
-        tab_labels.append("🗺️ Sections")
+        tab_labels.append(f"🗺️ {t('sections_count','Sections')}")
     if spot.get("visiting_guidance", {}).get("what_to_bring"):
-        tab_labels.append("🎒 Packing List")
+        tab_labels.append(f"🎒 {t('packing_list')}")
     if spot.get("nearby_attractions"):
-        tab_labels.append("🗺️ Nearby")
+        tab_labels.append(f"🗺️ {t('nearby')}")
     if spot.get("average_cost_per_person"):
-        tab_labels.append("💰 Costs")
+        tab_labels.append(f"💰 {t('costs')}")
 
     tabs = st.tabs(tab_labels)
     tab_idx = 0
@@ -702,8 +702,8 @@ def show_spot_detail(spot: dict, full_page: bool = False):
             st.markdown("#### 🧮 Quick Cost Calculator")
             calc_col1, calc_col2 = st.columns(2)
             with calc_col1:
-                num_people = st.number_input("Number of people", min_value=1, max_value=20, value=2, key=f"ppl_{spot.get('_slug', '')}")
-                budget_level = st.selectbox("Budget level", ["Budget", "Mid-range", "Luxury"], key=f"budget_{spot.get('_slug', '')}")
+                num_people = st.number_input(t('people','Number of people'), min_value=1, max_value=20, value=2, key=f"ppl_{spot.get('_slug', '')}")
+                budget_level = st.selectbox(t('budget_level','Budget level'), ["Budget", "Mid-range", "Luxury"], key=f"budget_{spot.get('_slug', '')}")
             with calc_col2:
                 if "average_cost_per_person" in spot:
                     cost_text = spot["average_cost_per_person"].lower()
@@ -718,7 +718,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
 
                 multipliers = {"Budget": 0.8, "Mid-range": 1.0, "Luxury": 1.8}
                 est_total = int(base_cost * num_people * multipliers[budget_level])
-                st.metric("Estimated Total", f"¥{est_total:,}", help="Rough estimate for transport + entrance + meals")
+                st.metric(t('estimated_total','Estimated Total'), f"¥{est_total:,}", help="Rough estimate for transport + entrance + meals")
                 st.caption("Prices vary by season and exchange rate.")
 
     # ── Navigation buttons ──
@@ -726,17 +726,17 @@ def show_spot_detail(spot: dict, full_page: bool = False):
     if not full_page:
         col_back, col_full = st.columns(2)
         with col_back:
-            if st.button("🔙 Back to Attractions", use_container_width=True, type="primary"):
+            if st.button(f"🔙 {t('back_to_attractions')}", use_container_width=True, type="primary"):
                 st.session_state["beijing_view"] = "list"
                 st.session_state["selected_spot_slug"] = None
                 st.session_state["full_mode_spot"] = None
                 st.rerun()
         with col_full:
-            if st.button("📺 View Full Page", use_container_width=True):
+            if st.button(f"📺 {t('full_page')}", use_container_width=True):
                 st.session_state["full_mode_spot"] = spot
                 st.rerun()
     else:
-        if st.button("✖️ Exit Full Page", use_container_width=True, type="primary"):
+        if st.button(f"✖️ {t('exit_full_page')}", use_container_width=True, type="primary"):
             st.session_state["full_mode_spot"] = None
             st.session_state["beijing_view"] = "list"
             st.rerun()

@@ -84,5 +84,7 @@ def display_itinerary_builder():
             }
             
             request = save_itinerary_request(user_data, preferences)
-            st.success(f"✅ Request submitted! Check your email for confirmation. (Request ID: {request['id'][:8]})")
-            st.info(f"💰 Payment of ${request['price']} will be processed via secure link sent to your email.")
+            st.success(f"✅ Request submitted! (Request ID: {request['id'][:8]})")
+            st.info("💳 Complete your payment below to confirm your itinerary:")
+            from services.paypal_service import display_itinerary_paypal
+            display_itinerary_paypal(request['price'])

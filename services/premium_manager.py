@@ -3,6 +3,7 @@ import streamlit as st
 import json
 import os
 from datetime import datetime, timedelta
+from services.paypal_service import display_premium_paypal, PLANS
 
 PREMIUM_CONFIG_PATH = "config/premium_content.json"
 SUBSCRIPTIONS_PATH = "data/subscriptions.json"
@@ -80,11 +81,14 @@ def check_premium_status():
     return None
 
 def display_premium_upgrade():
-    """Show premium upgrade options."""
+    """Show premium upgrade options with PayPal checkout."""
+    from services.paypal_service import handle_paypal_callback
+    handle_paypal_callback()
+    
     premium_content = load_premium_content()
     
     st.markdown("### 🌟 Unlock Premium Features")
-    st.markdown("Get the most out of your travel planning experience")
+    st.markdown("Get the most out of your travel planning experience — powered by **PayPal**")
     
     # Display bundles in columns
     bundles = premium_content["bundles"]
@@ -92,20 +96,22 @@ def display_premium_upgrade():
     
     for idx, (bundle_key, bundle) in enumerate(bundles.items()):
         with cols[idx]:
-            st.markdown(f"#### {bundle['name']}")
-            st.markdown(f"**${bundle['price_monthly']}/month**")
-            st.markdown(f"or ${bundle['price_yearly']}/year")
-            st.markdown("**Includes:**")
+            st.markdown(f"<div style='border:1px solid #e2e8f0;border-radius:1rem;padding:1.2rem;text-align:center;height:100%;'>"
+                       f"<h4 style='margin:0 0 0.3rem;'>{bundle['name']}</h4>"
+                       f"<div style='font-size:1.8rem;font-weight:700;color:#cc0000;'>${bundle['price_monthly']}</div>"
+                       f"<div style='font-size:0.85rem;color:#64748b;'>/month</div>"
+                       f"<div style='font-size:0.8rem;color:#94a3b8;margin-bottom:0.8rem;'>"
+                       f"or ${bundle['price_yearly']}/year</div>"
+                       f"<div style='text-align:left;font-size:0.9rem;margin-bottom:0.8rem;'>"
+                       f"<strong>Includes:</strong></div>", unsafe_allow_html=True)
             for feature_key in bundle['features']:
                 feature = premium_content['features'][feature_key]
-                st.markdown(f"- {feature['name']}")
+                st.markdown(f"- ✅ {feature['name']}")
             
-            if st.button(f"Upgrade to {bundle['name']}", key=f"upgrade_{bundle_key}"):
-                # Simulate payment (in production, integrate Stripe/PayPal)
-                st.session_state["premium_tier"] = bundle_key
-                st.session_state["premium_expiry"] = (datetime.now() + timedelta(days=30)).isoformat()
-                st.success(f"✅ Upgraded to {bundle['name']}! Thank you for your support.")
-                st.rerun()
+            # PayPal checkout
+            display_premium_paypal(bundle_key, bundle)
+            
+            st.markdown("</div>", unsafe_allow_html=True)
 
 def protect_premium_content(content_func):
     """Decorator to protect premium content."""
