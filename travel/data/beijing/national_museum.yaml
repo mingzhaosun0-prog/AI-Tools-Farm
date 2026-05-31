@@ -1,17 +1,30 @@
 name: "National Museum of China"
 subtitle: "Walk Through 5,000 Years of Chinese Civilisation"
+subtitle_zh: "穿越五千年的中华文明之旅"
 description: |
   The National Museum of China (NMC) is one of the world's largest museums, located on the eastern side of Tiananmen Square. Spanning 192,000 square metres, it showcases over 1.4 million artefacts covering China's illustrious history from the Yuanmou Man (1.7 million years ago) to the modern era.
 
   The museum's permanent exhibition "The Road to Rejuvenation" chronicles China's modern period from 1840 onwards, while "Ancient China" traces the glory of early civilisations through exquisite bronzes, jade, pottery, calligraphy, and imperial treasures.
 
   Highlights include the Simuwu Ding (the world's largest ancient bronze vessel, weighing 832 kg), the exquisite jade burial suits of the Han Dynasty, and the breathtaking Tang Dynasty gold and silverware.
+description_zh: |
+  中国国家博物馆是世界上最大的博物馆之一，位于天安门广场东侧。占地192,000平方米，馆藏超过140万件文物，涵盖从元谋人（170万年前）到现代的中国辉煌历史。
+
+  博物馆的常设展览"复兴之路"记录了从1840年以来的中国近代史，而"古代中国"通过精美的青铜器、玉器、陶器、书法和皇家珍宝追溯了早期文明的辉煌。
+
+  重点展品包括司母戊鼎（世界上最大的古代青铜器，重832公斤）、精美的汉代金缕玉衣以及令人叹为观止的唐代金银器。
 history: |
   The museum was established in 2003 through the merger of two separate institutions: the Museum of Chinese Revolution (founded 1950) and the National Museum of Chinese History (founded 1959). 
 
   The building itself was one of the "Ten Great Buildings" constructed for the 10th anniversary of the People's Republic in 1959. It underwent a major four-year renovation from 2007-2011 that tripled its exhibition space and modernised facilities.
 
   Today, with over 7 million annual visitors, it ranks among the most-visited museums in the world and continues to serve as China's premier national museum.
+history_zh: |
+  国博成立于2003年，由两个机构合并而成：中国革命博物馆（成立于1950年）和中国历史博物馆（成立于1959年）。
+
+  建筑本身是1959年为中华人民共和国成立十周年而建的"十大建筑"之一。2007年至2011年进行了为期四年的大规模翻新，展览空间扩大了三倍，设施实现了现代化。
+
+  如今，国博每年接待超过700万游客，是世界上最受欢迎的博物馆之一，并继续作为中国最重要的国家博物馆。
 opening_hours: "09:00 – 17:00 (last entry 16:00). Closed Mondays (except public holidays)."
 ticket_price: "Free (passport required — book online in advance). Special exhibitions: ¥20-50 extra."
 best_time: "Weekday mornings (fewer school groups). Avoid Mondays (closed) and Chinese holidays."

@@ -1,17 +1,30 @@
 name: "Lama Temple (Yonghe Temple)"
 subtitle: "The Most Renowned Tibetan Buddhist Monastery Outside Tibet"
+subtitle_zh: "西藏以外最著名的藏传佛教寺院"
 description: |
   The Lama Temple, officially known as Yonghe Temple (雍和宫), is one of the largest and most important Tibetan Buddhist monasteries in the world. Built in 1694 as the residence for a Ming Dynasty eunuch, it was later converted into a lamasery in 1744.
 
   The temple features five grand halls decorated with intricate murals, rotating sutra cabinets, and stunning bronze statues. The highlight is the 26-metre-tall statue of the Maitreya Buddha (Future Buddha), carved from a single sandalwood log — a Guinness World Record holder.
 
   Despite being a functioning monastery, the temple is open to the public and attracts millions of visitors annually who come to admire its architecture, burn incense for blessings, and soak in the serene spiritual atmosphere.
+description_zh: |
+  雍和宫是世界上最大、最重要的藏传佛教寺院之一。它建于1694年，最初是明代太监的府邸，后于1744年改建为喇嘛寺。
+
+  寺庙有五大殿堂，装饰着精美的壁画、转经筒和令人惊叹的铜像。最引人注目的是26米高的弥勒佛像（未来佛），由一根完整的檀木雕刻而成——这是吉尼斯世界纪录保持者。
+
+  尽管是一座仍在使用的寺院，雍和宫向公众开放，每年吸引数百万游客前来欣赏其建筑、烧香祈福并感受宁静的精神氛围。
 history: |
   The temple's history began in 1694 when it was built as a palace for the eldest son of Qing Emperor Kangxi. In 1722, it was converted into a residence for his son, who would become Emperor Qianlong, one of China's greatest rulers.
 
   In 1744, Emperor Qianlong ordered the conversion of the palace into a Tibetan Buddhist monastery for lamas from Mongolia and Tibet — a strategic decision that strengthened ties between the Qing court and the Tibetan Buddhist world.
 
   The temple has survived multiple fires, the Cultural Revolution (where it was protected by Premier Zhou Enlai's intervention), and continues today as a living monastery where monks still study, pray, and perform ceremonies.
+history_zh: |
+  寺庙的历史始于1694年，当时它被建为康熙帝长子的宫殿。1722年，它被改建为其子（后来的乾隆皇帝，中国最伟大的统治者之一）的府邸。
+
+  1744年，乾隆皇帝下令将宫殿改建为藏传佛教寺院，供来自蒙古和西藏的喇嘛使用——这一战略决策加强了清廷与藏传佛教世界之间的联系。
+
+  雍和宫历经多次火灾和文化大革命（在周恩来总理的干预下得到保护），至今仍是一座充满活力的寺院，僧侣们依然在此学习、诵经和举办法会。
 opening_hours: "09:00 – 16:30 (April–October), 09:00 – 16:00 (November–March)"
 ticket_price: "¥25 (includes free sticks of incense)"
 best_time: "Weekday mornings (weekends are extremely crowded). Best months: April-June and September-October."

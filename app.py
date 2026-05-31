@@ -389,17 +389,15 @@ def show_home():
     st.markdown(f"<h2 style='text-align:center;'>&#10024; {t('travel_tools')}</h2>", unsafe_allow_html=True)
     tools_cols = st.columns(3)
     tools = [
-        ("&#128473;&#65039;", t("plan_my_day"), t("plan_my_day_desc")),
-        ("&#9878;&#65039;", t("compare_attractions"), t("compare_attractions_desc")),
-        ("&#128176;", t("cost_calculator"), t("cost_calculator_desc")),
-        ("&#128248;", t("photo_gallery"), t("photo_gallery_desc")),
-        ("&#128646;", t("getting_around"), t("getting_around_desc")),
-        ("&#127800;", t("seasonal_tips"), t("seasonal_tips_desc")),
+        ("&#128473;&#65039;", t("plan_my_day"), t("plan_my_day_desc"), "china_guide"),
+        ("&#9878;&#65039;", t("compare_attractions"), t("compare_attractions_desc"), "china_guide"),
+        ("&#128176;", t("cost_calculator"), t("cost_calculator_desc"), "china_guide"),
     ]
-    for i, (icon, title, desc) in enumerate(tools):
-        with tools_cols[i % 3]:
+    for i, (icon, title, desc, target) in enumerate(tools):
+        with tools_cols[i]:
             st.markdown(f"""
-            <div class='attraction-card' style='text-align:center;padding:1.2rem;'>
+            <div class='attraction-card' style='text-align:center;padding:1.2rem;cursor:pointer;'
+                 onclick='document.querySelectorAll("button[data-testid=stBaseButton-secondary]")[1].click()'>
                 <div style='font-size:2.5rem;'>{icon}</div>
                 <h4 style='margin:0.3rem 0 0;font-size:1.1rem;'>{title}</h4>
                 <p style='color:#64748b;font-size:0.85rem;margin:0.3rem 0 0;'>{desc}</p>

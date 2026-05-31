@@ -1,9 +1,14 @@
 name: "Summer Palace"
 subtitle: "Imperial Garden and Royal Retreat"
+subtitle_zh: "皇家园林与避暑胜地"
 description: |
   The Summer Palace is a vast ensemble of lakes, gardens, and palaces in Beijing. It was used as a summer retreat by imperial families.
+description_zh: |
+  颐和园是北京一处由湖泊、园林和宫殿组成的庞大建筑群，曾是皇家的夏日避暑胜地。
 history: |
   First built in 1750, largely destroyed in 1860 and restored in 1886. It is a masterpiece of Chinese landscape garden design.
+history_zh: |
+  颐和园始建于1750年，1860年遭严重破坏，1886年重建。它是中国园林设计艺术的杰作。
 opening_hours: "06:30 – 20:00 (peak season), 07:00 – 19:00 (off season)"
 ticket_price: "¥30 (entrance), ¥60 (combined ticket including garden and boat)"
 best_time: "May–September for boating; autumn for foliage"

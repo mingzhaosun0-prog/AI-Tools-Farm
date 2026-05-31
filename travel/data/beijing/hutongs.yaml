@@ -1,17 +1,30 @@
 name: "Beijing Hutongs & Siheyuan"
 subtitle: "Explore the Historic Alleyways of Old Beijing"
+subtitle_zh: "探索老北京的历史胡同"
 description: |
   Hutongs are narrow alleys formed by lines of traditional courtyard residences (siheyuan) that date back centuries. These winding lanes are the arteries of old Beijing, preserving the city's traditional urban fabric and community life. 
 
   The most famous hutongs cluster around the areas north of the Forbidden City (Nanluoguxiang, Shichahai, Yandai Xiejie) and offer a glimpse into authentic local culture with their courtyard homes, street food stalls, artisan shops, and hidden temples.
 
   Exploring the hutongs by rickshaw, bicycle, or on foot is one of the most rewarding experiences in Beijing, revealing a side of the city far removed from its modern skyscrapers.
+description_zh: |
+  胡同是由传统四合院住宅排列形成的狭窄小巷，已有数百年历史。这些蜿蜒的巷道是老北京的脉络，保存着城市传统的城市肌理和社区生活。
+
+  最著名的胡同集中在故宫以北地区（南锣鼓巷、什刹海、烟袋斜街），以其四合院、街头小吃摊、手工艺品店和隐秘的寺庙，让游客一窥地道的当地文化。
+
+  乘坐人力车、骑自行车或步行探索胡同是北京最有价值的体验之一，展现了这座城市远离现代摩天大楼的另一面。
 history: |
   The word "hutong" originated from the Mongolian word "hudug" meaning "water well" — a reference to the wells around which the first neighbourhoods formed. The hutongs date back to the Yuan Dynasty (1271–1368).
 
   During the Ming and Qing dynasties, Beijing expanded dramatically, and the orderly grid of hutongs became the standard residential layout. At their peak, there were over 6,000 hutongs in Beijing.
 
   In recent decades, rapid urbanisation has seen many hutongs demolished for modern developments. Today, approximately 1,000 hutongs remain, and the government has designated several areas as protected cultural zones.
+history_zh: |
+  "胡同"一词源自蒙古语"hudug"，意为"水井"——指的是最早社区形成时围绕的水井。胡同的历史可追溯到元朝（1271-1368年）。
+
+  在明清两代，北京急剧扩张，整齐的胡同网格成为标准的住宅布局。在鼎盛时期，北京曾有超过6,000条胡同。
+
+  近几十年来，快速的城市化导致许多胡同被拆除用于现代开发。如今，大约有1,000条胡同得以保留，政府已将多个区域划定为文化保护 zone。
 opening_hours: "Public lanes: 24 hours. Shops/cafés in tourist hutongs: ~10:00–22:00"
 ticket_price: "Free to explore. Some siheyuan as museums charge ¥10-30 entry. Rickshaw tour: ¥150-300 per hour."
 best_time: "Late afternoon (warm golden light, lively atmosphere). Avoid midday heat in summer."

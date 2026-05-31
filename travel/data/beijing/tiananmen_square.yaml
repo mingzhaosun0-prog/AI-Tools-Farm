@@ -1,15 +1,26 @@
 name: "Tiananmen Square"
 subtitle: "The Heart of China — World's Largest Public Square"
+subtitle_zh: "中国的心脏——世界上最大的公共广场"
 description: |
   Tiananmen Square is a vast city square in the centre of Beijing, named after the Tiananmen gate located to its north. It is the largest public square in the world, covering 440,000 square metres. The square has great cultural and political significance, serving as the site of numerous historical events, national celebrations, and daily flag-raising ceremonies.
 
   Flanked by monumental buildings including the Great Hall of the People, the National Museum of China, the Monument to the People's Heroes, and the Mausoleum of Mao Zedong, the square is a must-visit for anyone wanting to understand modern China.
+description_zh: |
+  天安门广场是北京中心的一个巨大城市广场，以北侧的天安门城楼命名。它是世界上最大的公共广场，占地44万平方米。广场具有重要的文化和政治意义，是众多历史事件、国庆庆典和每日升旗仪式的举办地。
+
+  广场周围有人民大会堂、中国国家博物馆、人民英雄纪念碑和毛主席纪念堂等宏伟建筑，是任何想要了解现代中国的人的必游之地。
 history: |
   Originally built in 1417 as a wooden gate during the Ming Dynasty, Tiananmen ("Gate of Heavenly Peace") was the entrance to the Imperial City. The square itself was expanded significantly in 1958-1959 during the Great Leap Forward, reaching its current enormous dimensions.
 
   On October 1, 1949, Chairman Mao Zedong proclaimed the founding of the People's Republic of China from atop the Tiananmen gate. The square has since been the site of National Day parades, mass gatherings, and significant political events.
 
   The Monument to the People's Heroes was erected in 1958, and Chairman Mao's Mausoleum was completed in 1977. The National Museum of China (east side) and the Great Hall of the People (west side) were both completed in 1959 as part of the "Ten Great Buildings" project.
+history_zh: |
+  天安门（"天国之门"）最初建于1417年明朝时期，是一座木制城门，是皇城的入口。广场本身在1958-1959年大跃进期间进行了大规模扩建，达到了目前巨大的规模。
+
+  1949年10月1日，毛泽东主席在天安门城楼上宣布中华人民共和国成立。此后，广场一直是国庆阅兵、群众集会和重大政治事件的举办地。
+
+  人民英雄纪念碑建于1958年，毛主席纪念堂于1977年竣工。中国国家博物馆（东侧）和人民大会堂（西侧）均于1959年作为"十大建筑"项目的一部分完工。
 opening_hours: "Square: 24 hours (security check required). Flag ceremony: sunrise (exact time varies daily)"
 ticket_price: "Free (passport required for entry, all bags screened)"
 best_time: "Visit at sunrise for the flag-raising ceremony, or evening for beautiful lit views"

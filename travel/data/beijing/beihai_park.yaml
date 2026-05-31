@@ -1,17 +1,30 @@
 name: "Beihai Park"
 subtitle: "Imperial Garden Paradise with a Thousand-Year-Old Lake"
+subtitle_zh: "千年古湖边的皇家园林天堂"
 description: |
   Beihai Park (Beihai Gongyuan) is one of China's oldest and best-preserved imperial gardens, dating back over 1,000 years. Centred around a picturesque lake with the iconic White Pagoda perched on Qionghua Island, the park combines grand imperial architecture with serene natural beauty.
 
   Covering 69 hectares — more than half of which is water — Beihai features winding corridors, elaborate pavilions, ancient temples, and lush gardens that exemplify the pinnacle of Chinese landscape design. The park's name literally means "North Sea," as it lies north of the Forbidden City.
 
   Unlike the grand ceremonial spaces of the Forbidden City, Beihai was designed as a place of leisure — emperors and their families came here to boat, stroll, and escape the summer heat.
+description_zh: |
+  北海公园是中国最古老、保存最完好的皇家园林之一，拥有超过一千年的历史。公园以风景如画的湖泊为中心，标志性的白塔矗立在琼华岛上，将宏伟的皇家建筑与宁静的自然美景融为一体。
+
+  公园占地69公顷（其中一半以上是水域），拥有蜿蜒的回廊、精美的亭台楼阁、古老的寺庙和茂密的花园，体现了中国园林设计的巅峰。公园的名字字面意思是"北海"，因其位于故宫以北。
+
+  与故宫宏伟的礼仪空间不同，北海被设计为一个休闲场所——皇帝和皇室家族来这里划船、散步、避暑。
 history: |
   Beihai Park's origins trace back to the 10th century (Liao Dynasty), making it one of Beijing's most ancient imperial sites. The park was expanded during the Jin Dynasty (12th century), when the lake was dug and the earliest palaces were built.
 
   The most iconic structure, the White Pagoda (Baita), was built in 1651 during the Qing Dynasty to commemorate a visit by the 5th Dalai Lama. The 36-metre-high Tibetan-style stupa sits atop Qionghua Island and can be seen from across Beijing.
 
   After the fall of the Qing Dynasty in 1912, the park was opened to the public in 1925. It survived the Cultural Revolution largely intact and was designated a key national heritage site in 1961.
+history_zh: |
+  北海公园的历史可追溯到10世纪（辽代），是北京最古老的皇家遗址之一。公园在金代（12世纪）得到扩建，当时开挖了湖泊并建造了最早的宫殿。
+
+  最具标志性的建筑——白塔建于1651年清顺治年间，为纪念第五世达赖喇嘛的到访而建。这座36米高的藏式佛塔坐落在琼华岛上，从北京许多地方都能看到。
+
+  清朝于1912年灭亡后，公园于1925年向公众开放。它在文化大革命中基本完好无损地保存下来，并于1961年被列为国家重点文物保护单位。
 opening_hours: "06:00 – 21:00 (park grounds), 08:00 – 18:00 (inner attractions/Qionghua Island). Summer extended hours."
 ticket_price: "¥10 (winter), ¥20 (summer) — includes park entry. ¥15 extra for Qionghua Island and White Pagoda access."
 best_time: "Early morning (local tai chi groups, peaceful). Late afternoon (golden light over the lake). Spring for cherry blossoms."
