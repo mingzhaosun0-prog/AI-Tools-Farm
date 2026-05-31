@@ -1,0 +1,75 @@
+name: "The Bund"
+subtitle: "Shanghai's Iconic Waterfront — Where East Meets West"
+description: |
+  The Bund (Wàitān, 外滩) is a waterfront promenade along the Huangpu River that showcases the best of Shanghai's architectural heritage. On one side stand 52 magnificent colonial-era buildings — the "Exposition of World Architecture" — while across the river towers the futuristic Pudong skyline with the Oriental Pearl Tower and Shanghai Tower.
+
+  Stretching 1.5 kilometres, the Bund offers a stunning contrast between old and new Shanghai. It's the city's most photographed location, equally beautiful by day when the colonial facades gleam, and by night when both the historic buildings and Pudong skyscrapers are illuminated in a spectacular light show.
+history: |
+  In the mid-19th century, following the Treaty of Nanking (1842), Shanghai opened as a treaty port and the Bund became the centre of foreign settlement. British, French, American, and other international trading companies built their headquarters here, creating a unique collection of Art Deco, Baroque, Gothic, Neoclassical, and Renaissance-style buildings.
+
+  During the 1920s and 1930s, the Bund was the financial centre of East Asia, home to banks, trading houses, and the iconic Peace Hotel (built by Sir Victor Sassoon). After 1949, the area declined in importance but survived urban redevelopment.
+
+  In the 1990s, the construction of the Pudong skyline created the iconic Bund-versus-Pudong contrast. Today, it remains Shanghai's number one tourist attraction, visited by millions who walk its tree-lined promenade.
+opening_hours: "Open 24 hours. Best views: sunrise and 19:00-22:00 (illuminated buildings). Huangpu River cruise: 09:00-22:00."
+ticket_price: "Free (promenade). Huangpu River sightseeing cruise: ¥120-180 per person (50 min)."
+best_time: "Sunset (17:00-18:30) — watch the transition from day to night. Come back at 19:00 for the lights."
+tips:
+  - "Walk the full 1.5km promenade from Baidu Bridge to Yan'an Road."
+  - "Visit at sunset and stay for the night lights (buildings illuminate at 19:00)."
+  - "Cross the river via the Bund Sightseeing Tunnel (¥50) for a fun experience."
+  - "Choose the Pudong-side riverside walkway for a different view back toward the Bund."
+  - "Book a Huangpu River cruise for the best photo opportunities."
+  - "Avoid Chinese holidays — the promenade gets extremely crowded."
+images:
+  - url: "https://picsum.photos/seed/the-bund-1/800/600"
+    caption: "The Bund promenade with Pudong skyline across the Huangpu River"
+  - url: "https://picsum.photos/seed/the-bund-2/800/600"
+    caption: "Colonial-era architecture along the Bund at golden hour"
+  - url: "https://picsum.photos/seed/the-bund-3/800/600"
+    caption: "The Bund illuminated at night with Pudong's glittering towers behind"
+  - url: "https://picsum.photos/seed/the-bund-4/800/600"
+    caption: "The iconic Peace Hotel dome on the Bund"
+location: "Zhongshan East 1st Road, along the Huangpu River, central Shanghai"
+activities: "Walking, photography, river cruises, architecture appreciation, people-watching"
+estimated_time_needed: "1.5-2.5 hours"
+
+# ── Sections ──
+sections:
+  Historic Buildings Walk:
+    difficulty: "Easy"
+    crowd_level: "Very crowded"
+    recommended_for: "Architecture lovers, photographers"
+    description: "Walk south to north past the 52 protected heritage buildings including the Peace Hotel, Customs House, HSBC Building, and the Shanghai Pudong Development Bank."
+  Promenade & Viewpoints:
+    difficulty: "Easy"
+    crowd_level: "Very crowded"
+    recommended_for: "All visitors"
+    description: "The 1.5km tree-lined promenade with dedicated viewpoints and photo platforms facing Pudong. Benches and cafés along the way."
+  Huangpu River Cruise:
+    difficulty: "Easy"
+    crowd_level: "Busy during peak hours"
+    recommended_for: "First-time visitors, couples, photographers"
+    description: "Various cruise options from the Bund wharves. Standard 50-min loop shows both the Bund and Pudong skylines. Night cruises are particularly magical."
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 4:00 PM (day tourists), 19:00-21:00 (night lights crowd)"
+  best_time_to_visit: "17:00-19:00 — watch sunset and stay for the lights"
+  seasonal_tips: "Spring (Mar-May) and Autumn (Sep-Nov) offer the best weather. Summer evenings are pleasant. Winter can be cold and foggy."
+  holiday_info: "Extremely crowded during National Day (Oct 1-7) and Labour Day (May 1). Avoid if possible."
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "外滩"
+  pinyin: "Wàitān"
+  chinese_address: "上海市黄浦区中山东一路"
+  directions_by_metro: "Line 2 (Nanjing East Road, Exit 6 or 7), Line 10 (East Nanjing Road, Exit 7), Line 14 (Yuyuan, Exit 6)"
+  night_lights: "Building illuminations turn on at 19:00 (winter) or 19:30 (summer) and run until 22:00-23:00"
+  restrooms: "Available along the promenade and inside the historical buildings"
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Easy — flat, paved promenade"
+  walking_distance: "1.5-3 km depending on how much you walk the full stretch"
+  wheelchair_accessible: "Yes — fully accessible with ramps and smooth paving"
+  best_for_elderly: "Excellent — flat terrain, many benches, easy walking"

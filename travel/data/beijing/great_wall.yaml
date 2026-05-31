@@ -151,3 +151,77 @@ tips: |
   - **Use official ticket windows** – avoid scalpers
   - **Learn a few Chinese phrases** for emergencies and bargaining
   - **Emergency number**: 110 (police), 120 (ambulance)
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 4:00 PM daily, especially weekends"
+  best_time_to_visit: "Weekdays 7:00-9:00 AM or after 5:00 PM"
+  seasonal_tips: "Spring (Apr-May): Most beautiful with mild weather. Summer (Jun-Aug): Hot but popular. Autumn (Sep-Oct): Peak season - very crowded. Winter (Nov-Mar): Quietest."
+  holiday_info: "Avoid Oct 1-7 (Golden Week) - expect 5x normal crowds. Avoid Chinese New Year week."
+  crowd_by_section: "Badaling > Mutianyu > Simatai > Jinshanling (least crowded)"
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "万里长城"
+  pinyin: "Wànlǐ Chángchéng"
+  common_sections_chinese:
+    Badaling: "八达岭"
+    Mutianyu: "慕田峪"
+    Jinshanling: "金山岭"
+    Simatai: "司马台"
+  phone_badaling: "+86 10 6912 1235"
+  phone_mutianyu: "+86 10 6162 6022"
+  official_website: "www.badaling.gov.cn"
+  transport_tips: "Use Amap or Baidu Maps (better in China than Google Maps)"
+  best_months: "April-May and September-October for weather and crowds"
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  overall_physical_difficulty: "Varies by section - Easy (Badaling) to Strenuous (Simatai)"
+  walking_distance: "Typically 5-15 km depending on route chosen"
+  elevation_gain: "300-800m depending on section"
+  wheelchair_accessible: "Badaling has some paved accessible sections (lower portion only)"
+  accessibility_features:
+    - "Cable cars/chairlifts available at Badaling, Mutianyu, Simatai"
+    - "Rest areas with benches every 500m at main sections"
+    - "Accessible restrooms at ticket areas"
+    - "Not suitable for serious mobility issues"
+  altitude_concerns: "Wall sits at 800-2000m elevation - may affect those with heart/lung issues"
+  best_for_elderly: "Yes, Badaling with cable car. Avoid steep sections like Simatai."
+
+# ── Itinerary Suggestions ──
+itineraries:
+  quick_half_day:
+    duration: "4 hours total (including 1.5h travel each way)"
+    section_recommended: "Badaling"
+    route: "Cable car up → 1.5 hour walk along paved wall → cable car or toboggan down"
+    highlights: "Iconic wall sections, watchtowers, photo ops"
+    best_for: "Limited time, families, first-time visitors"
+  
+  half_day_adventurous:
+    duration: "5-6 hours"
+    section_recommended: "Mutianyu"
+    route: "Cable car up → 2-3 hour hike → toboggan ride down"
+    highlights: "Beautiful scenery, fewer crowds, traditional wall experience"
+    best_for: "Photographers, those wanting more authenticity"
+    
+  full_day_premium:
+    duration: "8-10 hours"
+    section_recommended: "Jinshanling + Simatai"
+    route: "Travel early → 4-5 hours at Jinshanling (mixed restored/wild wall) → lunch break → 2 hours at Simatai for sunset"
+    highlights: "Authentic experience, stunning photography, varied terrain"
+    best_for: "Hikers, photographers, history enthusiasts"
+    tip: "Hire official guide (¥150-200) to navigate wild sections safely"
+  
+  night_tour:
+    duration: "3-4 hours (evening)"
+    section_recommended: "Simatai"
+    route: "Evening: Entrance → 1-2 hour hike with LED lights"
+    highlights: "Unique experience, dramatic lighting, fewer crowds"
+    best_for: "Adventure seekers, romantic experience"
+    cost: "¥160-300 per person"
+  
+  combo_nearby:
+    option1: "Badaling + Ming Tombs: Morning wall, afternoon tombs (same day)"
+    option2: "Mutianyu + Gubei Water Town: Day hike, evening relax at hot springs"
+    option3: "3-day: Badaling → Jinshanling → Simatai (progressive difficulty and authenticity)"

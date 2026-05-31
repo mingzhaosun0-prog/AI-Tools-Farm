@@ -1,0 +1,91 @@
+name: "Beijing Hutongs & Siheyuan"
+subtitle: "Explore the Historic Alleyways of Old Beijing"
+description: |
+  Hutongs are narrow alleys formed by lines of traditional courtyard residences (siheyuan) that date back centuries. These winding lanes are the arteries of old Beijing, preserving the city's traditional urban fabric and community life. 
+
+  The most famous hutongs cluster around the areas north of the Forbidden City (Nanluoguxiang, Shichahai, Yandai Xiejie) and offer a glimpse into authentic local culture with their courtyard homes, street food stalls, artisan shops, and hidden temples.
+
+  Exploring the hutongs by rickshaw, bicycle, or on foot is one of the most rewarding experiences in Beijing, revealing a side of the city far removed from its modern skyscrapers.
+history: |
+  The word "hutong" originated from the Mongolian word "hudug" meaning "water well" — a reference to the wells around which the first neighbourhoods formed. The hutongs date back to the Yuan Dynasty (1271–1368).
+
+  During the Ming and Qing dynasties, Beijing expanded dramatically, and the orderly grid of hutongs became the standard residential layout. At their peak, there were over 6,000 hutongs in Beijing.
+
+  In recent decades, rapid urbanisation has seen many hutongs demolished for modern developments. Today, approximately 1,000 hutongs remain, and the government has designated several areas as protected cultural zones.
+opening_hours: "Public lanes: 24 hours. Shops/cafés in tourist hutongs: ~10:00–22:00"
+ticket_price: "Free to explore. Some siheyuan as museums charge ¥10-30 entry. Rickshaw tour: ¥150-300 per hour."
+best_time: "Late afternoon (warm golden light, lively atmosphere). Avoid midday heat in summer."
+tips:
+  - "Rent a bike or take a rickshaw tour for the best experience."
+  - "Visit Nanluoguxiang for trendy shops and cafés."
+  - "Shichahai / Houhai area is beautiful at night with lakeside bars."
+  - "Yandai Xiejie (Tobacco Pipe Lane) is great for souvenirs and snacks."
+  - "Enter a siheyuan courtyard if the door is open (respect privacy)."
+  - "Visit early morning (7-9am) to see local life — elderly playing chess, cooking, exercising."
+images:
+  - url: "https://picsum.photos/seed/beijing-hutongs-1/800/600"
+    caption: "A narrow hutong alley winding through traditional courtyard homes"
+  - url: "https://picsum.photos/seed/beijing-hutongs-2/800/600"
+    caption: "Evening life along Shichahai lakeside bars"
+  - url: "https://picsum.photos/seed/beijing-hutongs-3/800/600"
+    caption: "Traditional siheyuan courtyard residence"
+  - url: "https://picsum.photos/seed/beijing-hutongs-4/800/600"
+    caption: "Nanluoguxiang — the most famous hutong street"
+location: "Main areas: Nanluoguxiang, Shichahai/Houhai, Yandai Xiejie, Dongcheng District"
+activities: "Rickshaw tours, cycling, street food tasting, photography, souvenir shopping, bar-hopping at Houhai"
+estimated_time_needed: "2-4 hours"
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "11:00 AM - 5:00 PM (tourist hub Nanluoguxiang), 7:00 PM - midnight (Houhai bars)"
+  best_time_to_visit: "Early morning (7-9am) for authentic local life, or late afternoon (4-6pm) for golden light"
+  seasonal_tips: "Spring and autumn are ideal. Summer evenings are lively. Winter has fewer tourists but outdoor time is limited."
+  holiday_info: "Nanluoguxiang gets extremely crowded on weekends and holidays"
+
+# ── Sections ──
+sections:
+  Nanluoguxiang:
+    difficulty: "Easy"
+    crowd_level: "Very crowded (peak hours, weekends)"
+    recommended_for: "Shoppers, foodies, young travellers"
+    travel_time_from_beijing: "15 min metro from city centre"
+    description: "An 800-metre long hutong lined with boutique stores, cafés, street food and souvenir shops. Very touristy but still worth visiting for the energy and variety."
+    pros: "Lively atmosphere, great food, easy access"
+    cons: "Very crowded, commercialised, not 'authentic' old Beijing"
+  
+  Shichahai & Houhai:
+    difficulty: "Easy"
+    crowd_level: "Moderate (day), Very crowded (evening)"
+    recommended_for: "Bar-goers, couples, photographers"
+    travel_time_from_beijing: "20 min metro from city centre"
+    description: "A scenic area around three interconnected lakes, surrounded by hutongs, historic mansions, and nightlife. Popular for lakeside walks, boat rides, and evening bar-hopping."
+    pros: "Beautiful lake views, vibrant nightlife, photo-worthy scenes"
+    cons: "Crowded at night, tourist prices at bars"
+  
+  Yandai Xiejie:
+    difficulty: "Easy"
+    crowd_level: "Moderately crowded"
+    recommended_for: "Souvenir hunters, snack lovers"
+    travel_time_from_beijing: "15 min metro from city centre (via Nanluoguxiang)"
+    description: "A narrow sloping lane known for its speciality shops and traditional snacks. Great for picking up unique gifts and tasting Beijing street food."
+    pros: "Unique shops, tasty snacks, less crowded than Nanluoguxiang"
+    cons: "Short lane (can be overcrowded on weekends)"
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "胡同"
+  pinyin: "Hútòng"
+  chinese_address: "北京市东城区南锣鼓巷"
+  directions_by_metro: "Nanluoguxiang: Line 6 or Line 8 (Nanluoguxiang station, Exit E). Shichahai: Line 8 (Shichahai station)"
+  best_transport: "Metro + walking. Ride-sharing apps (Didi) can drop at hutong entrances but cannot enter narrow lanes."
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Easy — flat, paved, but many steps and narrow passages"
+  walking_distance: "3-6 km depending on how many areas you explore"
+  wheelchair_accessible: "Partially — main hutong lanes (Nanluoguxiang) are paved. Side hutongs may have steps and uneven surfaces."
+  accessibility_features:
+    - "Main tourist hutongs (Nanluoguxiang) are paved and wheelchair-friendly"
+    - "Houhai lakeside walkway is flat and accessible"
+    - "Rickshaw tours can accommodate limited mobility"
+  best_for_elderly: "Stick to main lanes and lakeside paths. Avoid narrow side hutongs with steps."

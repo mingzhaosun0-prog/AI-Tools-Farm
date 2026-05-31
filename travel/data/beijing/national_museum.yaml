@@ -1,0 +1,114 @@
+name: "National Museum of China"
+subtitle: "Walk Through 5,000 Years of Chinese Civilisation"
+description: |
+  The National Museum of China (NMC) is one of the world's largest museums, located on the eastern side of Tiananmen Square. Spanning 192,000 square metres, it showcases over 1.4 million artefacts covering China's illustrious history from the Yuanmou Man (1.7 million years ago) to the modern era.
+
+  The museum's permanent exhibition "The Road to Rejuvenation" chronicles China's modern period from 1840 onwards, while "Ancient China" traces the glory of early civilisations through exquisite bronzes, jade, pottery, calligraphy, and imperial treasures.
+
+  Highlights include the Simuwu Ding (the world's largest ancient bronze vessel, weighing 832 kg), the exquisite jade burial suits of the Han Dynasty, and the breathtaking Tang Dynasty gold and silverware.
+history: |
+  The museum was established in 2003 through the merger of two separate institutions: the Museum of Chinese Revolution (founded 1950) and the National Museum of Chinese History (founded 1959). 
+
+  The building itself was one of the "Ten Great Buildings" constructed for the 10th anniversary of the People's Republic in 1959. It underwent a major four-year renovation from 2007-2011 that tripled its exhibition space and modernised facilities.
+
+  Today, with over 7 million annual visitors, it ranks among the most-visited museums in the world and continues to serve as China's premier national museum.
+opening_hours: "09:00 – 17:00 (last entry 16:00). Closed Mondays (except public holidays)."
+ticket_price: "Free (passport required — book online in advance). Special exhibitions: ¥20-50 extra."
+best_time: "Weekday mornings (fewer school groups). Avoid Mondays (closed) and Chinese holidays."
+tips:
+  - "BOOK ONLINE in advance — free tickets run out quickly, especially weekends."
+  - "Bring your passport — required for entry even with online booking."
+  - "Allow at least 3-4 hours — the museum is enormous."
+  - "Start with 'Ancient China' on the ground floor (the best collection)."
+  - "Audio guide recommended (¥40, available in 10+ languages)."
+  - "No large bags or selfie sticks allowed inside."
+  - "Photography allowed (no flash, no tripod)."
+  - "Combine with Tiananmen Square and Forbidden City in one day."
+images:
+  - url: "https://picsum.photos/seed/national-museum-1/800/600"
+    caption: "The grand entrance hall of the National Museum of China"
+  - url: "https://picsum.photos/seed/national-museum-2/800/600"
+    caption: "The Simuwu Ding — world's largest ancient bronze vessel (832 kg)"
+  - url: "https://picsum.photos/seed/national-museum-3/800/600"
+    caption: "Han Dynasty jade burial suit sewn with gold thread"
+  - url: "https://picsum.photos/seed/national-museum-4/800/600"
+    caption: "The magnificent Ancient China gallery spanning 5,000 years"
+location: "East side of Tiananmen Square, Dongcheng District, Beijing"
+activities: "Artifact viewing, historical education, guided tours, special exhibitions"
+estimated_time_needed: "3-5 hours"
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 2:00 PM daily. School groups common on weekday mornings."
+  best_time_to_visit: "09:00 AM opening to avoid queues. After 2:00 PM is also quieter."
+  seasonal_tips: "Summer: busiest with domestic tourists. Winter: fewer international tourists."
+  holiday_info: "Closed Mondays. Avoid Chinese Golden Week (Oct 1-7) and summer weekends."
+
+# ── Sections ──
+sections:
+  Ancient China Gallery:
+    difficulty: "Easy"
+    crowd_level: "Moderately crowded"
+    recommended_for: "History lovers, all visitors (best section)"
+    description: "The must-see permanent exhibition spanning from Paleolithic times to the Qing Dynasty. Over 2,500 artefacts including bronzes, ceramics, jade, and the Simuwu Ding."
+    pros: "World-class collection, clear chronological flow"
+    cons: "Can be crowded, requires 2+ hours to do justice"
+  
+  Road to Rejuvenation:
+    difficulty: "Easy"
+    crowd_level: "Moderate"
+    recommended_for: "Modern history enthusiasts"
+    description: "Chronicles China's journey from the Opium Wars (1840) through the founding of the PRC to modern day. Features revolutionary artefacts and multimedia displays."
+    pros: "Fascinating modern history with excellent curation"
+    cons: "Some exhibits focused on political messaging"
+  
+  Special Exhibitions:
+    difficulty: "Easy"
+    crowd_level: "Variable"
+    recommended_for: "Return visitors, art lovers"
+    description: "Rotating exhibitions featuring international collaborations, contemporary art, and deep dives into specific historical periods or artistic traditions."
+    pros: "Unique and ever-changing content"
+    cons: "Extra fee (¥20-50), limited viewing time"
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "中国国家博物馆"
+  pinyin: "Zhōngguó Guójiā Bówùguǎn"
+  chinese_address: "北京市东城区东长安街16号"
+  phone: "+86 10 6511 6400"
+  official_website: "https://www.chnmuseum.cn/"
+  directions_by_metro: "Line 1 (Tiananmen Dong, Exit D or E)"
+  online_booking: "Required via official website or WeChat mini-program. Free tickets released in advance."
+  audio_guide: "¥40, available in English, Chinese, Japanese, Korean, French, Russian, Spanish"
+  cloakroom: "Free luggage storage available at entrance"
+  photography_policy: "Allowed in all galleries (no flash, no tripod, no selfie stick)"
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Easy — indoor with elevators and escalators"
+  walking_distance: "3-5 km of walking through galleries"
+  wheelchair_accessible: "Yes — full wheelchair access throughout, wheelchairs available at entrance (free)"
+  accessibility_features:
+    - "Wheelchair accessible entrances and elevators"
+    - "Wheelchair rental available (free, ID deposit required)"
+    - "Accessible restrooms on all floors"
+    - "Braille guides available (advance booking)"
+  best_for_elderly: "Excellent — indoor climate control, plenty of seating, elevators, and rest areas throughout galleries"
+
+# ── Itinerary Suggestions ──
+itineraries:
+  quick_2hours:
+    duration: "2 hours"
+    route: "Ground Floor: Ancient China (bronze age highlights) → 1st Floor: Road to Rejuvenation (brief) → exit"
+    highlights: "Simuwu Ding, jade burial suit, Tang gold"
+    best_for: "Time-pressed visitors wanting the absolute highlights"
+  
+  half_day_4hours:
+    duration: "4 hours"
+    route: "All of Ancient China (2.5h) → Road to Rejuvenation (1h) → One special exhibition (0.5h)"
+    highlights: "Complete Ancient China collection + modern history overview"
+    best_for: "Museum enthusiasts, first-time visitors"
+  
+  combo_tiananmen:
+    nearby_spots: "Tiananmen Square (immediately west), Forbidden City (10 min walk north), Qianmen Street (15 min south)"
+    day_plan: "Morning: Museum (3h) → Lunch at nearby Qianmen → Afternoon: Forbidden City or Tiananmen Square"

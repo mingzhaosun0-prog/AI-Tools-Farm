@@ -1,0 +1,98 @@
+name: "Shanghai Museum"
+subtitle: "A Treasury of Ancient Chinese Art — One of China's Finest Museums"
+description: |
+  The Shanghai Museum (上海博物馆) is a world-class museum housing over 1.2 million artefacts spanning 5,000 years of Chinese civilisation. Its collection of ancient Chinese bronzes, ceramics, calligraphy, jade, and paintings is among the finest anywhere in the world.
+
+  Housed in an iconic building shaped like an ancient Chinese bronze ding (tripod cauldron), the museum is organised into 11 galleries across four floors. The bronze collection alone is considered one of the three best in China, alongside the Palace Museum and the National Museum.
+
+  Unlike Beijing's enormous National Museum, the Shanghai Museum is perfectly sized for a half-day visit — extensive enough to be awe-inspiring but compact enough to avoid museum fatigue.
+history: |
+  Founded in 1952, the Shanghai Museum moved to its current People's Square location in 1996. The building was designed to symbolise a bronze ding — a choice that reflects the museum's world-renowned bronze collection.
+
+  The museum's collection was built primarily from donations and state allocations. During the Cultural Revolution (1966-1976), the museum staff protected many artefacts by hiding them, saving countless treasures from destruction.
+
+  Today, the museum continues to grow through archaeological discoveries and generous donations, regularly hosting world-class special exhibitions. Its conservation laboratory is one of the most advanced in Asia.
+opening_hours: "09:00 – 17:00 (last entry 16:00). Closed Mondays (except public holidays)."
+ticket_price: "Free (advanced booking recommended via WeChat mini-program or official website). Special exhibitions: ¥50-100."
+best_time: "Weekday mornings (fewer school groups). Avoid Mondays (closed)."
+tips:
+  - "BOOK FREE TICKETS ONLINE in advance — same-day tickets often run out."
+  - "Bring your passport — required for entry."
+  - "Allow 3-4 hours to see all galleries properly."
+  - "Start with the Bronze Gallery (ground floor) — the museum's crown jewel."
+  - "Audio guide recommended (¥40, available in 8 languages)."
+  - "The jade collection on the 3rd floor is exquisite and often overlooked."
+  - "Photography allowed (no flash, no tripod)."
+  - "Combine with People's Square and nearby Nanjing Road."
+images:
+  - url: "https://picsum.photos/seed/shanghai-museum-1/800/600"
+    caption: "The iconic bronze ding-shaped building of the Shanghai Museum"
+  - url: "https://picsum.photos/seed/shanghai-museum-2/800/600"
+    caption: "Exquisite ancient Chinese bronze vessels — the museum's finest collection"
+  - url: "https://picsum.photos/seed/shanghai-museum-3/800/600"
+    caption: "Delicate Ming Dynasty blue-and-white porcelain gallery"
+  - url: "https://picsum.photos/seed/shanghai-museum-4/800/600"
+    caption: "Jade carving gallery with artefacts spanning 5,000 years"
+location: "201 Renmin Avenue, People's Square, Huangpu District, Shanghai"
+activities: "Art appreciation, historical education, guided tours, special exhibitions, shopping (museum store)"
+estimated_time_needed: "3-4 hours"
+
+# ── Sections ──
+sections:
+  Bronze Gallery:
+    difficulty: "Easy"
+    crowd_level: "Moderate"
+    recommended_for: "Art lovers, history enthusiasts — THE must-see gallery"
+    description: "One of the world's finest collections of ancient Chinese bronzes. Over 400 pieces spanning the Shang, Zhou, and Han dynasties. Includes ritual vessels, weapons, and musical instruments."
+    pros: "World-class collection, superb curation"
+    cons: "Can be crowded, needs 45-60 min to appreciate"
+  
+  Ceramics Gallery:
+    difficulty: "Easy"
+    crowd_level: "Moderate"
+    recommended_for: "Art lovers, pottery enthusiasts"
+    description: "Comprehensive collection from Neolithic pottery to Ming/Qing imperial porcelain. Features the famous blue-and-white wares and rare polychrome pieces."
+  
+  Painting & Calligraphy:
+    difficulty: "Easy"
+    crowd_level: "Quiet"
+    recommended_for: "Art connoisseurs, calligraphy enthusiasts"
+    description: "Rotating exhibitions featuring masterworks from the Tang Dynasty to modern times. Pieces are rotated regularly to protect the delicate ink works."
+  
+  Jade Gallery:
+    difficulty: "Easy"
+    crowd_level: "Quiet"
+    recommended_for: "Jade lovers, those wanting a quieter gallery"
+    description: "Over 300 jade pieces from the Neolithic period through the Qing Dynasty. Exquisite carvings, ceremonial objects, and jewellery."
+  
+  Ming & Qing Furniture:
+    difficulty: "Easy"
+    crowd_level: "Quiet"
+    recommended_for: "Design enthusiasts, furniture lovers"
+    description: "Elegant examples of classical Chinese furniture — rosewood, mahogany, and bamboo pieces showcasing extraordinary craftsmanship."
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 2:00 PM. Weekends and holidays very crowded."
+  best_time_to_visit: "Weekday mornings (09:00-11:00) for a quiet experience"
+  seasonal_tips: "Comfortable year-round (indoor, climate-controlled). Summer afternoons bring more local visitors."
+  holiday_info: "Closed Mondays. Long queues on weekends and holidays — book ahead."
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "上海博物馆"
+  pinyin: "Shànghǎi Bówùguǎn"
+  chinese_address: "上海市黄浦区人民大道201号"
+  phone: "+86 21 6372 3500"
+  official_website: "https://www.shanghaimuseum.net/"
+  directions_by_metro: "Line 1, Line 2, or Line 8 (People's Square station, Exit 1). 5-min walk south."
+  cloakroom: "Free luggage storage available at entrance"
+  photography_policy: "Allowed in all galleries (no flash, no tripod, no selfie stick)"
+  audio_guide: "¥40, available in English, Chinese, Japanese, French, German, Russian, Korean, Spanish"
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Easy — indoor with elevators and escalators"
+  walking_distance: "2-4 km through galleries"
+  wheelchair_accessible: "Yes — full accessibility, wheelchairs available at entrance"
+  best_for_elderly: "Excellent — indoor, climate-controlled, elevators, seating throughout"

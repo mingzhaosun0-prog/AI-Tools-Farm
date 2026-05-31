@@ -58,6 +58,37 @@ def _difficulty_badge(difficulty: str) -> str:
 
 # ── Travel Helper Utilities ───────────────────────────────
 
+def _parse_hours(time_str: str) -> float:
+    """Parse '3-4 hours' or '2h' or '30 min' into float hours."""
+    if not time_str or time_str == "—":
+        return 2.0
+    t = time_str.lower().strip()
+    # "3-4 hours" → take min
+    import re
+    nums = re.findall(r"(\d+\.?\d*)", t)
+    if not nums:
+        return 2.0
+    if "+" in t:
+        return float(nums[0]) + 1.0
+    return float(nums[0])
+
+
+def _parse_cost(price_str: str) -> int:
+    """Extract a numeric cost (lowest value) from a ticket price string."""
+    if not price_str or price_str == "—":
+        return 0
+    import re
+    nums = re.findall(r"¥(\d+[\d,]*)", price_str)
+    if not nums:
+        nums = re.findall(r"(\d+[\d,]*)", price_str)
+    if not nums:
+        return 0
+    try:
+        return int(nums[0].replace(",", ""))
+    except ValueError:
+        return 0
+
+
 def _weather_tip():
     """Return simple seasonal advice."""
     month = datetime.now().month
@@ -135,25 +166,18 @@ def china_travel_guide():
         f"Explore top attractions in {city.title()}, China. Interactive guides with cost calculators, section comparisons, seasonal tips & planning tools.",
         city.title()
     )
-    st.markdown(f"""
-    <div style='
-        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #e74c3c 100%);
-        padding: 2.5rem 2rem;
-        border-radius: 1.5rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        color: white;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-    '>
-        <h1 style='margin:0;font-size:2.8rem;'>🇨🇳 China Travel Guide</h1>
-        <p style='margin:0.5rem 0 0 0;font-size:1.2rem;opacity:0.9;'>
-            Discover ancient wonders, vibrant culture & unforgettable experiences
-        </p>
-        <div style='margin-top:1rem;display:inline-block;background:rgba(255,255,255,0.15);padding:0.5rem 1.5rem;border-radius:2rem;'>
-            {season_icon} <strong>{season_name}</strong> — {season_desc}
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    hero_bg = "linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #e74c3c 100%)"
+    st.markdown(
+        f"<div style='background:{hero_bg};padding:2.5rem 2rem;border-radius:1.5rem;"
+        f"margin-bottom:2rem;text-align:center;color:white;box-shadow:0 8px 32px rgba(0,0,0,0.15);'>"
+        f"<h1 style='margin:0;font-size:2.8rem;'>&#127944; China Travel Guide</h1>"
+        f"<p style='margin:0.5rem 0 0 0;font-size:1.2rem;opacity:0.9;'>"
+        f"Discover ancient wonders, vibrant culture & unforgettable experiences</p>"
+        f"<div style='margin-top:1rem;display:inline-block;background:rgba(255,255,255,0.15);"
+        f"padding:0.5rem 1.5rem;border-radius:2rem;'>{season_icon} "
+        f"<strong>{season_name}</strong> &mdash; {season_desc}</div></div>",
+        unsafe_allow_html=True
+    )
 
     if not attractions:
         st.info(f"✨ No attractions loaded yet for **{city.title()}**. Add YAML files to `travel/data/{city}/`.")
@@ -185,13 +209,93 @@ def china_travel_guide():
     for spot in sorted_attractions:
         _render_attraction_card(spot)
 
-    # ── Quick Planning Tools ──
+    # ═══════════════════════════════════════════════════
+    # TOP 3: PLAN MY DAY — Full trip planner
+    # ═══════════════════════════════════════════════════
+    with st.expander("🗓️ Plan My Day — Build Your Perfect Day Trip", expanded=False):
+        st.markdown("Pick attractions and get an optimised route with time estimates & costs.")
+        spot_names = {a["name"]: a for a in attractions.values()}
+        all_names = list(spot_names.keys())
+
+        selected_plan = st.multiselect(
+            "Select attractions for your day trip",
+            all_names,
+            default=all_names[:min(3, len(all_names))],
+            max_selections=5,
+            key="plan_my_day_sel"
+        )
+
+        if len(selected_plan) >= 1:
+            col_plan_left, col_plan_right = st.columns([3, 2])
+
+            with col_plan_left:
+                st.markdown("#### 🗺️ Suggested Route Order")
+                # Sorted by estimated time needed (shorter first = morning, longer = afternoon)
+                sorted_plan = sorted(
+                    selected_plan,
+                    key=lambda n: _parse_hours(spot_names[n].get("estimated_time_needed", "2h"))
+                )
+
+                total_time = 0
+                total_cost = 0
+                route_lines = []
+                for idx, name in enumerate(sorted_plan):
+                    s = spot_names[name]
+                    hrs = _parse_hours(s.get("estimated_time_needed", "2h"))
+                    total_time += hrs + 0.5  # +30 min travel between spots
+
+                    # Extract base cost
+                    ticket_str = s.get("ticket_price", "¥0")
+                    cost = _parse_cost(ticket_str)
+                    total_cost += cost
+
+                    travel_note = ""
+                    if idx > 0:
+                        travel_note = " 🚶 → *(30 min travel)*"
+                    time_str = s.get("estimated_time_needed", "—")
+                    route_lines.append(
+                        f"**{idx+1}. {name}** ⏱️ {time_str}{travel_note}"
+                    )
+
+                for line in route_lines:
+                    st.markdown(f"- {line}")
+
+                st.markdown("---")
+                st.success(f"**Total estimated time: {total_time:.1f} hours** — Start at 08:00 → Finish ~{8+total_time:.0f}:00")
+
+            with col_plan_right:
+                st.markdown("#### 💰 Cost Breakdown")
+                for name in sorted_plan:
+                    s = spot_names[name]
+                    ticket_str = s.get("ticket_price", "¥0")
+                    cost = _parse_cost(ticket_str)
+                    short_ticket = (ticket_str[:28] + "…") if len(ticket_str) > 28 else ticket_str
+                    st.markdown(f"- **{name}** → {short_ticket}")
+
+                st.markdown(f"---")
+                st.info(f"**🎟️ Total entry: ~¥{total_cost:,}** per person")
+
+            # Export plan
+            if st.button("📋 Copy This Plan to Clipboard", key="copy_plan", use_container_width=True):
+                plan_text = f"🗓️ My Day Trip Plan ({len(selected_plan)} attractions)\n"
+                plan_text += "=" * 40 + "\n"
+                for idx, name in enumerate(sorted_plan):
+                    plan_text += f"{idx+1}. {name}\n"
+                plan_text += f"\nTotal time: ~{total_time:.1f} hours\n"
+                plan_text += f"Total cost: ~¥{total_cost:,} per person\n"
+                st.code(plan_text, language="text")
+                st.toast("✅ Plan ready! Copy the code block above.", icon="📋")
+        else:
+            st.info("Select at least one attraction to start planning.")
+
+    # ═══════════════════════════════════════════════════
+    # Quick Planning Tools
+    # ═══════════════════════════════════════════════════
     with st.expander("🧭 Travel Planning Tools", expanded=False):
         col_t1, col_t2 = st.columns(2)
         with col_t1:
             st.markdown("#### 📅 Best Times to Visit")
-            month = datetime.now().month
-            best_months = "April–June & September–October" 
+            best_months = "April–June & September–October"
             st.info(f"**Peak season:** {best_months}")
             st.markdown("- ✅ **Spring (Mar–May):** Cherry blossoms, mild weather")
             st.markdown("- ✅ **Autumn (Sep–Nov):** Golden foliage, clear skies")
@@ -208,7 +312,9 @@ def china_travel_guide():
             for mode, desc in transport_opts.items():
                 st.markdown(f"**{mode}** — {desc}")
 
-    # ── Compare attractions ──
+    # ═══════════════════════════════════════════════════
+    # Compare attractions
+    # ═══════════════════════════════════════════════════
     with st.expander("⚖️ Compare Attractions Side-by-Side", expanded=False):
         names = [a["name"] for a in attractions.values()]
         selected = st.multiselect("Select 2-4 attractions to compare", names, default=names[:min(2, len(names))])
@@ -216,29 +322,84 @@ def china_travel_guide():
             comp_data = []
             for a in attractions.values():
                 if a["name"] in selected:
+                    # Determine difficulty
+                    secs = a.get("sections", {})
+                    diff = "—"
+                    if secs:
+                        diffs = [s.get("difficulty", "") for s in secs.values()]
+                        diff = diffs[0] if diffs else "—"
                     comp_data.append({
                         "Attraction": a["name"],
                         "Rating ★": a.get("rating", "—"),
-                        "Ticket (¥)": (a.get("ticket_price", "")[:30] + "…") if a.get("ticket_price") and len(a["ticket_price"]) > 30 else a.get("ticket_price", "—"),
-                        "Hours": (a.get("opening_hours", "")[:35] + "…") if a.get("opening_hours") and len(a["opening_hours"]) > 35 else a.get("opening_hours", "—"),
+                        "Difficulty": diff,
+                        "Ticket (¥)": (a.get("ticket_price", "")[:28] + "…") if a.get("ticket_price") and len(a["ticket_price"]) > 28 else a.get("ticket_price", "—"),
+                        "Hours": (a.get("opening_hours", "")[:30] + "…") if a.get("opening_hours") and len(a["opening_hours"]) > 30 else a.get("opening_hours", "—"),
                         "Time Needed": a.get("estimated_time_needed", "—"),
-                        "Sections": len(a.get("sections", {})),
+                        "Sections": len(secs),
                     })
             st.dataframe(comp_data, width="stretch", hide_index=True)
         else:
             st.info("Select at least 2 attractions to compare.")
 
 
+def _crowd_badge(crowd_text: str) -> str:
+    """Return an emoji-based crowd indicator from a crowd_level string."""
+    t = crowd_text.lower()
+    if any(w in t for w in ["very crowded", "extremely crowded", "crowded"]):
+        return "🔴 Very Crowded"
+    elif any(w in t for w in ["moderately", "moderate"]):
+        return "🟡 Moderate"
+    elif any(w in t for w in ["sparse", "quiet", "peaceful"]):
+        return "🟢 Quiet"
+    return "⚪ Unknown"
+
+
 def _render_attraction_card(spot: dict):
-    """Render a single attraction card with rich visuals."""
+    """Render a single attraction card with rich visuals — image, badges, quick info."""
     rating_html = _star_rating(spot.get("rating", 0))
     sections_count = len(spot.get("sections", {}))
 
-    # Build tag items
+    # ── Difficulty badge ──
+    difficulty = "—"
+    sections = spot.get("sections", {})
+    if sections:
+        # Use the easiest section as overall difficulty indicator
+        diffs = [s.get("difficulty", "").lower() for s in sections.values()]
+        if any(d == "easy" for d in diffs):
+            difficulty = "Easy"
+        elif any(d in ("moderate",) for d in diffs):
+            difficulty = "Moderate"
+        elif any(d in ("challenging",) for d in diffs):
+            difficulty = "Challenging"
+        elif any(d in ("strenuous",) for d in diffs):
+            difficulty = "Strenuous"
+    diff_badge = _difficulty_badge(difficulty)
+
+    # ── Crowd indicator ──
+    crowd_html = ""
+    highest_crowd = "moderate"
+    for s in sections.values():
+        cl = s.get("crowd_level", "").lower()
+        if "very crowded" in cl or "extremely crowded" in cl:
+            highest_crowd = "very crowded"
+        elif "moderate" in cl and highest_crowd != "very crowded":
+            highest_crowd = "moderate"
+        elif "sparse" in cl or "quiet" in cl and highest_crowd not in ("very crowded", "moderate"):
+            highest_crowd = "sparse"
+    crowd_display = {"very crowded": "🔴 Crowded", "moderate": "🟡 Moderate", "sparse": "🟢 Quiet"}
+    crowd_html = f"<span class='tag'>{crowd_display.get(highest_crowd, '⚪ —')}</span>"
+
+    # ── Image thumbnail ──
+    thumb_html = ""
+    if spot.get("images"):
+        img_url = spot["images"][0]["url"]
+        thumb_html = f"<img src='{img_url}' style='width:100%;height:160px;object-fit:cover;border-radius:1rem 1rem 0 0;margin-bottom:0.5rem;' alt='{spot['name']}'>"
+
+    # ── Build tag items ──
     tags = []
     hours = spot.get("opening_hours", "N/A")
-    if len(hours) > 35:
-        hours = hours[:35] + "…"
+    if len(hours) > 30:
+        hours = hours[:30] + "…"
     tags.append(f"<span class='tag'>🕒 {hours}</span>")
 
     if sections_count:
@@ -246,45 +407,65 @@ def _render_attraction_card(spot: dict):
         tags.append(f"<span class='tag'>🗺️ {sections_count} {label}</span>")
 
     acts = spot.get("activities", "")
-    if len(acts) > 30:
-        acts = acts[:30] + "…"
+    if len(acts) > 28:
+        acts = acts[:28] + "…"
     if acts:
         tags.append(f"<span class='tag'>🏞️ {acts}</span>")
 
     # Truncate ticket price
     ticket = spot.get("ticket_price", "N/A")
-    if len(ticket) > 45:
-        ticket = ticket[:45] + "…"
+    if len(ticket) > 40:
+        ticket = ticket[:40] + "…"
 
+    # Time needed
+    time_needed = spot.get("estimated_time_needed", "—")
+
+    # Time bar
+    time_bar = ""
+    if time_needed != "—":
+        try:
+            hours_val = int(time_needed.split("-")[0].split("h")[0].strip())
+            filled = min(hours_val, 8)
+            empty = 8 - filled
+            time_bar = "█" * filled + "░" * empty
+            time_bar = f"<span style='font-size:0.75rem;font-family:monospace;color:#475569;'>{time_bar} {time_needed}</span>"
+        except (ValueError, IndexError):
+            time_bar = f"<span style='font-size:0.8rem;color:#475569;'>⏱️ {time_needed}</span>"
+
+    # Build card HTML — use inline styles to avoid markdown interference
+    tags_html = " ".join(tags)
     card_html = (
-        "<div class='attraction-card'>"
-        "<div class='attraction-card-inner'>"
-        "<div class='attraction-card-body'>"
-        "<div class='attraction-card-header'>"
-        f"<h3>{spot['name']}</h3>"
+        "<div style='background:white;border-radius:1.2rem;overflow:hidden;"
+        "margin:1rem 0;box-shadow:0 2px 12px rgba(0,0,0,0.05);border:1px solid #e9ecef;'>"
+        f"{thumb_html}"
+        "<div style='padding:1.5rem;'>"
+        "<div style='display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;'>"
+        f"<h3 style='margin:0;font-size:1.4rem;color:#1e293b;'>{spot['name']} "
+        f"<span style='color:#e74c3c;font-size:0.85em;'>&#25915;&#30053;</span></h3>"
         f"<div>{rating_html}</div>"
         "</div>"
-        f"<p class='attraction-subtitle'>{spot.get('subtitle', '')}</p>"
-        "<div class='attraction-meta'>"
-        f"<span>📍 {spot.get('location', 'N/A')}</span>"
-        f"<span>🎟️ {ticket}</span>"
+        f"<div style='color:#64748b;margin:0.3rem 0 0.8rem;font-size:0.95rem;'>{spot.get('subtitle', '')}</div>"
+        "<div style='display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:0.6rem;font-size:0.9rem;color:#475569;'>"
+        f"<span>&#128205; {spot.get('location', 'N/A')}</span>"
+        f"<span>&#127934; {ticket}</span>"
+        f"<span>{time_bar}</span>"
         "</div>"
-        "<div class='attraction-tags'>"
-        + "".join(tags)
-        + "</div></div></div></div>"
+        "<div style='display:flex;flex-wrap:wrap;gap:0.5rem;'>"
+        f"{diff_badge} {crowd_html} {tags_html}"
+        "</div></div></div>"
     )
 
     st.markdown(card_html, unsafe_allow_html=True)
 
     col_b1, col_b2, col_b3 = st.columns([1, 1, 1])
     with col_b1:
-        if st.button(f"🔍 View Details — {spot['name']}", key=f"view_{spot['_slug']}", width="stretch"):
+        if st.button(f"🔍 View Details — {spot['name']}", key=f"view_{spot['_slug']}", use_container_width=True):
             st.session_state["beijing_view"] = "detail"
             st.session_state["selected_spot_slug"] = spot["_slug"]
             st.session_state["full_mode_spot"] = None
             st.rerun()
     with col_b2:
-        if st.button(f"🗺️ Full Page", key=f"full_{spot['_slug']}", width="stretch"):
+        if st.button(f"🗺️ Full Page", key=f"full_{spot['_slug']}", use_container_width=True):
             st.session_state["beijing_view"] = "detail"
             st.session_state["selected_spot_slug"] = spot["_slug"]
             st.session_state["full_mode_spot"] = spot
@@ -297,7 +478,7 @@ def _render_attraction_card(spot: dict):
         if st.button(
             f"{'❤️' if st.session_state[fav_key] else '🤍'} Favourite",
             key=f"fav_btn_{spot['_slug']}",
-            width="stretch"
+            use_container_width=True
         ):
             st.session_state[fav_key] = not st.session_state[fav_key]
             if st.session_state[fav_key]:
@@ -323,17 +504,22 @@ def show_spot_detail(spot: dict, full_page: bool = False):
     # ── Hero header ──
     bg_style = ""
     if spot.get("images"):
-        bg_style = f"background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)), url('{spot['images'][0]['url']}') center/cover;"
+        bg_style = f"background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url('{spot['images'][0]['url']}') center/cover;"
     else:
-        bg_style = "background: linear-gradient(135deg, #1e3c72, #2a5298);"
+        bg_style = "background:linear-gradient(135deg,#1e3c72,#2a5298);"
+    fs = '"2.8rem"' if full_page else '"2.2rem"'
+    ss = '"1.3rem"' if full_page else '"1.1rem"'
 
-    st.markdown(f"""
-    <div style='{bg_style} padding: 3rem 2rem 2rem; border-radius: 1.5rem; margin-bottom: 1.5rem; text-align: center; color: white; min-height: 220px; display: flex; flex-direction: column; justify-content: center;'>
-        <h1 style='margin:0; font-size:{"2.8rem" if full_page else "2.2rem"};'>{spot['name']}</h1>
-        <p style='margin:0.3rem 0 0.5rem;font-size:{"1.3rem" if full_page else "1.1rem"};opacity:0.9;'>{spot.get('subtitle', '')}</p>
-        <div>{rating_html}</div>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        f"<div style='{bg_style}padding:3rem 2rem 2rem;border-radius:1.5rem;"
+        f"margin-bottom:1.5rem;text-align:center;color:white;min-height:220px;"
+        f"display:flex;flex-direction:column;justify-content:center;'>"
+        f"<h1 style='margin:0;font-size:{fs};'>{spot['name']}"
+        f" <span style='color:#ffd700;font-size:0.75em;margin-left:0.5rem;'>&#25915;&#30053;</span></h1>"
+        f"<p style='margin:0.3rem 0 0.5rem;font-size:{ss};opacity:0.9;'>{spot.get('subtitle','')}</p>"
+        f"<div>{rating_html}</div></div>",
+        unsafe_allow_html=True
+    )
 
     # ── Quick info badges ──
     col_badges = st.columns(5)
@@ -539,17 +725,17 @@ def show_spot_detail(spot: dict, full_page: bool = False):
     if not full_page:
         col_back, col_full = st.columns(2)
         with col_back:
-            if st.button("🔙 Back to Attractions", width="stretch", type="primary"):
+            if st.button("🔙 Back to Attractions", use_container_width=True, type="primary"):
                 st.session_state["beijing_view"] = "list"
                 st.session_state["selected_spot_slug"] = None
                 st.session_state["full_mode_spot"] = None
                 st.rerun()
         with col_full:
-            if st.button("📺 View Full Page", width="stretch"):
+            if st.button("📺 View Full Page", use_container_width=True):
                 st.session_state["full_mode_spot"] = spot
                 st.rerun()
     else:
-        if st.button("✖️ Exit Full Page", width="stretch", type="primary"):
+        if st.button("✖️ Exit Full Page", use_container_width=True, type="primary"):
             st.session_state["full_mode_spot"] = None
             st.session_state["beijing_view"] = "list"
             st.rerun()

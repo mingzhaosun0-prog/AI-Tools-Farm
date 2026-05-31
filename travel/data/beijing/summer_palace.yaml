@@ -21,3 +21,68 @@ images:
 location: "Haidian District, Beijing"
 activities: "Boating, walking trails, temple visits"
 estimated_time_needed: "3-5 hours"
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 4:00 PM daily"
+  best_time_to_visit: "7:00-9:00 AM (morning light, fewer crowds) or after 5:00 PM"
+  seasonal_tips: "May-Jun: Spring flowers. Sep-Oct: Autumn foliage, perfect weather. Jul-Aug: Hot, avoid midday."
+  holiday_info: "Avoid weekends and holidays. Weekdays are significantly quieter."
+  special_times: "Early morning: local tai chi groups, beautiful light"
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "颐和园"
+  pinyin: "Yíhéyuán"
+  chinese_address: "北京市海淀区新建宫门路19号"
+  phone: "+86 10 6288 1144"
+  wechat_official: "SummerPalaceBeijing"
+  directions_by_metro: "Line 4 (北宫门 North Gate) or Line 15 (Xiyuan)"
+  nearby_metro_exit: "North Gate: Exit A (Summer Palace North Gate), South Gate: Bus 330"
+  parking_available: true
+  parking_cost: "¥10/hour"
+  wheelchair_rental: "¥50 deposit at main entrance"
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Easy to Moderate - mostly flat paved paths with some stairs"
+  walking_distance: "3-8 km depending on route (can be shortened)"
+  wheelchair_accessible: "Mostly yes - main pathways are paved and accessible"
+  accessibility_features:
+    - "Accessible restrooms throughout"
+    - "Wheelchair rentals available (¥50)"
+    - "Flat pathways along lake"
+    - "Some stairs to temples (can be avoided)"
+  best_for_elderly: "Yes - comfortable pace, can rest by water, many seating areas"
+  boat_tours_accessible: "Yes - boats have gentle boarding"
+
+# ── Itinerary Suggestions ──
+itineraries:
+  quick_2hours:
+    duration: "2 hours"
+    route: "North Gate → Marble Boat → Longevity Hill (short climb) → Long Corridor → exit"
+    highlights: "Iconic sights, photo ops, good overview"
+    best_for: "Limited time, those wanting main attractions"
+  
+  half_day_3hours:
+    duration: "3-4 hours"
+    route: "North Gate → Long Corridor → Temple of Lingyin → Marble Boat → Kunming Lake Walk → Hall of Jade Ripples"
+    highlights: "Complete tour with gardens, temples, and lake views"
+    best_for: "Most visitors, good mix of culture and nature"
+    tip: "Include one boat ride for authentic experience (¥50 per person)"
+    
+  full_day_5hours:
+    duration: "5-6 hours"
+    route: "Complete exploration of all temples, gardens, lakeside paths, Longevity Hill summit"
+    highlights: "Comprehensive experience, includes less-visited areas, excellent for photography"
+    best_for: "History enthusiasts, photographers, those wanting deep experience"
+  
+  early_morning_escape:
+    duration: "2-3 hours"
+    route: "7:00 AM entry → join tai chi with locals → walk quiet paths → breakfast cafés"
+    highlights: "Local experience, peaceful atmosphere, perfect light for photos"
+    best_for: "Those seeking authentic local culture, photographers, early risers"
+  
+  combo_nearby:
+    option1: "Summer Palace + Forbidden City: Spend morning at palace, afternoon at city"
+    option2: "Summer Palace + Jingshan Park: Day at palace, evening sunset at park"

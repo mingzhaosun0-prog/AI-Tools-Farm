@@ -1,0 +1,94 @@
+name: "Oriental Pearl Tower"
+subtitle: "Shanghai's Most Iconic Landmark — 11 Spheres, One Unforgettable View"
+description: |
+  The Oriental Pearl Radio & TV Tower (东方明珠塔) is the instantly recognisable symbol of Shanghai's Pudong skyline. Standing 468 metres tall, its unique design features 11 spheres of varying sizes connected by three vertical columns, evoking a verse from Tang Dynasty poet Bai Juyi about pearls falling on a jade plate.
+
+  The tower offers multiple observation levels, a revolving restaurant, the Shanghai Municipal History Museum, and — at 259 metres — a glass-bottomed observation deck where you can walk on air. The view from the top encompasses the entire Shanghai metropolis, from the Bund's colonial facades to the sprawling suburbs beyond.
+
+  While newer towers have surpassed it in height, the Oriental Pearl remains the most beloved symbol of Shanghai's transformation into a global city.
+history: |
+  Designed by Chinese architect Jiang Huan, the Oriental Pearl Tower was built between 1991 and 1994 at a cost of ¥840 million. At the time, it was the tallest structure in China and the third-tallest TV tower in the world.
+
+  The tower was conceived as a symbol of Shanghai's ambitions as an international financial centre, and its completion marked the beginning of Pudong's transformation from farmland into a futuristic skyline.
+
+  The lower sphere (98 metres) houses a revolving restaurant, the upper sphere (263 metres) contains the main observation deck, and the space module (351 metres) offers the highest publicly accessible viewpoint. The tower also houses a 20-room hotel and the Shanghai Municipal History Museum in its base.
+opening_hours: "08:00 – 21:30 (last entry 21:00)"
+ticket_price: "¥199 (adult, all observation decks + history museum). Children (1-1.4m): ¥99. Seniors (65+): ¥99."
+best_time: "Sunset to evening — watch the city light up. Book for 16:00-17:00 entry."
+tips:
+  - "The glass-bottom observation deck at 259m is a must-do."
+  - "Visit the Shanghai Municipal History Museum in the base — included in ticket."
+  - "The revolving restaurant offers dinner with a view (¥388-688 per person)."
+  - "Go on a clear day — visibility matters at 351m."
+  - "Queues can be 1-2 hours on weekends. Buy skip-the-line tickets online."
+  - "Combine with Shanghai Tower for the complete Pudong skyline experience."
+  - "The tower is beautifully illuminated at night — great photo from the Bund side."
+images:
+  - url: "https://picsum.photos/seed/oriental-pearl-1/800/600"
+    caption: "The Oriental Pearl Tower's distinctive spheres against the Pudong skyline"
+  - url: "https://picsum.photos/seed/oriental-pearl-2/800/600"
+    caption: "Glass-bottom observation deck at 259 metres — walk on air!"
+  - url: "https://picsum.photos/seed/oriental-pearl-3/800/600"
+    caption: "Night view from the tower — the Bund and Huangpu River illuminated"
+  - url: "https://picsum.photos/seed/oriental-pearl-4/800/600"
+    caption: "The tower lit up in vibrant colours at night"
+location: "1, Century Avenue, Lujiazui, Pudong, Shanghai"
+activities: "Observation, fine dining, museum visit, glass-floor walking, photography"
+estimated_time_needed: "2-3 hours"
+
+# ── Sections ──
+sections:
+  Space Module (351m):
+    difficulty: "Easy"
+    crowd_level: "Moderate"
+    recommended_for: "Best views, height enthusiasts"
+    description: "The highest observation level inside the smallest sphere. 360-degree panoramic views. Less crowded than the main observation deck."
+    pros: "Highest point, fewer crowds"
+    cons: "Smaller space, can feel windy at the top"
+  
+  Main Observation Deck (263m):
+    difficulty: "Easy"
+    crowd_level: "Very crowded"
+    recommended_for: "All visitors, photo spots"
+    description: "The largest observation area inside the upper sphere. Floor-to-ceiling windows with views in all directions."
+    pros: "Spacious, best city panorama"
+    cons: "Can be very crowded, queue for photo spots"
+  
+  Glass-Bottom Deck (259m):
+    difficulty: "Easy (requires courage!)"
+    crowd_level: "Very crowded"
+    recommended_for: "Thrill-seekers, families"
+    description: "A section of transparent glass flooring where you can literally walk on air, looking down 259 metres to the ground below."
+    pros: "Thrilling experience, great photo op"
+    cons: "Not for those with vertigo, busy"
+  
+  Revolving Restaurant (267m):
+    difficulty: "Easy"
+    crowd_level: "Reservation only"
+    recommended_for: "Couples, special occasions"
+    description: "A 100-seat revolving restaurant that completes a full rotation in about 2 hours. Offers both Chinese and Western buffet."
+    pros: "Unique dining experience, stunning views"
+    cons: "Expensive, requires reservation"
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 4:00 PM daily. Sunset time very busy."
+  best_time_to_visit: "Weekday mornings to avoid queues. Sunset arrival for day-to-night transition."
+  seasonal_tips: "Clear winter days offer best visibility. Avoid rainy and heavily overcast days."
+  holiday_info: "Long waiting times (1-3 hours) during Chinese holidays and summer weekends."
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "东方明珠塔"
+  pinyin: "Dōngfāng Míngzhū Tǎ"
+  chinese_address: "上海市浦东新区世纪大道1号"
+  phone: "+86 21 5879 1888"
+  directions_by_metro: "Line 2 (Lujiazui station, Exit 2). Direct access through the Lujiazui skywalk."
+  restaurant_reservations: "Recommended for dinner (¥388-688). Call +86 21 5879 1888 ext 8208."
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Easy — all indoor with elevators"
+  walking_distance: "Minimal"
+  wheelchair_accessible: "Yes — full accessibility throughout"
+  best_for_elderly: "Excellent — indoor, elevators, seating areas"

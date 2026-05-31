@@ -1,0 +1,105 @@
+name: "Lama Temple (Yonghe Temple)"
+subtitle: "The Most Renowned Tibetan Buddhist Monastery Outside Tibet"
+description: |
+  The Lama Temple, officially known as Yonghe Temple (雍和宫), is one of the largest and most important Tibetan Buddhist monasteries in the world. Built in 1694 as the residence for a Ming Dynasty eunuch, it was later converted into a lamasery in 1744.
+
+  The temple features five grand halls decorated with intricate murals, rotating sutra cabinets, and stunning bronze statues. The highlight is the 26-metre-tall statue of the Maitreya Buddha (Future Buddha), carved from a single sandalwood log — a Guinness World Record holder.
+
+  Despite being a functioning monastery, the temple is open to the public and attracts millions of visitors annually who come to admire its architecture, burn incense for blessings, and soak in the serene spiritual atmosphere.
+history: |
+  The temple's history began in 1694 when it was built as a palace for the eldest son of Qing Emperor Kangxi. In 1722, it was converted into a residence for his son, who would become Emperor Qianlong, one of China's greatest rulers.
+
+  In 1744, Emperor Qianlong ordered the conversion of the palace into a Tibetan Buddhist monastery for lamas from Mongolia and Tibet — a strategic decision that strengthened ties between the Qing court and the Tibetan Buddhist world.
+
+  The temple has survived multiple fires, the Cultural Revolution (where it was protected by Premier Zhou Enlai's intervention), and continues today as a living monastery where monks still study, pray, and perform ceremonies.
+opening_hours: "09:00 – 16:30 (April–October), 09:00 – 16:00 (November–March)"
+ticket_price: "¥25 (includes free sticks of incense)"
+best_time: "Weekday mornings (weekends are extremely crowded). Best months: April-June and September-October."
+tips:
+  - "Free incense is provided — use it at the main halls."
+  - "Dress modestly (shoulders and knees covered)."
+  - "Turn the prayer wheels clockwise."
+  - "Write your wishes on tags near the main hall."
+  - "Combine with Confucious Temple (next door, ¥30)."
+  - "Visit early to avoid tour bus crowds."
+images:
+  - url: "https://picsum.photos/seed/lama-temple-1/800/600"
+    caption: "The magnificent Hall of Harmony with ornate roof details"
+  - url: "https://picsum.photos/seed/lama-temple-2/800/600"
+    caption: "The towering 26m Maitreya Buddha statue carved from sandalwood"
+  - url: "https://picsum.photos/seed/lama-temple-3/800/600"
+    caption: "Incense smoke rising from bronze censers in the courtyard"
+  - url: "https://picsum.photos/seed/lama-temple-4/800/600"
+    caption: "Intricate Tibetan Buddhist murals adorning the temple walls"
+location: "Yonghegong Street, Dongcheng District, Beijing"
+activities: "Incense offering, prayers, photography (exterior), Chinese Buddhist art appreciation"
+estimated_time_needed: "1.5-2.5 hours"
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 2:00 PM especially on weekends and Buddhist holy days"
+  best_time_to_visit: "09:00 AM opening time for a serene experience"
+  seasonal_tips: "Chinese New Year period: very crowded but special ceremonies. Summer: more tourists."
+  holiday_info: "Extremely crowded during Chinese New Year, Buddhist festivals (especially the 1st and 15th of lunar month)"
+
+# ── Sections ──
+sections:
+  Yonghe Gate:
+    difficulty: "Easy"
+    crowd_level: "Moderate"
+    recommended_for: "Arrival, orientation, entrance photos"
+    description: "The entrance gate featuring the Hall of Heavenly Kings with a statue of Maitreya Buddha flanked by Four Heavenly Kings."
+  
+  Hall of Harmony:
+    difficulty: "Easy"
+    crowd_level: "Moderately crowded"
+    recommended_for: "Architecture enthusiasts, photographers"
+    description: "The main prayer hall with ornate ceiling murals, prayer wheels, and three large bronze Buddha statues representing past, present, and future."
+  
+  Hall of Eternal Protection:
+    difficulty: "Easy"
+    crowd_level: "Very crowded"
+    recommended_for: "Buddhist devotees, wish-makers"
+    description: "The most popular hall for prayer and incense offerings. Dedicated to Tsongkhapa, founder of the Gelug school of Tibetan Buddhism."
+  
+  Pavilion of the Wheel of Law:
+    difficulty: "Easy"
+    crowd_level: "Moderate"
+    recommended_for: "Art lovers, history buffs"
+    description: "Houses a large rotating sutra cabinet (scripture library) with 108 volumes of Buddhist texts."
+  
+  Wanfu Pavilion:
+    difficulty: "Easy (stairs inside)"
+    crowd_level: "Very crowded"
+    recommended_for: "Everyone — the main attraction"
+    description: "Three-story pavilion housing the magnificent 26-metre Maitreya Buddha statue carved from a single sandalwood log in 1750."
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "雍和宫"
+  pinyin: "Yōnghé Gōng"
+  chinese_address: "北京市东城区雍和宫大街12号"
+  directions_by_metro: "Line 2 or Line 5 (Yonghegong station, Exit C or D)"
+  audio_guide: "Available at entrance (¥40, available in English, Chinese, French, Japanese)"
+  photography_policy: "Photography allowed in courtyards but NOT inside temple halls (no flash)"
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Easy — flat courtyards with some steps into halls"
+  walking_distance: "1-2 km through the complex"
+  wheelchair_accessible: "Partially — main courtyards are accessible; some halls have steps and no ramp"
+  best_for_elderly: "Yes — easy walking, benches available in courtyards, mostly flat"
+
+# ── Itinerary Suggestions ──
+itineraries:
+  quick_1hour:
+    duration: "1 hour"
+    route: "Main axis: Gate → Hall of Harmony → Wanfu Pavilion (Maitreya Buddha) → exit"
+    highlights: "The iconic Buddha statue and main prayer hall"
+    best_for: "Limited time, Buddha statue must-see"
+  
+  standard_2hours:
+    duration: "2 hours"
+    route: "All 5 halls on main axis → side halls → Confucious Temple (combined visit)"
+    highlights: "Full temple experience including adjacent Confucius Temple"
+    best_for: "Most visitors"

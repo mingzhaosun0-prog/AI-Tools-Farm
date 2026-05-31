@@ -1,0 +1,85 @@
+name: "Beihai Park"
+subtitle: "Imperial Garden Paradise with a Thousand-Year-Old Lake"
+description: |
+  Beihai Park (Beihai Gongyuan) is one of China's oldest and best-preserved imperial gardens, dating back over 1,000 years. Centred around a picturesque lake with the iconic White Pagoda perched on Qionghua Island, the park combines grand imperial architecture with serene natural beauty.
+
+  Covering 69 hectares — more than half of which is water — Beihai features winding corridors, elaborate pavilions, ancient temples, and lush gardens that exemplify the pinnacle of Chinese landscape design. The park's name literally means "North Sea," as it lies north of the Forbidden City.
+
+  Unlike the grand ceremonial spaces of the Forbidden City, Beihai was designed as a place of leisure — emperors and their families came here to boat, stroll, and escape the summer heat.
+history: |
+  Beihai Park's origins trace back to the 10th century (Liao Dynasty), making it one of Beijing's most ancient imperial sites. The park was expanded during the Jin Dynasty (12th century), when the lake was dug and the earliest palaces were built.
+
+  The most iconic structure, the White Pagoda (Baita), was built in 1651 during the Qing Dynasty to commemorate a visit by the 5th Dalai Lama. The 36-metre-high Tibetan-style stupa sits atop Qionghua Island and can be seen from across Beijing.
+
+  After the fall of the Qing Dynasty in 1912, the park was opened to the public in 1925. It survived the Cultural Revolution largely intact and was designated a key national heritage site in 1961.
+opening_hours: "06:00 – 21:00 (park grounds), 08:00 – 18:00 (inner attractions/Qionghua Island). Summer extended hours."
+ticket_price: "¥10 (winter), ¥20 (summer) — includes park entry. ¥15 extra for Qionghua Island and White Pagoda access."
+best_time: "Early morning (local tai chi groups, peaceful). Late afternoon (golden light over the lake). Spring for cherry blossoms."
+tips:
+  - "Rent a paddle boat on the lake (¥60-120/hour depending on size)."
+  - "Walk across the decorative arched bridge to Qionghua Island."
+  - "Visit the Nine-Dragon Screen — a 25-metre glazed tile wall."
+  - "Try traditional Beijing snacks at the park's tea house."
+  - "Climb up the White Pagoda hill for panoramic city views."
+  - "Combine with Jingshan Park for a half-day imperial garden tour."
+images:
+  - url: "https://picsum.photos/seed/beihai-park-1/800/600"
+    caption: "The White Pagoda reflected in Beihai Lake at sunset"
+  - url: "https://picsum.photos/seed/beihai-park-2/800/600"
+    caption: "Paddle boats on the lake with traditional architecture beyond"
+  - url: "https://picsum.photos/seed/beihai-park-3/800/600"
+    caption: "The exquisite Nine-Dragon Screen glazed tile wall"
+  - url: "https://picsum.photos/seed/beihai-park-4/800/600"
+    caption: "Covered walkway winding through the garden"
+location: "Wenjin Street, Xicheng District, Beijing (northwest of Forbidden City)"
+activities: "Boating, photography, garden walks, temple visits, people-watching (locals practising tai chi, dancing, singing)"
+estimated_time_needed: "2-3 hours"
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 4:00 PM. Weekends busier than weekdays."
+  best_time_to_visit: "07:00-09:00 (morning calm, local activities) or 16:00-18:00 (golden hour light)"
+  seasonal_tips: "Spring (Mar-May): Cherry blossoms and flowers. Summer: Boating season, but hot. Autumn: Beautiful foliage. Winter: Frozen lake activities, fewer crowds."
+  holiday_info: "Busy on weekends and holidays, especially during spring blossom season"
+
+# ── Sections ──
+sections:
+  Qionghua Island & White Pagoda:
+    difficulty: "Moderate (stairs to top)"
+    crowd_level: "Very crowded"
+    recommended_for: "All visitors, photographers"
+    description: "The centrepiece of the park — an island connected by a beautiful arched bridge. Atop it sits the iconic White Pagoda, a Tibetan-style stupa offering panoramic views."
+    pros: "Iconic views, beautiful architecture, best photo spot"
+    cons: "Crowded, stairs required for pagoda access"
+  
+  Round City:
+    difficulty: "Easy"
+    crowd_level: "Moderate"
+    recommended_for: "History enthusiasts, art lovers"
+    description: "A circular walled complex at the park's southern entrance, housing the Jade Buddha and a famous large jade bowl from the Yuan Dynasty."
+    pros: "Rare historical artefacts, quiet and contemplative"
+    cons: "Less visually dramatic than the pagoda"
+  
+  East Bank Gardens:
+    difficulty: "Easy"
+    crowd_level: "Quiet"
+    recommended_for: "Walkers, those seeking peace"
+    description: "A series of smaller garden areas along the eastern shore, featuring pavilions, rockeries, and the famous Nine-Dragon Screen."
+    pros: "Peaceful, fewer tourists, the Nine-Dragon Screen is a must-see"
+    cons: "Fewer amenities, can feel repetitive"
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "北海公园"
+  pinyin: "Běihǎi Gōngyuán"
+  chinese_address: "北京市西城区文津街1号"
+  directions_by_metro: "Line 6 (Beihai North station, Exit B). Also accessible from Line 4 (Xisi station)."
+  boat_rental: "Available at the south dock. ¥60-120/hour. Deposits required."
+  nearby_gates: "South Gate (main entrance), East Gate, North Gate, West Gate"
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Easy to Moderate — flat lakeside paths but some stairs for the pagoda"
+  walking_distance: "3-5 km to explore the full park"
+  wheelchair_accessible: "Partially — main lakeside paths are flat and paved. Qionghua Island has stairs."
+  best_for_elderly: "Yes — stick to the flat lakeside paths, enjoy the gardens from ground level"

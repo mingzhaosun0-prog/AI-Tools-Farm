@@ -1,0 +1,79 @@
+name: "Yu Garden (Yuyuan)"
+subtitle: "A 400-Year-Old Classical Chinese Garden in the Heart of Shanghai"
+description: |
+  Yu Garden (Yuyuan, 豫园) is a masterpiece of classical Chinese garden design, hidden amid the bustling lanes of Shanghai's Old City. Built during the Ming Dynasty, this exquisite garden offers a tranquil escape with its ornate pavilions, rockeries, koi ponds, and winding corridors.
+
+  Covering just 2 hectares, the garden is ingeniously designed to feel much larger through its use of "borrowed scenery" — each turn reveals a new vista of bridges, waterfalls, and delicate architecture. The adjacent Yuyuan Bazaar and City God Temple area offer a lively shopping and dining experience.
+
+  Despite being surrounded by one of Shanghai's busiest areas, Yu Garden remains a serene oasis where you can experience the elegance of Ming Dynasty garden design at its finest.
+history: |
+  Yu Garden was built between 1559 and 1577 by Pan Yunduan, a Ming Dynasty government official, as a private garden for his parents to enjoy in their old age ("Yu" means "pleasing" or "satisfying" in Chinese). The garden was designed by renowned Ming garden designer Zhang Nanyang.
+
+  The garden survived centuries of change — the Opium Wars, Taiping Rebellion, and Japanese occupation — though parts were damaged and rebuilt. In 1760, the garden was purchased by merchant guilds and became a public gathering place.
+
+  During the 19th century, the garden housed the headquarters of the Small Sword Society, which briefly controlled Shanghai during a major rebellion. After extensive restoration in the 1950s and again in the 1980s, the garden was opened to the public and designated a national heritage site.
+opening_hours: "09:00 – 16:30 (winter), 09:00 – 17:00 (summer). Last entry 30 min before close."
+ticket_price: "¥30 (peak season Apr-Jun, Sep-Nov), ¥20 (off-peak). Free on certain days for seniors."
+best_time: "Weekday mornings (less crowded). Spring for flowers, autumn for pleasant weather."
+tips:
+  - "Visit early to avoid the massive crowds (especially weekends)."
+  - "Don't miss the Exquisite Jade Rock — a 3.3m tall, 5-ton strange stone."
+  - "The Zigzag Bridge (Jiuqu Bridge) in the bazaar area is iconic — cross it slowly."
+  - "Try xiaolongbao (soup dumplings) at Nanxiang Steamed Bun Restaurant nearby."
+  - "Visit the Yuyuan Bazaar (adjacent) for souvenirs, tea, and traditional crafts."
+  - "Combine with City God Temple (Chenghuang Miao) next door."
+  - "The garden is small — you can see it thoroughly in 1 hour."
+images:
+  - url: "https://picsum.photos/seed/yu-garden-1/800/600"
+    caption: "The exquisite Spring Hall pavilion surrounded by rockeries and koi ponds"
+  - url: "https://picsum.photos/seed/yu-garden-2/800/600"
+    caption: "The iconic Zigzag Bridge over the pond in Yuyuan Bazaar"
+  - url: "https://picsum.photos/seed/yu-garden-3/800/600"
+    caption: "Intricate dragon-head wall and traditional pavilion rooftops"
+  - url: "https://picsum.photos/seed/yu-garden-4/800/600"
+    caption: "A tranquil courtyard with ancient rock formations and greenery"
+location: "218 Anren Street, Huangpu District, Shanghai (Old City area)"
+activities: "Garden appreciation, photography, bazaar shopping, xiaolongbao tasting, tea ceremony"
+estimated_time_needed: "1.5-2.5 hours"
+
+# ── Sections ──
+sections:
+  Inner Garden (Neiyuan):
+    difficulty: "Easy"
+    crowd_level: "Moderate"
+    recommended_for: "Garden lovers, tranquility seekers"
+    description: "Smaller, more intimate section with exquisite rockeries, a dragon wall, and the Hall of Heralding Spring. The most traditional Ming garden experience."
+    pros: "Quiet, beautiful rock formations"
+    cons: "Small area, can feel cramped when busy"
+  
+  Yuyuan Bazaar:
+    difficulty: "Easy"
+    crowd_level: "Very crowded"
+    recommended_for: "Shoppers, foodies"
+    description: "A bustling marketplace surrounding the garden with traditional architecture, tea houses, craft shops, and famous food stalls."
+    pros: "Great food, souvenirs, lively atmosphere"
+    cons: "Extremely crowded, tourist prices"
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 3:00 PM daily. Weekends are extremely crowded."
+  best_time_to_visit: "09:00 AM opening time for a peaceful experience"
+  seasonal_tips: "Spring (Mar-May): Flowers in bloom. Autumn (Sep-Nov): Comfortable weather. Avoid Chinese holidays."
+  holiday_info: "Very crowded on weekends. Avoid Chinese New Year and Golden Week entirely."
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "豫园"
+  pinyin: "Yùyuán"
+  chinese_address: "上海市黄浦区安仁街218号"
+  phone: "+86 21 6328 3830"
+  directions_by_metro: "Line 10 (Yuyuan Garden station, Exit 1 or 3). Line 14 (Yuyuan, Exit 5 or 6)."
+  photography_policy: "Allowed throughout garden. Tripods not allowed without permit."
+  nearby_attractions: "City God Temple (adjacent, ¥10), Old Street, The Bund (20 min walk)"
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Easy — flat paths but many steps over bridges and into pavilions"
+  walking_distance: "1-2 km through the garden and bazaar"
+  wheelchair_accessible: "Partially — garden has many steps and narrow passages. Bazaar area is mostly accessible."
+  best_for_elderly: "Limited — many steps and uneven surfaces. Bazaar area is more accessible."

@@ -1,0 +1,88 @@
+name: "Shanghai Tower"
+subtitle: "China's Tallest Building — 632 Metres of Architectural Genius"
+description: |
+  The Shanghai Tower (上海中心大厦) is a 632-metre, 128-storey megatall skyscraper that dominates the Pudong skyline. As China's tallest building and the world's third-tallest (behind Burj Khalifa and Merdeka 118), it is a breathtaking engineering achievement and a symbol of modern Shanghai's ambition.
+
+  The tower's distinctive twisting form — a 120-degree spiral — reduces wind loads by 24% and gives it a dynamic elegance. The observation deck on the 118th floor (546 metres) offers the highest public viewing platform in China, with 360-degree views of Shanghai and the Huangpu River.
+
+  The tower houses office space, the J-Hotel (the world's highest hotel at 556 metres), restaurants, and a stunning atrium. The journey to the top in the world's fastest elevator (20 m/s, 55 seconds) is an experience in itself.
+history: |
+  Shanghai Tower was designed by the American architectural firm Gensler, with lead architect Jun Xia (a Shanghai native). Construction began in November 2008 and topped out in August 2013, with the observation deck opening to the public in July 2016.
+
+  The tower's spiral form was inspired by the curves of the Huangpu River and traditional Chinese "nine-bend" bridges. The double-skin facade creates nine indoor sky gardens (sky lobbies) that serve as community spaces within the building.
+
+  The foundation required 980 piles driven 86 metres deep into the soft Shanghai soil — a remarkable engineering feat given the city's challenging geology. The tower is designed to withstand magnitude 7.0 earthquakes and typhoon-force winds.
+opening_hours: "09:00 – 21:00 (last entry 20:30). Best sunset visits: arrive by 16:30-17:00."
+ticket_price: "¥180 (adult, 118th floor), ¥220 (adult, 118th+125th floor combo). Children and seniors at reduced rates."
+best_time: "Sunset (arrive 16:30-17:00) — watch day turn to night. Clear days only (check weather)."
+tips:
+  - "Book tickets online in advance (skip-the-queue option available)."
+  - "Go on a clear day — fog and smog can completely obscure the view."
+  - "Arrive 1 hour before sunset to see daytime, sunset, and night views."
+  - "The elevator ride to the top takes only 55 seconds — ear-popping!"
+  - "The glass-floor section on the 118th floor is not for the faint-hearted."
+  - "Combine with Jin Mao Tower (next door) for a different perspective."
+  - "Visit the Shanghai Tower Museum in the basement for the building's story."
+images:
+  - url: "https://picsum.photos/seed/shanghai-tower-1/800/600"
+    caption: "The Shanghai Tower's iconic spiral form against a blue sky"
+  - url: "https://picsum.photos/seed/shanghai-tower-2/800/600"
+    caption: "360-degree sunset view of Shanghai from the 546m observation deck"
+  - url: "https://picsum.photos/seed/shanghai-tower-3/800/600"
+    caption: "Looking down the glass-floor observation section"
+  - url: "https://picsum.photos/seed/shanghai-tower-4/800/600"
+    caption: "Shanghai Tower with Jin Mao Tower and Oriental Pearl — the Pudong trio"
+location: "501 Yincheng Middle Road, Lujiazui, Pudong, Shanghai"
+activities: "Observation deck viewing, photography, fine dining at heights, skywalk experience"
+estimated_time_needed: "1.5-2.5 hours"
+
+# ── Sections ──
+sections:
+  118th Floor Observatory:
+    difficulty: "Easy"
+    crowd_level: "Very crowded (peak hours)"
+    recommended_for: "All visitors"
+    description: "The main observation deck at 546 metres. 360-degree indoor viewing with floor-to-ceiling windows. Includes glass-floor sections for those brave enough."
+    pros: "Best views in Shanghai, indoor comfort"
+    cons: "Can be very crowded, glare from windows"
+  
+  125th-126th Floor Sky Observatory:
+    difficulty: "Easy"
+    crowd_level: "Moderate"
+    recommended_for: "Enthusiasts, those wanting the highest point"
+    description: "The highest publicly accessible area at 562 metres. Features the massive tuned mass damper — a 1,000-ton device that stabilises the building in high winds."
+    pros: "Highest point, see the damper mechanism"
+    cons: "Extra fee, less viewing area"
+  
+  Sky Lobbies & J-Hotel:
+    difficulty: "Easy"
+    crowd_level: "Moderate"
+    recommended_for: "Architecture enthusiasts"
+    description: "Nine indoor sky gardens at different levels. The J-Hotel lobby (84th-110th floor) offers stunning views for hotel guests."
+    pros: "Unique architectural spaces"
+    cons: "Hotel areas limited to guests"
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 5:00 PM. Sunset time (16:00-18:00) is the busiest."
+  best_time_to_visit: "Weekday mornings (fewest queues) or 1 hour before sunset"
+  seasonal_tips: "Clear winter days offer the best visibility. Summer afternoon thunderstorms may close observation deck. Avoid rainy/foggy days."
+  holiday_info: "Very long queues during Chinese holidays. Book ahead."
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "上海中心大厦"
+  pinyin: "Shànghǎi Zhōngxīn Dàshà"
+  chinese_address: "上海市浦东新区银城中路501号"
+  phone: "+86 21 8037 0118"
+  directions_by_metro: "Line 2 (Lujiazui station, Exit 6). 8-min walk through the Lujiazui skywalk system."
+  elevator_speed: "20 m/s — reaches 546m in 55 seconds. World's fastest elevator."
+  photography_policy: "Allowed everywhere. Tripods not permitted on observation deck. Best to bring a polarising filter to reduce glass reflections."
+  weather_check: "Recommended to check visibility forecast before buying tickets"
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Easy — all indoor with elevators"
+  walking_distance: "Minimal — most areas accessible by elevator"
+  wheelchair_accessible: "Yes — full accessibility with elevators and ramps"
+  best_for_elderly: "Excellent — indoor, climate-controlled, elevators throughout, resting areas"

@@ -21,3 +21,58 @@ images:
 location: "Dongcheng District, Beijing"
 activities: "Historical exploration, photography, cultural exhibits"
 estimated_time_needed: "3-4 hours"
+
+# ── Crowd Patterns ──
+crowd_patterns:
+  peak_hours: "10:00 AM - 4:00 PM (especially 11am-2pm)"
+  best_time_to_visit: "8:30 AM opening or after 4:00 PM"
+  seasonal_tips: "Summer (Jun-Aug): Most crowded. Winter (Dec-Feb): Quietest with fewer tourists."
+  holiday_info: "Expect 2-3x crowds during Chinese New Year, Golden Week (Oct 1-7), and summer holidays."
+
+# ── Practical Info ──
+practical_info:
+  chinese_name: "故宫"
+  pinyin: "Gùgōng"
+  chinese_address: "北京市东城区景山前街4号"
+  phone: "+86 10 6513 2255"
+  wechat_official: "ForbiddenCityBeijing"
+  directions_by_metro: "Line 1 (Tiananmen Dong), Line 2 (Tiananmen), Line 4 (Lingjing Hutong)"
+  parking_available: true
+  parking_cost: "¥15/hour"
+
+# ── Difficulty & Accessibility ──
+difficulty_accessibility:
+  physical_difficulty: "Moderate - lots of stairs and walking on uneven surfaces"
+  walking_distance: "4-6 km depending on route"
+  wheelchair_accessible: "Partially - some areas have ramps, but many stairs"
+  accessibility_features:
+    - "Ramps available at main entrances"
+    - "Accessible restrooms present"
+    - "Wheelchair rental available (¥50 deposit)"
+    - "Not suitable for severe mobility issues"
+  best_for_elderly: "Yes, but go early morning to avoid crowds and rest frequently"
+
+# ── Itinerary Suggestions ──
+itineraries:
+  quick_2hours:
+    duration: "2 hours"
+    route: "Enter at Meridian Gate → Hall of Supreme Harmony → Palace of Heavenly Purity → exit"
+    highlights: "Main imperial halls and throne rooms"
+    best_for: "Quick overview, limited time"
+  
+  half_day_4hours:
+    duration: "4 hours"
+    route: "Meridian Gate → Outer Court (3 halls) → Inner Court (Emperor's residence) → Imperial Garden → exit"
+    highlights: "Complete tour of major sections with some gardens"
+    best_for: "Most visitors, good balance of sights and time"
+    
+  full_day_6hours:
+    duration: "6+ hours"
+    route: "Complete exploration including side halls, treasures museum, and all gardens"
+    highlights: "Comprehensive experience, includes palace treasures exhibition"
+    best_for: "History enthusiasts, photographers"
+    tip: "Consider hiring official guide (¥100-150)"
+  
+  combo_nearby:
+    nearby_spots: "Tiananmen Square (5 min walk), Jingshan Park (2 min walk), Temple of Heaven (30 min metro)"
+    day_plan: "Morning: Forbidden City → Afternoon: Tiananmen + Jingshan Park for sunset views"
