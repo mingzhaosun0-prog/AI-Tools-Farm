@@ -1,9 +1,14 @@
 name: "Forbidden City"
 subtitle: "Imperial Palace of the Ming and Qing Dynasties"
+subtitle_zh: "明清两代的皇家宫殿"
 description: |
   The Forbidden City is a palace complex in central Beijing. It served as the home of emperors and the political center of China for nearly 500 years.
+description_zh: |
+  故宫位于北京中轴线的中心，是明清两代的皇家宫殿建筑群。它是世界上现存规模最大、保存最为完整的木质结构古建筑群之一，为中国古代宫廷建筑之精华。
 history: |
   Built from 1406 to 1420, it consists of 980 buildings and covers 72 hectares. It is a UNESCO World Heritage Site.
+history_zh: |
+  故宫始建于明永乐四年（1406年），历时14年于1420年建成。它占地72万平方米，拥有980座建筑，1987年被列入世界文化遗产名录。
 opening_hours: "08:30 – 17:00 (closed Mondays)"
 ticket_price: "¥60 (April–October), ¥40 (November–March)"
 best_time: "Spring and autumn; avoid public holidays"

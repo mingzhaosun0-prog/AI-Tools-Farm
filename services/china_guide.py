@@ -4,7 +4,7 @@ import os
 import glob
 import json
 from datetime import datetime
-from services.i18n import t
+from services.i18n import t, get_language
 
 # ── Data Loading ──────────────────────────────────────────
 
@@ -94,13 +94,25 @@ def _weather_tip():
     """Return simple seasonal advice."""
     month = datetime.now().month
     if 3 <= month <= 5:
-        return "🌸", "Spring", "Mild and pleasant — perfect for sightseeing! Light jacket recommended."
+        return "🌸", t("spring"), t("spring_desc")
     elif 6 <= month <= 8:
-        return "☀️", "Summer", "Hot & humid (30-35°C). Stay hydrated, wear sun protection, plan indoor mornings."
+        return "☀️", t("summer"), t("summer_desc")
     elif 9 <= month <= 11:
-        return "🍂", "Autumn", "Crisp air, golden foliage — the best season for outdoor attractions."
+        return "🍂", t("autumn"), t("autumn_desc")
     else:
-        return "❄️", "Winter", "Cold (0-5°C) but fewer crowds. Bundle up and enjoy clear, crisp skies."
+        return "❄️", t("winter"), t("winter_desc")
+
+
+def _localized_text(spot: dict, field: str, lang: str = None) -> str:
+    """Get field text in current language, falling back to English/default."""
+    if lang is None:
+        lang = get_language()
+    # Check for language-specific field (e.g. 'description_zh')
+    localized = spot.get(f"{field}_{lang}")
+    if localized:
+        return localized
+    # Fallback to default field
+    return spot.get(field, "")
 
 
 # ── SEO / Structured Data ────────────────────────────────
@@ -458,7 +470,7 @@ def _render_attraction_card(spot: dict):
         f"<span style='color:#e74c3c;font-size:0.85em;'>&#25915;&#30053;</span></h3>"
         f"<div>{rating_html}</div>"
         "</div>"
-        f"<div style='color:#64748b;margin:0.3rem 0 0.8rem;font-size:0.95rem;'>{spot.get('subtitle', '')}</div>"
+        f"<div style='color:#64748b;margin:0.3rem 0 0.8rem;font-size:0.95rem;'>{_localized_text(spot,'subtitle')}</div>"
         "<div style='display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:0.6rem;font-size:0.9rem;color:#475569;'>"
         f"<span>&#128205; {spot.get('location', 'N/A')}</span>"
         f"<span>&#127934; {ticket}</span>"
@@ -530,7 +542,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         f"display:flex;flex-direction:column;justify-content:center;'>"
         f"<h1 style='margin:0;font-size:{fs};'>{spot['name']}"
         f" <span style='color:#ffd700;font-size:0.75em;margin-left:0.5rem;'>{t('guide_word','攻略')}</span></h1>"
-        f"<p style='margin:0.3rem 0 0.5rem;font-size:{ss};opacity:0.9;'>{spot.get('subtitle','')}</p>"
+        f"<p style='margin:0.3rem 0 0.5rem;font-size:{ss};opacity:0.9;'>{_localized_text(spot,'subtitle')}</p>"
         f"<div>{rating_html}</div></div>",
         unsafe_allow_html=True
     )
@@ -579,12 +591,12 @@ def show_spot_detail(spot: dict, full_page: bool = False):
 
     with tabs[tab_idx]:  # Description
         tab_idx += 1
-        desc = spot.get("description", "No description available.")
+        desc = _localized_text(spot, "description") or "No description available."
         st.markdown(f"<div style='line-height:1.7;font-size:1.05rem;'>{desc}</div>", unsafe_allow_html=True)
         # Activities list
         if spot.get("activities"):
             st.markdown(f"#### &#127965;&#65039; {t('activities','Activities')}")
-            acts = spot["activities"]
+            acts = _localized_text(spot, "activities")
             if isinstance(acts, str):
                 for line in acts.strip().split("\n"):
                     line = line.strip().lstrip("- ")
@@ -596,7 +608,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
 
     with tabs[tab_idx]:  # History
         tab_idx += 1
-        hist = spot.get("history", "No historical information.")
+        hist = _localized_text(spot, "history") or "No historical information."
         st.markdown(f"<div style='line-height:1.7;font-size:1.05rem;'>{hist}</div>", unsafe_allow_html=True)
 
     with tabs[tab_idx]:  # Tips
