@@ -633,19 +633,17 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         col_tip1, col_tip2 = st.columns(2)
         with col_tip1:
             st.markdown(f"#### &#10004;&#65039; {t('pro_tips','Pro Tips')}")
-            tips = spot.get("tips", [])
-            if isinstance(tips, str):
-                for line in tips.strip().split("\n"):
-                    line = line.strip().lstrip("- ")
-                    if line:
-                        st.markdown(f"- {line}")
-            elif isinstance(tips, list):
+            tips_raw = _localized_text(spot, "tips")
+            tips = tips_raw if isinstance(tips_raw, list) else spot.get("tips", [])
+            if isinstance(tips, list):
                 for tip in tips:
                     st.markdown(f"- {tip}")
             # Also check visiting_guidance tips
             vg_tips = spot.get("visiting_guidance", {}).get("tips", [])
-            if vg_tips and isinstance(vg_tips, list):
-                for tip in vg_tips:
+            vg_tips_zh = spot.get("visiting_guidance", {}).get("tips_zh", [])
+            localized_vg_tips = vg_tips_zh if get_language() == "zh" and vg_tips_zh else vg_tips
+            if localized_vg_tips and isinstance(localized_vg_tips, list):
+                for tip in localized_vg_tips:
                     st.markdown(f"- {tip}")
         with col_tip2:
             avoid = spot.get("visiting_guidance", {}).get("what_to_avoid", [])
