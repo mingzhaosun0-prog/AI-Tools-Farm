@@ -50,7 +50,7 @@ st.markdown("""
 <meta property="og:title" content="🇨🇳 China Travel Guide — Beijing, Shanghai & Beyond">
 <meta property="og:description" content="Comprehensive China travel guides with interactive planners, cost calculators, section comparisons, seasonal tips & more.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://ai-tools-farm-ppu2fwjsemrjc6loj8j3m7.streamlit.app/">
+<meta property="og:url" content="https://chinatravelguide.site/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="🇨🇳 China Travel Guide">
 <meta name="twitter:description" content="Comprehensive China travel guides with interactive planning tools.">

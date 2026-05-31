@@ -122,8 +122,8 @@ def _inject_seo_tags(title: str, description: str, city: str = "Beijing"):
     st.markdown(f"""
     <meta name="description" content="{description[:160]}">
     <meta name="keywords" content="China travel, {city}, Beijing attractions, Great Wall, Forbidden City, travel guide China">
-    <link rel="alternate" hreflang="en" href="https://ai-tools-farm-ppu2fwjsemrjc6loj8j3m7.streamlit.app/">
-    <link rel="alternate" hreflang="x-default" href="https://ai-tools-farm-ppu2fwjsemrjc6loj8j3m7.streamlit.app/">
+    <link rel="alternate" hreflang="en" href="https://chinatravelguide.site/">
+    <link rel="alternate" hreflang="x-default" href="https://chinatravelguide.site/">
     <script type="application/ld+json">
     {json.dumps(structured, indent=2)}
     </script>
