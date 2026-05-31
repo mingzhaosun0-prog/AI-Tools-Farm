@@ -560,12 +560,13 @@ def show_spot_detail(spot: dict, full_page: bool = False):
     )
 
     # ── Quick info badges ──
+    lang = get_language()
     col_badges = st.columns(5)
     badge_data = [
         ("📍", t('location','Location'), spot.get("location", "N/A")[:25]),
-        ("🕒", t('hours','Hours'), (spot.get("opening_hours", "")[:20] + "…") if spot.get("opening_hours") and len(spot["opening_hours"]) > 20 else spot.get("opening_hours", "N/A")),
-        ("🎟️", t('ticket','Ticket'), (spot.get("ticket_price", "")[:20] + "…") if spot.get("ticket_price") and len(spot["ticket_price"]) > 20 else spot.get("ticket_price", "N/A")),
-        ("🌿", t('best_time','Best Time'), (spot.get("best_time", "")[:20] + "…") if spot.get("best_time") and len(spot["best_time"]) > 20 else spot.get("best_time", "N/A")),
+        ("🕒", t('hours','Hours'), (_localized_text(spot, "opening_hours")[:20] + "…") if _localized_text(spot, "opening_hours") and len(_localized_text(spot, "opening_hours")) > 20 else _localized_text(spot, "opening_hours", "N/A")),
+        ("🎟️", t('ticket','Ticket'), (_localized_text(spot, "ticket_price")[:20] + "…") if _localized_text(spot, "ticket_price") and len(_localized_text(spot, "ticket_price")) > 20 else _localized_text(spot, "ticket_price", "N/A")),
+        ("🌿", t('best_time','Best Time'), (_localized_text(spot, "best_time")[:20] + "…") if _localized_text(spot, "best_time") and len(_localized_text(spot, "best_time")) > 20 else _localized_text(spot, "best_time", "N/A")),
         ("⏱️", t('time_needed','Time Needed'), spot.get("estimated_time_needed", "N/A")[:20]),
     ]
     for i, (icon, label, value) in enumerate(badge_data):
@@ -619,9 +620,6 @@ def show_spot_detail(spot: dict, full_page: bool = False):
                     line = line.strip().lstrip("- ")
                     if line:
                         st.markdown(f"- {line}")
-            elif isinstance(acts, list):
-                for a in acts:
-                    st.markdown(f"- {a}")
 
     with tabs[tab_idx]:  # History
         tab_idx += 1

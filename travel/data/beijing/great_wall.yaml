@@ -25,16 +25,30 @@ opening_hours: |
   - **Badaling**: 06:30 – 19:00 (April–October), 07:00 – 18:00 (November–March)
   - **Mutianyu**: 08:00 – 18:00 (April–October), 08:00 – 17:00 (November–March)
   - **Jinshanling**: 06:00 – 18:30 (peak), 06:30 – 17:00 (off-peak)
+opening_hours_zh: |
+  - **八达岭**：06:30 – 19:00（4月–10月），07:00 – 18:00（11月–3月）
+  - **慕田峪**：08:00 – 18:00（4月–10月），08:00 – 17:00（11月–3月）
+  - **金山岭**：06:00 – 18:30（旺季），06:30 – 17:00（淡季）
 ticket_price: |
   - **Badaling**: ¥40 (peak), ¥35 (off-peak) + cable car ¥140 round trip
   - **Mutianyu**: ¥45 (peak), ¥40 (off-peak) + cable car or toboggan ¥120
   - **Jinshanling**: ¥65 (peak), ¥55 (off-peak)
   - **Simatai**: ¥40 (day), ¥160 (night tour)
+ticket_price_zh: |
+  - **八达岭**：¥40（旺季），¥35（淡季）+ 缆车往返¥140
+  - **慕田峪**：¥45（旺季），¥40（淡季）+ 缆车或滑道¥120
+  - **金山岭**：¥65（旺季），¥55（淡季）
+  - **司马台**：¥40（白天），¥160（夜游）
 best_time: |
   - **April to June**: Spring flowers, comfortable temperatures (15-25°C)
   - **September to October**: Autumn foliage, clear skies, golden light
   - **Avoid**: National Holiday week (Oct 1-7) – extreme crowds
   - **Avoid**: July-August – heat, humidity, and frequent rain
+best_time_zh: |
+  - **4月至6月**：春花盛开，气温宜人（15-25°C）
+  - **9月至10月**：秋叶金黄，晴空万里，光线绝佳
+  - **避开**：国庆黄金周（10月1-7日）——极度拥挤
+  - **避开**：7月至8月——炎热潮湿，多雨
 images:
   - url: "https://picsum.photos/seed/great-wall-1/800/600"
     caption: "The Great Wall snaking through the mountains at Mutianyu"
