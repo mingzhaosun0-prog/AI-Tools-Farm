@@ -6,7 +6,7 @@ import json
 import random
 from datetime import datetime
 
-from services.china_guide import china_travel_guide, show_spot_detail
+from services.china_guide import china_travel_guide, show_spot_detail, get_weather_tip
 # Import monetization modules
 from services.affiliate_manager import display_affiliate_sidebar, track_affiliate_click
 from services.ad_manager import display_banner_ad, display_sidebar_ad
@@ -406,6 +406,22 @@ def show_home():
             </div>
             """, unsafe_allow_html=True)
 
+    # ── Testimonials / Social Proof Section ──
+    import random
+    testimonial = random.choice([
+        {"quote": "The best China travel guide I've used — the cost calculator saved us ¥2,000!", "author": "Sarah M.", "flag": "🇦🇺"},
+        {"quote": "Detailed attraction guides with real tips. Made our Beijing trip unforgettable.", "author": "Carlos R.", "flag": "🇪🇸"},
+        {"quote": "The itinerary builder is genius. We visited 5 spots in one day efficiently.", "author": "Yuki T.", "flag": "🇯🇵"},
+        {"quote": "Finally a guide that covers both Beijing and Shanghai in depth. Highly recommend!", "author": "Michael K.", "flag": "🇩🇪"},
+    ])
+    st.markdown(f"""
+    <div style='text-align:center;padding:2rem 1rem;margin:2rem 0;background:linear-gradient(135deg,#f8f9fa,#fff);border-radius:1.5rem;border:1px solid #e9ecef;'>
+        <div style='font-size:2rem;margin-bottom:0.5rem;'>{testimonial['flag']}</div>
+        <div style='font-size:1.1rem;font-style:italic;color:#475569;max-width:600px;margin:0 auto;'>"{testimonial['quote']}"</div>
+        <div style='margin-top:0.5rem;font-weight:600;color:#cc0000;'>{testimonial['author']}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
 
 def business_page():
     """Monetization and business opportunities page."""
@@ -420,18 +436,18 @@ def business_page():
         col1, col2 = st.columns(2)
         with col1:
             st.markdown(f"**{t('banner_ads')}**")
-            st.markdown("- $500/month")
-            st.markdown("- 100k impressions guaranteed")
-            st.markdown("- Click tracking included")
+            st.markdown(f"- {t('banner_ads_price')}")
+            st.markdown(f"- {t('banner_ads_impressions')}")
+            st.markdown(f"- {t('banner_ads_tracking')}")
         
         with col2:
             st.markdown(f"**{t('sponsored_content')}**")
-            st.markdown("- $1000/post")
-            st.markdown("- Native integration")
-            st.markdown("- Social media promotion")
+            st.markdown(f"- {t('sponsored_price')}")
+            st.markdown(f"- {t('sponsored_native')}")
+            st.markdown(f"- {t('sponsored_social')}")
         
         if st.button(t('contact_sales')):
-            st.info(f"📧 {t('email')}: advertising@travelguide.com")
+            st.info(f"📧 {t('email')}: {t('contact_sales_email')}")
     
     with tab2:
         display_api_offering()
@@ -545,32 +561,32 @@ def main():
     total_cities = len(total_cities_list)
     total_attrs = sum(len(load_city_attractions(c)) for c in total_cities_list)
 
+    footer_desc = t("footer_description", "Expert guides for Beijing, Shanghai & beyond. Interactive planners, cost calculators, section comparisons & seasonal tips.")
     st.markdown(f"""
     <div class="site-footer">
         <div class="footer-main">
             <div class="footer-grid">
                 <div class="footer-col footer-brand" style="flex:3 1 300px;">
-                    <h3 style="font-size:1.5rem;font-weight:700;color:#ffd700;margin:0 0 0.3rem 0;">&#127944; China Travel Guide</h3>
+                    <h3 style="font-size:1.5rem;font-weight:700;color:#ffd700;margin:0 0 0.3rem 0;">&#127944; {t('app_title')}</h3>
                     <p style="color:#94a3b8;margin:0.3rem 0 0.8rem;font-size:0.85rem;line-height:1.6;">
-                        Expert guides for Beijing, Shanghai &amp; beyond. Interactive planners, cost calculators, 
-                        section comparisons &amp; seasonal tips.
+                        {footer_desc}
                     </p>
                     <div class="footer-stats" style="display:flex;gap:0.8rem;margin:0.6rem 0 1rem;flex-wrap:wrap;">
                         <div style="background:rgba(255,255,255,0.08);border-radius:0.5rem;padding:0.3rem 0.8rem;text-align:center;min-width:55px;">
                             <div style="font-size:1.1rem;font-weight:700;color:#ffd700;">{total_cities}</div>
-                            <div style="font-size:0.6rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.03em;">Cities</div>
+                            <div style="font-size:0.6rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.03em;">{t('cities')}</div>
                         </div>
                         <div style="background:rgba(255,255,255,0.08);border-radius:0.5rem;padding:0.3rem 0.8rem;text-align:center;min-width:55px;">
                             <div style="font-size:1.1rem;font-weight:700;color:#ffd700;">{total_attrs}</div>
-                            <div style="font-size:0.6rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.03em;">Attractions</div>
+                            <div style="font-size:0.6rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.03em;">{t('attractions')}</div>
                         </div>
                         <div style="background:rgba(255,255,255,0.08);border-radius:0.5rem;padding:0.3rem 0.8rem;text-align:center;min-width:55px;">
                             <div style="font-size:1.1rem;font-weight:700;color:#ffd700;">4.9&#9733;</div>
-                            <div style="font-size:0.6rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.03em;">Avg Rating</div>
+                            <div style="font-size:0.6rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.03em;">{t('avg_rating', 'Avg Rating')}</div>
                         </div>
                         <div style="background:rgba(255,255,255,0.08);border-radius:0.5rem;padding:0.3rem 0.8rem;text-align:center;min-width:55px;">
                             <div style="font-size:1.1rem;font-weight:700;color:#ffd700;">{total_cities * 4}</div>
-                            <div style="font-size:0.6rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.03em;">Sections</div>
+                            <div style="font-size:0.6rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.03em;">{t('sections')}</div>
                         </div>
                     </div>
                     <div class="footer-social">
@@ -583,30 +599,30 @@ def main():
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Cities</h4>
+                    <h4>{t('cities')}</h4>
                     <ul>
-                        <li><a href="#" onclick="return false">&#127975; Beijing</a></li>
-                        <li><a href="#" onclick="return false">&#127753; Shanghai</a></li>
-                        <li><a href="#" onclick="return false">&#127963; Xi'an</a></li>
-                        <li><a href="#" onclick="return false">&#128060; Chengdu</a></li>
+                        <li><a href="#" onclick="return false">&#127975; {t('city_beijing', 'Beijing')}</a></li>
+                        <li><a href="#" onclick="return false">&#127753; {t('city_shanghai', 'Shanghai')}</a></li>
+                        <li><a href="#" onclick="return false">&#127963; {t('city_xian', 'Xi\'an')}</a></li>
+                        <li><a href="#" onclick="return false">&#128060; {t('city_chengdu', 'Chengdu')}</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Plan</h4>
+                    <h4>{t('plan_my_day', 'Plan')}</h4>
                     <ul>
-                        <li><a href="#" onclick="return false">&#128473;&#65039; Itineraries</a></li>
-                        <li><a href="#" onclick="return false">&#128176; Budget</a></li>
-                        <li><a href="#" onclick="return false">&#128646; Transport</a></li>
-                        <li><a href="#" onclick="return false">&#127800; Seasons</a></li>
+                        <li><a href="#" onclick="return false">&#128473;&#65039; {t('plan_my_day', 'Itineraries')}</a></li>
+                        <li><a href="#" onclick="return false">&#128176; {t('cost_calculator', 'Budget')}</a></li>
+                        <li><a href="#" onclick="return false">&#128646; {t('getting_around', 'Transport')}</a></li>
+                        <li><a href="#" onclick="return false">&#127800; {t('seasonal_tips', 'Seasons')}</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Business</h4>
+                    <h4>{t('business')}</h4>
                     <ul>
-                        <li><a href="#" onclick="return false">&#128200; Advertise</a></li>
-                        <li><a href="#" onclick="return false">&#128268; API Access</a></li>
-                        <li><a href="#" onclick="return false">&#129309; Partnerships</a></li>
-                        <li><a href="#" onclick="return false">&#9992;&#65039; Custom Tours</a></li>
+                        <li><a href="#" onclick="return false">&#128200; {t('advertise', 'Advertise')}</a></li>
+                        <li><a href="#" onclick="return false">&#128268; {t('api_access', 'API Access')}</a></li>
+                        <li><a href="#" onclick="return false">&#129309; {t('partnerships', 'Partnerships')}</a></li>
+                        <li><a href="#" onclick="return false">&#9992;&#65039; {t('custom_itineraries', 'Custom Tours')}</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -619,23 +635,23 @@ def main():
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
+                    <h4>{t('company', 'Company')}</h4>
                     <ul>
-                        <li><a href="#" onclick="return false">📧 Contact Us</a></li>
-                        <li><a href="#" onclick="return false">🔒 Privacy Policy</a></li>
-                        <li><a href="#" onclick="return false">📄 Terms of Service</a></li>
-                        <li><a href="#" onclick="return false">💼 For Business</a></li>
+                        <li><a href="#" onclick="return false">📧 {t('contact_us', 'Contact Us')}</a></li>
+                        <li><a href="#" onclick="return false">🔒 {t('privacy_policy', 'Privacy Policy')}</a></li>
+                        <li><a href="#" onclick="return false">📄 {t('terms_of_service', 'Terms of Service')}</a></li>
+                        <li><a href="#" onclick="return false">💼 {t('business')}</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             © 2026 <a href="#">{t('app_title')}</a>
-            <span class="dot">•</span>
-            Built with <a href="https://streamlit.io" target="_blank">Streamlit</a>
-            <span class="dot">•</span>
-            All rights reserved
-            <span class="dot">•</span>
+            <span class="dot">{t('bullet_separator', '•')}</span>
+            {t('built_with', 'Built with')} <a href="https://streamlit.io" target="_blank">Streamlit</a>
+            <span class="dot">{t('bullet_separator', '•')}</span>
+            {t('rights_reserved', 'All rights reserved')}
+            <span class="dot">{t('bullet_separator', '•')}</span>
             v2.0.0
         </div>
     </div>

@@ -103,7 +103,12 @@ def _weather_tip():
         return "❄️", t("winter"), t("winter_desc")
 
 
-def _localized_text(spot: dict, field: str, lang: str = None) -> str:
+def get_weather_tip():
+    """Public alias for _weather_tip so app.py can import it."""
+    return _weather_tip()
+
+
+def _localized_text(spot: dict, field: str, lang: str | None = None) -> str:
     """Get field text in current language, falling back to English/default."""
     if lang is None:
         lang = get_language()
@@ -168,9 +173,17 @@ def china_travel_guide():
     # ── Load data ──
     cities = [d for d in os.listdir(TRAVEL_DATA_DIR)
               if os.path.isdir(os.path.join(TRAVEL_DATA_DIR, d)) and not d.startswith("_")]
+    if not cities:
+        st.warning(t('no_cities_found', 'No travel data found. Add YAML files to the travel/data/ directory.'))
+        return
+    default_idx = 0
+    for i, c in enumerate(cities):
+        if c == "beijing":
+            default_idx = i
+            break
+    city = st.selectbox(f"📍 {t('choose_city')}", cities, index=default_idx,
+                        key=f"travel_city_selector_{get_language()}")
     city_display = t(f'city_{city}', city.title())
-    city = st.selectbox(f"📍 {t('choose_city')}", cities, index=0 if "beijing" in cities else 0,
-                        key="travel_city_selector")
     attractions = load_city_attractions(city)
 
     # ── Route: detail view vs list view ──
@@ -238,24 +251,24 @@ def china_travel_guide():
     # ═══════════════════════════════════════════════════
     # TOP 3: PLAN MY DAY — Full trip planner
     # ═══════════════════════════════════════════════════
-    with st.expander("🗓️ Plan My Day — Build Your Perfect Day Trip", expanded=False):
-        st.markdown("Pick attractions and get an optimised route with time estimates & costs.")
+    with st.expander(f"🗓️ {t('plan_my_day_title')}", expanded=False, key=f"plan_expander_{get_language()}"):
+        st.markdown(t('plan_pick'))
         spot_names = {a["name"]: a for a in attractions.values()}
         all_names = list(spot_names.keys())
 
         selected_plan = st.multiselect(
-            "Select attractions for your day trip",
+            t('plan_select'),
             all_names,
             default=all_names[:min(3, len(all_names))],
             max_selections=5,
-            key="plan_my_day_sel"
+            key=f"plan_my_day_sel_{get_language()}"
         )
 
         if len(selected_plan) >= 1:
             col_plan_left, col_plan_right = st.columns([3, 2])
 
             with col_plan_left:
-                st.markdown("#### 🗺️ Suggested Route Order")
+                st.markdown(f"#### 🗺️ {t('plan_route')}")
                 # Sorted by estimated time needed (shorter first = morning, longer = afternoon)
                 sorted_plan = sorted(
                     selected_plan,
@@ -287,10 +300,10 @@ def china_travel_guide():
                     st.markdown(f"- {line}")
 
                 st.markdown("---")
-                st.success(f"**Total estimated time: {total_time:.1f} hours** — Start at 08:00 → Finish ~{8+total_time:.0f}:00")
+                st.success(t('plan_total_time', '**Total estimated time: {hours} hours**').replace('{hours}', f'{total_time:.1f}') + f" — {t('plan_start', 'Start at 08:00 → Finish ~{time}:00').replace('{time}', f'{8+total_time:.0f}')}")
 
             with col_plan_right:
-                st.markdown("#### 💰 Cost Breakdown")
+                st.markdown(f"#### 💰 {t('plan_cost')}")
                 for name in sorted_plan:
                     s = spot_names[name]
                     ticket_str = s.get("ticket_price", "¥0")
@@ -299,10 +312,10 @@ def china_travel_guide():
                     st.markdown(f"- **{name}** → {short_ticket}")
 
                 st.markdown(f"---")
-                st.info(f"**🎟️ Total entry: ~¥{total_cost:,}** per person")
+                st.info(t('plan_total_entry', '**🎟️ Total entry: ~¥{cost:,}** per person').replace('{cost:,}', f'{total_cost:,}'))
 
             # Export plan
-            if st.button("📋 Copy This Plan to Clipboard", key="copy_plan", use_container_width=True):
+            if st.button(t('plan_copy'), key="copy_plan", use_container_width=True):
                 plan_text = f"🗓️ My Day Trip Plan ({len(selected_plan)} attractions)\n"
                 plan_text += "=" * 40 + "\n"
                 for idx, name in enumerate(sorted_plan):
@@ -310,30 +323,29 @@ def china_travel_guide():
                 plan_text += f"\nTotal time: ~{total_time:.1f} hours\n"
                 plan_text += f"Total cost: ~¥{total_cost:,} per person\n"
                 st.code(plan_text, language="text")
-                st.toast("✅ Plan ready! Copy the code block above.", icon="📋")
+                st.toast(t('plan_ready'), icon="📋")
         else:
-            st.info("Select at least one attraction to start planning.")
+            st.info(t('plan_select_hint'))
 
     # ═══════════════════════════════════════════════════
     # Quick Planning Tools
     # ═══════════════════════════════════════════════════
-    with st.expander("🧭 Travel Planning Tools", expanded=False):
+    with st.expander(f"🧭 {t('travel_tools')}", expanded=False, key=f"tools_expander_{get_language()}"):
         col_t1, col_t2 = st.columns(2)
         with col_t1:
-            st.markdown("#### 📅 Best Times to Visit")
-            best_months = "April–June & September–October"
-            st.info(f"**Peak season:** {best_months}")
-            st.markdown("- ✅ **Spring (Mar–May):** Cherry blossoms, mild weather")
-            st.markdown("- ✅ **Autumn (Sep–Nov):** Golden foliage, clear skies")
-            st.markdown("- ⚠️ **Summer (Jun–Aug):** Hot but vibrant")
-            st.markdown("- ❄️ **Winter (Dec–Feb):** Fewer crowds, cold, possible snow")
+            st.markdown(f"#### 📅 {t('best_times')}")
+            st.info(f"**{t('peak_season')}:** {t('peak_season')}")
+            st.markdown(f"- ✅ **{t('spring')} (Mar–May):** {t('spring_tip')}")
+            st.markdown(f"- ✅ **{t('autumn')} (Sep–Nov):** {t('autumn_tip')}")
+            st.markdown(f"- ⚠️ **{t('summer')} (Jun–Aug):** {t('summer_tip')}")
+            st.markdown(f"- ❄️ **{t('winter')} (Dec–Feb):** {t('winter_tip')}")
         with col_t2:
-            st.markdown("#### 🚇 Getting Around Beijing")
+            st.markdown(f"#### 🚇 {t('getting_around_beijing')}")
             transport_opts = {
-                "🚇 Metro": "Fast, cheap (¥3-9), covers all major spots",
-                "🚌 Bus": "Extensive network, English signs on key routes",
-                "🚕 Taxi": "¥13 flagfall, use apps like Didi",
-                "🚲 Bike": "Shared bikes (¥1-2/30min) — great for hutongs"
+                "🚇 Metro": t('metro_desc', 'Fast, cheap (¥3-9), covers all major spots'),
+                "🚌 Bus": t('bus_desc', 'Extensive network, English signs on key routes'),
+                "🚕 Taxi": t('taxi_desc', '¥13 flagfall, use apps like Didi'),
+                "🚲 Bike": t('bike_desc', 'Shared bikes (¥1-2/30min) — great for hutongs')
             }
             for mode, desc in transport_opts.items():
                 st.markdown(f"**{mode}** — {desc}")
@@ -341,9 +353,9 @@ def china_travel_guide():
     # ═══════════════════════════════════════════════════
     # Compare attractions
     # ═══════════════════════════════════════════════════
-    with st.expander("⚖️ Compare Attractions Side-by-Side", expanded=False):
+    with st.expander(f"⚖️ {t('compare_attractions')}", expanded=False, key=f"compare_expander_{get_language()}"):
         names = [a["name"] for a in attractions.values()]
-        selected = st.multiselect("Select 2-4 attractions to compare", names, default=names[:min(2, len(names))])
+        selected = st.multiselect(t('compare_select', 'Select 2-4 attractions to compare'), names, default=names[:min(2, len(names))], key=f"compare_sel_{get_language()}")
         if len(selected) >= 2:
             comp_data = []
             for a in attractions.values():
@@ -355,17 +367,17 @@ def china_travel_guide():
                         diffs = [s.get("difficulty", "") for s in secs.values()]
                         diff = diffs[0] if diffs else "—"
                     comp_data.append({
-                        "Attraction": a["name"],
-                        "Rating ★": a.get("rating", "—"),
-                        "Difficulty": diff,
-                        "Ticket (¥)": (a.get("ticket_price", "")[:28] + "…") if a.get("ticket_price") and len(a["ticket_price"]) > 28 else a.get("ticket_price", "—"),
-                        "Hours": (a.get("opening_hours", "")[:30] + "…") if a.get("opening_hours") and len(a["opening_hours"]) > 30 else a.get("opening_hours", "—"),
-                        "Time Needed": a.get("estimated_time_needed", "—"),
-                        "Sections": len(secs),
+                        t('attractions', 'Attraction'): a["name"],
+                        f"{t('avg_rating', 'Rating')} ★": a.get("rating", "—"),
+                        t('difficulty', 'Difficulty'): diff,
+                        f"{t('ticket', 'Ticket')} (¥)": (a.get("ticket_price", "")[:28] + "…") if a.get("ticket_price") and len(a["ticket_price"]) > 28 else a.get("ticket_price", "—"),
+                        t('hours', 'Hours'): (a.get("opening_hours", "")[:30] + "…") if a.get("opening_hours") and len(a["opening_hours"]) > 30 else a.get("opening_hours", "—"),
+                        t('time_needed', 'Time Needed'): a.get("estimated_time_needed", "—"),
+                        t('sections', 'Sections'): len(secs),
                     })
             st.dataframe(comp_data, width="stretch", hide_index=True)
         else:
-            st.info("Select at least 2 attractions to compare.")
+            st.info(t('compare_min', 'Select at least 2 attractions to compare.'))
 
 
 def _crowd_badge(crowd_text: str) -> str:
@@ -470,7 +482,7 @@ def _render_attraction_card(spot: dict):
         f"<span style='color:#e74c3c;font-size:0.85em;'>&#25915;&#30053;</span></h3>"
         f"<div>{rating_html}</div>"
         "</div>"
-        f"<div style='color:#64748b;margin:0.3rem 0 0.8rem;font-size:0.95rem;'>{_localized_text(spot,'subtitle')}</div>"
+        f"<div style='color:#64748b;margin:0.3rem 0 0.8rem;font-size:0.95rem;'>{_localized_text(spot, 'subtitle')}</div>"
         "<div style='display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:0.6rem;font-size:0.9rem;color:#475569;'>"
         f"<span>&#128205; {spot.get('location', 'N/A')}</span>"
         f"<span>&#127934; {ticket}</span>"
@@ -491,7 +503,7 @@ def _render_attraction_card(spot: dict):
             st.session_state["full_mode_spot"] = None
             st.rerun()
     with col_b2:
-        if st.button(f"🗺️ Full Page", key=f"full_{spot['_slug']}", use_container_width=True):
+        if st.button(f"🗺️ {t('full_page')}", key=f"full_{spot['_slug']}", use_container_width=True):
             st.session_state["beijing_view"] = "detail"
             st.session_state["selected_spot_slug"] = spot["_slug"]
             st.session_state["full_mode_spot"] = spot
@@ -502,15 +514,15 @@ def _render_attraction_card(spot: dict):
         if fav_key not in st.session_state:
             st.session_state[fav_key] = False
         if st.button(
-            f"{'❤️' if st.session_state[fav_key] else '🤍'} Favourite",
+            f"{'❤️' if st.session_state[fav_key] else '🤍'} {t('favourite')}",
             key=f"fav_btn_{spot['_slug']}",
             use_container_width=True
         ):
             st.session_state[fav_key] = not st.session_state[fav_key]
             if st.session_state[fav_key]:
-                st.toast(f"⭐ Added **{spot['name']}** to your favourites!", icon="❤️")
+                st.toast(t('added_favourite', '⭐ Added **{name}** to your favourites!').replace('{name}', spot['name']), icon="❤️")
             else:
-                st.toast(f"Removed **{spot['name']}** from favourites.", icon="💔")
+                st.toast(t('removed_favourite', 'Removed **{name}** from favourites.').replace('{name}', spot['name']), icon="💔")
 
 
 # ── Spot Detail View ──────────────────────────────────────
@@ -591,7 +603,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         tab_labels.append(f"💰 {t('costs')}")
         tab_types.append("costs")
 
-    tabs = st.tabs(tab_labels)
+    tabs = st.tabs(tab_labels, key=f"detail_tabs_{get_language()}_{spot.get('_slug', '')}")
     tab_idx = 0
 
     with tabs[tab_idx]:  # Description
@@ -651,10 +663,10 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         transport = spot.get("visiting_guidance", {}).get("getting_there", {})
         if transport and "options" in transport:
             for opt in transport["options"]:
-                with st.expander(f"🚌 {opt['method']}", expanded=True):
+                with st.expander(f"🚌 {opt['method']}", expanded=True, key=f"transport_{spot.get('_slug', '')}_{idx}_{get_language()}"):
                     st.markdown(f"<div style='line-height:1.6;'>{opt['details']}</div>", unsafe_allow_html=True)
         else:
-            st.info("Transportation options available. Consider private car, tour bus, or public transit from Beijing.")
+            st.info(t('transport_default', "Transportation options available. Consider private car, tour bus, or public transit from Beijing."))
 
     # ── Sections ──
     if tab_idx < len(tab_types) and tab_types[tab_idx] == "sections":
@@ -669,20 +681,20 @@ def show_spot_detail(spot: dict, full_page: bool = False):
                 for sn in section_names:
                     s = sections[sn]
                     comp_rows.append({
-                        "Section": sn,
-                        "Difficulty": s.get("difficulty", "—"),
-                        "Crowd": s.get("crowd_level", "—"),
-                        "Best For": s.get("recommended_for", "—"),
-                        "Travel Time": s.get("travel_time_from_beijing", "—"),
+                        t('section', 'Section'): sn,
+                        t('difficulty', 'Difficulty'): s.get("difficulty", "—"),
+                        t('crowd_level', 'Crowd'): s.get("crowd_level", "—"),
+                        t('best_for', 'Best For'): s.get("recommended_for", "—"),
+                        t('travel_time', 'Travel Time'): s.get("travel_time_from_beijing", "—"),
                     })
                 st.dataframe(comp_rows, width="stretch", hide_index=True)
 
                 st.markdown(f"#### &#128269; {t('explore_section')}")
-                selected_section = st.selectbox(t('choose_section'), section_names, key=f"section_select_{spot.get('_slug', '')}")
+                selected_section = st.selectbox(t('choose_section'), section_names, key=f"section_select_{spot.get('_slug', '')}_{get_language()}")
                 sec = sections[selected_section]
 
                 diff_badge = _difficulty_badge(sec.get("difficulty", ""))
-                st.markdown(f"<div style='display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.5rem;'><strong>Difficulty:</strong> {diff_badge}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.5rem;'><strong>{t('difficulty', 'Difficulty')}:</strong> {diff_badge}</div>", unsafe_allow_html=True)
 
                 c1, c2 = st.columns(2)
                 with c1:
@@ -693,11 +705,11 @@ def show_spot_detail(spot: dict, full_page: bool = False):
                     st.markdown(f"**&#128077; {t('pros')}:** {sec.get('pros', 'N/A')}")
                     st.markdown(f"**&#128078; {t('cons')}:** {sec.get('cons', 'N/A')}")
                     if "nearby" in sec:
-                        st.markdown(f"**&#128205; Nearby:** {sec['nearby']}")
+                        st.markdown(f"**&#128205; {t('nearby', 'Nearby')}:** {sec['nearby']}")
 
-                st.markdown(f"**Description:** {sec.get('description', 'N/A')}")
+                st.markdown(f"**{t('description')}:** {sec.get('description', 'N/A')}")
             else:
-                st.write("Section details not available.")
+                st.write(t('sections_unavailable', 'Section details not available.'))
 
     # ── Packing List ──
     if tab_idx < len(tab_types) and tab_types[tab_idx] == "packing":
@@ -732,8 +744,8 @@ def show_spot_detail(spot: dict, full_page: bool = False):
             st.markdown(f"#### &#129518; {t('quick_cost_calc')}")
             calc_col1, calc_col2 = st.columns(2)
             with calc_col1:
-                num_people = st.number_input(t('people','Number of people'), min_value=1, max_value=20, value=2, key=f"ppl_{spot.get('_slug', '')}")
-                budget_level = st.selectbox(t('budget_level','Budget level'), ["Budget", "Mid-range", "Luxury"], key=f"budget_{spot.get('_slug', '')}")
+                num_people = st.number_input(t('people','Number of people'), min_value=1, max_value=20, value=2, key=f"ppl_{spot.get('_slug', '')}_{get_language()}")
+                budget_level = st.selectbox(t('budget_level','Budget level'), ["Budget", "Mid-range", "Luxury"], key=f"budget_{spot.get('_slug', '')}_{get_language()}")
             with calc_col2:
                 if "average_cost_per_person" in spot:
                     cost_text = spot["average_cost_per_person"].lower()
