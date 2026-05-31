@@ -577,14 +577,19 @@ def show_spot_detail(spot: dict, full_page: bool = False):
 
     # ── Detail tabs ──
     tab_labels = [f"📖 {t('description')}", f"🏛️ {t('history')}", f"💡 {t('tips')}", f"🚗 {t('getting_there')}"]
+    tab_types = ["description", "history", "tips", "getting_there"]
     if spot.get("sections"):
         tab_labels.append(f"🗺️ {t('sections_count','Sections')}")
+        tab_types.append("sections")
     if spot.get("visiting_guidance", {}).get("what_to_bring"):
         tab_labels.append(f"🎒 {t('packing_list')}")
+        tab_types.append("packing")
     if spot.get("nearby_attractions"):
         tab_labels.append(f"🗺️ {t('nearby')}")
+        tab_types.append("nearby")
     if spot.get("average_cost_per_person"):
         tab_labels.append(f"💰 {t('costs')}")
+        tab_types.append("costs")
 
     tabs = st.tabs(tab_labels)
     tab_idx = 0
@@ -652,7 +657,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
             st.info("Transportation options available. Consider private car, tour bus, or public transit from Beijing.")
 
     # ── Sections ──
-    if tab_idx < len(tab_labels) and tab_labels[tab_idx] == "🗺️ Sections":
+    if tab_idx < len(tab_types) and tab_types[tab_idx] == "sections":
         with tabs[tab_idx]:
             tab_idx += 1
             sections = spot.get("sections", {})
@@ -695,7 +700,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
                 st.write("Section details not available.")
 
     # ── Packing List ──
-    if tab_idx < len(tab_labels) and tab_labels[tab_idx] == "🎒 Packing List":
+    if tab_idx < len(tab_types) and tab_types[tab_idx] == "packing":
         with tabs[tab_idx]:
             tab_idx += 1
             items = spot.get("visiting_guidance", {}).get("what_to_bring", [])
@@ -706,7 +711,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
                     st.markdown(f"✅ {item}")
 
     # ── Nearby Attractions ──
-    if tab_idx < len(tab_labels) and tab_labels[tab_idx] == "🗺️ Nearby":
+    if tab_idx < len(tab_types) and tab_types[tab_idx] == "nearby":
         with tabs[tab_idx]:
             tab_idx += 1
             nearby = spot.get("nearby_attractions", [])
@@ -716,7 +721,7 @@ def show_spot_detail(spot: dict, full_page: bool = False):
                     st.write(na.get("description", ""))
 
     # ── Cost Information ──
-    if tab_idx < len(tab_labels) and tab_labels[tab_idx] == "💰 Costs":
+    if tab_idx < len(tab_types) and tab_types[tab_idx] == "costs":
         with tabs[tab_idx]:
             tab_idx += 1
             cost = spot.get("average_cost_per_person", "")
