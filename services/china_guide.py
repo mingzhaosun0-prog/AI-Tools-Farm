@@ -662,8 +662,8 @@ def show_spot_detail(spot: dict, full_page: bool = False):
         tab_idx += 1
         transport = spot.get("visiting_guidance", {}).get("getting_there", {})
         if transport and "options" in transport:
-            for opt in transport["options"]:
-                with st.expander(f"🚌 {opt['method']}", expanded=True, key=f"transport_{spot.get('_slug', '')}_{idx}_{get_language()}"):
+            for t_idx, opt in enumerate(transport["options"]):
+                with st.expander(f"🚌 {opt['method']}", key=f"transport_{spot.get('_slug', '')}_{t_idx}_{get_language()}"):
                     st.markdown(f"<div style='line-height:1.6;'>{opt['details']}</div>", unsafe_allow_html=True)
         else:
             st.info(t('transport_default', "Transportation options available. Consider private car, tour bus, or public transit from Beijing."))
