@@ -332,7 +332,7 @@ def show_home():
                         if os.path.isdir(os.path.join(TRAVEL_DATA_DIR, d)) and not d.startswith("_")]
 
     total_attractions = sum(len(load_city_attractions(c)) for c in cities_available)
-    cities_str = ", ".join(c.title() for c in cities_available)
+    cities_str = ", ".join(t(f'city_{c}', c.title()) for c in cities_available)
 
     # ── Hero ──
     st.markdown(f"""
@@ -361,7 +361,7 @@ def show_home():
     city_cols = st.columns(len(cities_available))
     for idx, city_name in enumerate(cities_available):
         with city_cols[idx]:
-            city_display = city_name.title()
+            city_display = t(f'city_{city_name}', city_name.title())
             attrs = load_city_attractions(city_name)
             emoji = "&#127975;" if city_name == "beijing" else "&#127753;" if city_name == "shanghai" else "&#127963;"
             names_list = "\n".join(f"&bull; {a['name']}" for a in list(attrs.values())[:4])

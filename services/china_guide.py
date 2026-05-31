@@ -156,6 +156,7 @@ def china_travel_guide():
     # ── Load data ──
     cities = [d for d in os.listdir(TRAVEL_DATA_DIR)
               if os.path.isdir(os.path.join(TRAVEL_DATA_DIR, d)) and not d.startswith("_")]
+    city_display = t(f'city_{city}', city.title())
     city = st.selectbox(f"📍 {t('choose_city')}", cities, index=0 if "beijing" in cities else 0,
                         key="travel_city_selector")
     attractions = load_city_attractions(city)
@@ -175,8 +176,8 @@ def china_travel_guide():
     # ── Hero section ──
     season_icon, season_name, season_desc = _weather_tip()
     _inject_seo_tags(
-        f"China Travel Guide — {city.title()} Attractions",
-        f"Explore top attractions in {city.title()}, China. Interactive guides with cost calculators, section comparisons, seasonal tips & planning tools.",
+        f"China Travel Guide — {city_display} Attractions",
+        f"Explore top attractions in {city_display}, China. Interactive guides with cost calculators, section comparisons, seasonal tips & planning tools.",
         city.title()
     )
     hero_bg = "linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #e74c3c 100%)"
@@ -193,7 +194,7 @@ def china_travel_guide():
     )
 
     if not attractions:
-        st.info(t('no_attractions', '✨ No attractions loaded yet for **{city}**. Add YAML files to `travel/data/{city}/`.').replace('{city}', city.title()))
+        st.info(t('no_attractions', '✨ No attractions loaded yet for **{city}**. Add YAML files to `travel/data/{city}/`.').replace('{city}', city_display))
         return
 
     # ── Stats banner ──
@@ -214,7 +215,7 @@ def china_travel_guide():
     st.markdown("---")
 
     # ── Attraction cards ──
-    st.markdown(f"<h2>🏛️ {t('top_attractions').replace('{city}', city.title())}</h2>", unsafe_allow_html=True)
+    st.markdown(f"<h2>🏛️ {t('top_attractions').replace('{city}', city_display)}</h2>", unsafe_allow_html=True)
 
     # Sort by rating descending
     sorted_attractions = sorted(attractions.values(), key=lambda x: x.get("rating", 0), reverse=True)
